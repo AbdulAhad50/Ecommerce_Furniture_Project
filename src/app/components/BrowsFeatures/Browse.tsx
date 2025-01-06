@@ -9,7 +9,7 @@ const Browse = () => {
 
         </div>
 
-        <div className={`flex flex-wrap justify-between px-[8vw] gap-[3vw] ${style.Smallsize}`}>
+        <div className={`${style.Smallsize} mt-8 flex flex-wrap justify-between px-[8vw] gap-[3vw] `}>
             <CardB image={'bed'} name={'Bedroom'}/>
             <CardB image={'living'} name={'Living'}/>
             <CardB image={'dining'} name={'Dining'}/>
