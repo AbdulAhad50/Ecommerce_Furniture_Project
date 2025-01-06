@@ -32,7 +32,7 @@
 
 }
 
-@media (max-width:600){
+@media (max-width:900){
   .Smallsize{
       display: flex;
       flex-direction: column;
