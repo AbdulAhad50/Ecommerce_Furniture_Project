@@ -18,7 +18,7 @@ import { MenuIcon } from "lucide-react";
 
 const Nav = () => {
   return (
-    <div className={`max-w-[1440px] h-[70px] items-center flex justify-between ${style.shadow}  mx-[auto] bg-white gap-[4vw] px-[100px]`}
+    <div className={`max-w-[1440px] h-[70px] items-center flex justify-between ${style.shadow}  mx-[auto] bg-white gap-[4vw] px-[10vw]`}
     
     >
 
