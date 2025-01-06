@@ -1,5 +1,4 @@
 import style from './browse.module.css'
-import Image from 'next/image'
 import CardB from './CardB'
 const Browse = () => {
   return (
