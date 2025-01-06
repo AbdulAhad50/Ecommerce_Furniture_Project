@@ -10,7 +10,7 @@ import { CiHeart } from "react-icons/ci";
 
 const Nav = () => {
   return (
-    <div className={`max-w-[1440px] h-[70px] items-center flex justify-evenly ${style.shadow}  mx-[auto] bg-white`}>
+    <div className={`max-w-[1440px] h-[70px] items-center flex justify-evenly ${style.shadow}  mx-[auto] bg-white gap-[2vw]`}>
 
       {/* {Logo Side} */}
 
@@ -31,7 +31,7 @@ const Nav = () => {
               </ul>
           </div>
 
-          <div>
+          <div className="hidden md:flex">
               <ul className="flex gap-[1.4vw] text-[1.5vw]">
                 <li><BsPersonFillExclamation/></li>
                 <li><CiSearch/></li>
