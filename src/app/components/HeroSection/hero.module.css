@@ -54,7 +54,41 @@
   color: #FFFFFF;
 }
 
-@media (max-width:600){
+
+@media only screen  and (max-width: 400){
+
+  .arrival{
+    font-size: 20px;
+  }
+
+
+ .smallSize{
+    width: 70%;
+    height: 523px;
+    margin: 0 auto;
+ }
+
+ .discover{
+  font-size: 28px;
+  width: 100%;
+  line-height: 35px;
+ }
+
+ .discoverP{
+    font-size: 18px;
+    line-height: 30px;
+ }
+
+ .btn{
+    width:220px ;
+    font-size: 14px;
+ }
+}
+
+
+
+
+@media only screen and (min-width:401) and  (max-width:600){
 
   .arrival{
     font-size: 20px;
@@ -86,7 +120,7 @@
 
 
 
-@media ((max-width:800)){
+@media only screen and (min-width:601)  and (max-width:800){
 
   .arrival{
     font-size: 20px;
@@ -114,7 +148,7 @@
  }
 }
 
-@media ((max-width:2000)){
+@media only screen and (min-width:1401) and  (max-width:2000){
   .btn{
     width: 300px;
     text-align: center;
@@ -127,5 +161,4 @@
  .discoverP{
   line-height: 35px;
  }
-  
 }

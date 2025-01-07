@@ -19,6 +19,7 @@ const Hero = () => {
               <h3 className={`${style.discover}`}>Discover Our New Collection</h3>
               <p className={`${style.discoverP}`}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
+                
               </p>
               <button className={`${style.btn}`}>BUY NOW</button>
         </div>
