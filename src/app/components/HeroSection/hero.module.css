@@ -55,7 +55,7 @@
 }
 
 
-@media only screen  and (max-width: 400){
+@media only screen  and (max-width: 420){
 
   .arrival{
     font-size: 20px;
@@ -64,24 +64,27 @@
 
  .smallSize{
     width: 70%;
-    height: 523px;
+    height: 500px;
     margin: 0 auto;
  }
 
  .discover{
-  font-size: 28px;
-  width: 100%;
+  font-size: 25px;
+  width: 90%;
   line-height: 35px;
  }
 
  .discoverP{
-    font-size: 18px;
+    font-size: 16px;
     line-height: 30px;
  }
 
  .btn{
-    width:220px ;
-    font-size: 14px;
+    width:150px ;
+    font-size: 10px;
+    height: 30px;
+    padding: 0 ;
+    text-align: center;
  }
 }
 
