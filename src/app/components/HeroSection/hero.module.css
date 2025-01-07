@@ -91,7 +91,7 @@
 
 
 
-@media only screen and (min-width:401) and  (max-width:600){
+@media only screen and (min-width:451) and  (max-width:600){
 
   .arrival{
     font-size: 20px;
@@ -157,11 +157,18 @@
     text-align: center;
  }
 
+ .smallSize{
+  height: 543px;
+  margin: 0 auto;
+  gap: 20px;
+  
+ }
+
  .discover{
-    line-height: 75px;
+    line-height: 85px;
  }
 
  .discoverP{
-  line-height: 35px;
+  line-height: 45px;
  }
 }
