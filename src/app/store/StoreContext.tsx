@@ -10,6 +10,13 @@ type Product = {
   quantity: number;
 };
 
+interface ORDER {
+    totalPrice: number;
+    totalQuantity: any[] | number[] | undefined[] | null;
+    totalName: any[] | undefined[];
+    singleProductPrice: any[] | undefined[];
+}
+
 type FavouriteProduct = {
   name: string;
   price: number;
@@ -66,10 +73,10 @@ const reducerFavourite = (
 
 // Define reducer for placed orders
 const orderPlaced = (
-  currentPlcaedOrder: any[], 
-  action: { type: "ORDER_PLACED"; payload: { placedItem: any } }
+  currentPlcaedOrder: ORDER[], 
+  action: { type: "ORDER_PLACED"; payload: { placedItem: ORDER } }
 ): any[] => {
-  let newItem = [];
+  let newItem:ORDER[] = [...currentPlcaedOrder];
 
   if (action.type === "ORDER_PLACED") {
     newItem = [action.payload.placedItem];
