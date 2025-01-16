@@ -62,7 +62,7 @@ const Cart = () => {
               </div>
 
               <TiDelete
-                className="text-[#9F9F9F] text-[30px]"
+                className="text-[#9F9F9F] cursor-pointer text-[30px]"
                 onClick={() => {
                   deleteProduct(data[i]?.id)
                 }}

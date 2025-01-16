@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/breadcrumb"
 import style from './product.module.css'
 
-const BreadCrumbs = () => {
+const BreadCrumbs = ({name}:{name:string}) => {
   return (
     <div className="max-w-[1440px] h-[100px] mx-[auto] flex items-center bg-[#F9F1E7] pl-[20px]">
           <Breadcrumb>
@@ -22,7 +22,7 @@ const BreadCrumbs = () => {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem className={`${style.ProductName}`}>
-                  <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+                  <BreadcrumbPage>{name}</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
           </Breadcrumb>

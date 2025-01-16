@@ -52,7 +52,7 @@ const page =  ({ params }: { params: Params }) => {
   return (
     <div className="max-w-[1440px] mx-auto">
           
-          <BreadCrumbs/>
+          <BreadCrumbs name={"Asgad S"}/>
 
           {
             product.map((product:T)=>{
