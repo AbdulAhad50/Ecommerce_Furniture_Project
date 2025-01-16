@@ -57,7 +57,7 @@ const Country = () => {
       <option value="Congo, The Democratic Republic of The">Congo, The Democratic Republic of The</option>
       <option value="Cook Islands">Cook Islands</option>
       <option value="Costa Rica">Costa Rica</option>
-      <option value="Cote D&apos;ivoire">Cote D&apos;ivoire</option>
+      <option value="Cote D;ivoire">Cote D;ivoire</option>
       <option value="Croatia">Croatia</option>
       <option value="Cuba">Cuba</option>
       <option value="Cyprus">Cyprus</option>
