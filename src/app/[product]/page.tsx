@@ -6,6 +6,7 @@ import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
 import React from "react";
 
+// Define the types for your product data
 interface T {
   _id: string;
   name: string;
@@ -14,14 +15,14 @@ interface T {
   price: number;
 }
 
-// Page component now uses the dynamic `params` directly without needing to pass it explicitly
+// Page component that automatically gets `params` injected by Next.js for dynamic routes
 const Page = ({ params }: { params: { product: string } }) => {
   const [product, setProduct] = useState<T[]>([]);
 
   useEffect(() => {
     async function FetchData() {
       try {
-        const id = params.product;  // Use params directly
+        const id = params.product; // Access `params.product`
         console.log(id);
 
         const singleData = await client.fetch(`*[_type == 'product']`);
