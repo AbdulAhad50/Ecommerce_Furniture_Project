@@ -25,7 +25,7 @@ const page =  ({ params }: { params: Params }) => {
 
   
   useEffect( ()=> {
-    async function fetchData(){
+    async function FetchData(){
       try{
         
         const id = await  params.product;
@@ -45,7 +45,7 @@ const page =  ({ params }: { params: Params }) => {
       }
     }
 
-    fetchData()
+    FetchData()
   }, [params.product])
 
   
@@ -71,7 +71,7 @@ const page =  ({ params }: { params: Params }) => {
           }
 
           {
-            product.map((product:any)=>{
+            product.map((product:T)=>{
               return (
 
                 <Description key={product._id} descriptionData={product.description} reviewData={[""]} AdditionalInformationData={""}/>
