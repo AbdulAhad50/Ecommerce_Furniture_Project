@@ -7,9 +7,9 @@ import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
 
 // Define the Params type for the dynamic route
-interface Params {
-  product: string;
-}
+// interface Params {
+//   product: string;
+// }
 
 // Define the type for the product data
 interface T {
