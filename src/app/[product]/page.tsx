@@ -6,7 +6,6 @@ import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
 import React from "react";
 
-// Change: Explicitly set params type if it's not expected to be a Promise.
 interface Params {
   product: string;
 }
@@ -19,13 +18,17 @@ interface T {
   price: number;
 }
 
-const Page = ({ params }: { params: Params }) => {
-  const [product, setProduct] = useState<T[]>([]); // Ensure you're using correct type for product
+interface PageProps {
+  params: Params;
+}
+
+const Page = ({ params }: PageProps) => {
+  const [product, setProduct] = useState<T[]>([]);
 
   useEffect(() => {
     async function FetchData() {
       try {
-        const id = params.product; // params is expected to be of type `Params`
+        const id = params.product;  // params.product is correctly typed
         console.log(id);
 
         const singleData = await client.fetch(`*[_type == 'product']`);
@@ -82,4 +85,3 @@ const Page = ({ params }: { params: Params }) => {
 };
 
 export default Page;
-
