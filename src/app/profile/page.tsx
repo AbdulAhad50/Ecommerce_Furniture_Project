@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import style from './profile.module.css'
 import { useState } from 'react'
-const page = () => {
+const Page = () => {
 
   const [account, setAccount] = useState(true);
   const [buy, setBuy] = useState(false);
@@ -136,4 +136,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

@@ -20,16 +20,16 @@ interface T{
   description:string
 }
 
-const page = () => {
+const Page = () => {
 
   const [productData, setProduct] = useState<T[]>([])
   
-    async function fetchData() {
+    async function FetchData() {
       const products = await client.fetch('*[_type == "product"]')
       setProduct(products)
     }
 
-    fetchData()
+    FetchData()
     
 
     
@@ -63,4 +63,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
