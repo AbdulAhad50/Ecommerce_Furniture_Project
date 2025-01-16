@@ -4,22 +4,22 @@ import Link from 'next/link'
 import style from './cart.module.css'
 import Image from 'next/image'
 import { AiFillDelete } from "react-icons/ai";
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { StoreData } from '../store/StoreContext';
 
 
-// interface T{
-  
-//     id:string;
-//     name:string;
-//     price : number;
-//     image : string;
-//     quantity:number
-// }
+interface T {
+  id: string;
+  name: string;
+  price: number;
+  image: { asset: { _ref: string; _type: string }; _type: string };
+  quantity: number;
+}
+
 
 
 const Cart = () => {
-  const [quantity , setQuantity] = useState(0)
+  // const [quantity , setQuantity] = useState(0)
   // const [cartData, setCartData] = useState<any[]>([])
 
   const {data,deleteProduct,upDateQuantity,DecreaseQuanity,orderplaced} = useContext(StoreData);
@@ -97,7 +97,7 @@ const Cart = () => {
             </div>
             <div className='flex flex-col'>
                 {
-                  data.map((elem:any,i)=>{
+                  data.map((elem:T,i)=>{
                     console.log(elem?.id)
                     return(
 
