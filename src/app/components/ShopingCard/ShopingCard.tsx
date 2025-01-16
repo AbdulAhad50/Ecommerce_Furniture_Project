@@ -16,7 +16,7 @@ interface Product {
 
 const ShopingCard = () => {
 
-  let [product,setProduct] = useState([])
+  const [product,setProduct] = useState([])
 
   useEffect(()=>{
     async function fetchData() {
@@ -28,7 +28,7 @@ const ShopingCard = () => {
     fetchData()
   },[])
 
-  let arrayMethod:any[] = [];
+  let arrayMethod:Product[] = [];
 
   for (let i=0; i<12; i++){
     

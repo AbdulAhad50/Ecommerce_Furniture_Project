@@ -7,22 +7,18 @@ import { StoreData } from '../store/StoreContext'
 import { useContext, useEffect, useState } from 'react'
 
 const Checkout = () => {
-    let [nameData, setNameData] = useState<string[]>([]);  // Use an empty array by default
+    const [nameData, setNameData] = useState<string[]>([]); 
 
     let { placedOrder } = useContext(StoreData);
-    // Default to an empty array if placedOrder is undefined
-    let [items] = placedOrder || [];
 
-    console.log("items", items); // Check if items is undefined
+    const [items] = placedOrder || [];
 
-    // Fallbacks for properties in items
-    const totalPrice = items?.totalPrice || 0;  // Default to 0 if undefined
-    const totalQuantity = items?.totalQuantity || [];  // Default to an empty array if undefined
-    const totalName = items?.totalName || [];  // Default to an empty array if undefined
+    console.log("items", items); 
 
-    console.log(totalPrice); 
-    console.log(totalQuantity);
-    console.log(totalName);
+    const totalPrice = items?.totalPrice || 0; 
+    const totalQuantity = items?.totalQuantity || [];  
+    const totalName = items?.totalName || [];
+
 
     useEffect(() => {
         // Ensure that items and totalName are defined before calling the function

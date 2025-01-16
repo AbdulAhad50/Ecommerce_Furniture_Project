@@ -13,7 +13,7 @@ const Intput = ({label}:{label:string}) => {
 
 export default Intput
 
-export let Drag = ({label}:{label:string})=>{
+export const Drag = ({label}:{label:string})=>{
     return(
       <div className='flex flex-col gap-4'>
           <label htmlFor="" className={`${style.bilingLabel}`}>{label}</label>

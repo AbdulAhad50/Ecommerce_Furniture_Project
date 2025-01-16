@@ -14,7 +14,7 @@ import { useContext } from "react";
 import { StoreData } from "@/app/store/StoreContext";
 
 const Nav = () => {
-  let { data } = useContext(StoreData);
+  const { data } = useContext(StoreData);
 
   return (
     <div

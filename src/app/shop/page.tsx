@@ -4,8 +4,7 @@ import Filter from './Filter'
 import Card from '../components/Cards/Card'
 import style from './shop.module.css'
 import Achievement from '../components/achievement/Achievement'
-import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import { client } from '@/sanity/lib/client'
 
 const page = () => {
@@ -14,7 +13,6 @@ const page = () => {
   
     async function fetchData() {
       const products = await client.fetch('*[_type == "product"]')
-      // console.log("...",products)
       setProduct(products)
     }
 

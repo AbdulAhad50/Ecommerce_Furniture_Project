@@ -5,14 +5,14 @@ import style from './profile.module.css'
 import { useState } from 'react'
 const page = () => {
 
-  let [account, setAccount] = useState(true);
-  let [buy, setBuy] = useState(false);
-  let [returnValue, setReturn] = useState(false);
-  let [password, setPassword] = useState(false);
+  const [account, setAccount] = useState(true);
+  const [buy, setBuy] = useState(false);
+  const [returnValue, setReturn] = useState(false);
+  const [password, setPassword] = useState(false);
 
-  let [name, setName] = useState("Jhon");
-  let [lastname, setLastName] = useState("Doe");
-  let [email, setEmail] = useState("testing@gmail.com");
+  const [name, setName] = useState("Jhon");
+  const [lastname, setLastName] = useState("Doe");
+  const [email, setEmail] = useState("testing@gmail.com");
   
   function Account(){
     setAccount(true)

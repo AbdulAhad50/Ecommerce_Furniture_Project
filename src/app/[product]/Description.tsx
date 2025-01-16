@@ -3,12 +3,12 @@
 import Image from 'next/image'
 import style from './product.module.css'
 import { useState } from 'react'
-const Description = ({descriptionData, reviewData, AdditionalInformationData}:{descriptionData:string, reviewData:string[],AdditionalInformationData:string | undefined}) => {
+const Description = ({descriptionData, AdditionalInformationData}:{descriptionData:string, reviewData:string[],AdditionalInformationData:string | undefined}) => {
 
 
-    let [description, setDescription] = useState(true)
-    let [review, setReview] = useState(false)
-    let [AdditionalInformation, setAdditionalInformation] = useState(false)
+    const [description, setDescription] = useState(true)
+    const [review, setReview] = useState(false)
+    const [AdditionalInformation, setAdditionalInformation] = useState(false)
 
     function Left(){
         if(description){

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { StoreData } from "../store/StoreContext";  // Assuming this is your context import
+import { StoreData } from "../store/StoreContext";
 import { TiDelete } from "react-icons/ti";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,10 +7,10 @@ import { BsBagX } from "react-icons/bs";
 import style from './carts.module.css';
 
 const Cart = () => {
-  let [dataFind, setDataFind] = useState<any[]>([]);
-  let { data, deleteProduct } = useContext(StoreData);
+  const [dataFind, setDataFind] = useState<string[]>([]);
+  const { data, deleteProduct } = useContext(StoreData);
 
-  let nameArray: string[] = [];
+  const nameArray: string[] = [];
   let totalPriceData = 0;
 
   

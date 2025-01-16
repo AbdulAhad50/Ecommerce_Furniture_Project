@@ -5,8 +5,9 @@ import style from "./Favourite.module.css";
 import Image from "next/image";
 import { TiDelete } from "react-icons/ti";
 import Link from "next/link";
+
 const Favourite = () => {
-  let { favouriteProductItem, deleteFavouriteProduct } = useContext(StoreData);
+  const { favouriteProductItem, deleteFavouriteProduct } = useContext(StoreData);
   console.log("",favouriteProductItem);
 
   function deleteItem(id:string){

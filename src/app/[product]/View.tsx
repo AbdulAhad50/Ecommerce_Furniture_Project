@@ -5,13 +5,12 @@ import React, { useContext, useState } from "react";
 import style from "./product.module.css";
 import { Rating } from "@mui/material";
 import { StoreData } from "../store/StoreContext";
-// import Rating from "./Rating";
 
 const View = ({productName,productPrice,rating,ProductDescription,image,id}:{productName:string, productPrice:number, ProductDescription:string, rating:number , id:string, image: { asset: { _ref: string; _type: string }; _type: string }, }) => {
 
-  let {addProduct} = useContext(StoreData);
+  const {addProduct} = useContext(StoreData);
 
-  let [quantity, setCount] = useState(1)
+  const [quantity, setCount] = useState(1)
   
   function Minuscount(){
       if(quantity > 0){
@@ -107,10 +106,6 @@ const View = ({productName,productPrice,rating,ProductDescription,image,id}:{pro
             <button className={`${style.SizeBtn}`}>XS</button>
           </div>
         </div>
-
-        {/* <div>
-          <div></div>
-        </div> */}
 
         <div>
           <div className={`mb-5 flex gap-10 ${style.CardDiv}`}>

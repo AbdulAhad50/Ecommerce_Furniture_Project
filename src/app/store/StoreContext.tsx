@@ -133,7 +133,7 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
     price: number,
     image: { asset: { _ref: string; _type: string }; _type: string },
     id: string,
-    quantity= 0
+    quantity = 0
   ) {
     const newItem: Product = { name, price, image, quantity, id };
 

@@ -5,7 +5,7 @@ import style from './card.module.css';
 import { FaEye } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import Link from "next/link";
-import { useContext, useRef, useState } from "react";
+import { useContext } from "react";
 import { StoreData } from "@/app/store/StoreContext";
 
 interface ID {
@@ -20,7 +20,7 @@ interface ID {
 
 const Card = ({ price, discountPercentage, name, id, description, image, bgDisc }: ID) => {
 
-  let { addProduct, favouriteProduct } = useContext(StoreData);
+  const { addProduct, favouriteProduct } = useContext(StoreData);
 
   const truncateText = (text: string, length: number = 15) => {
     if (text?.length > length) {

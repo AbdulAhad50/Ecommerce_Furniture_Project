@@ -7,22 +7,27 @@ import { useEffect, useState } from "react"
 import React from "react"
 
 
-const page =  ({params}:any) => {
-  let [product,setProduct] = useState([])
+interface Params {
+  product: string;
+}
+
+const page =  ({ params }: { params: Params }) => {
+  const [product,setProduct] = useState([])
 
   
   useEffect( ()=> {
     async function fetchData(){
       try{
         
-        let id = await  params.product;
+        const id = await  params.product;
         console.log(id)
 
-        let singleData = await client.fetch(`*[_type == 'product']`)
-        let res = await singleData
+        const singleData = await client.fetch(`*[_type == 'product']`)
+
+        const res = await singleData
         console.log(res)
     
-        let singleproduct = await singleData.filter((elem:any)=> elem._id === id);
+        let singleproduct = await singleData.filter((elem)=> elem._id === id);
         console.log("....",singleproduct[0].name)
         setProduct(singleproduct)
         
@@ -60,7 +65,7 @@ const page =  ({params}:any) => {
             product.map((product:any)=>{
               return (
 
-                <Description descriptionData={product.description} reviewData={[""]} AdditionalInformationData={""}/>
+                <Description key={product._id} descriptionData={product.description} reviewData={[""]} AdditionalInformationData={""}/>
               )
             })
           }

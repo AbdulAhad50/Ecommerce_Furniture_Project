@@ -4,34 +4,34 @@ import Link from 'next/link'
 import style from './cart.module.css'
 import Image from 'next/image'
 import { AiFillDelete } from "react-icons/ai";
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { StoreData } from '../store/StoreContext';
-import { client } from '@/sanity/lib/client';
 
-interface T{
+
+// interface T{
   
-    id:string;
-    name:string;
-    price : number;
-    image : string;
-    quantity:number
-}
+//     id:string;
+//     name:string;
+//     price : number;
+//     image : string;
+//     quantity:number
+// }
 
 
 const Cart = () => {
-  let [quantity , setQuantity] = useState(0)
-  let [cartData, setCartData] = useState<any[]>([])
+  const [quantity , setQuantity] = useState(0)
+  // const [cartData, setCartData] = useState<any[]>([])
 
-  let {data,deleteProduct,upDateQuantity,DecreaseQuanity,orderplaced} = useContext(StoreData);
+  const {data,deleteProduct,upDateQuantity,DecreaseQuanity,orderplaced} = useContext(StoreData);
 
   // console.log("data",data)
 
 
-  function MinusQuantity(){
-      if(quantity >= 1){
-        setQuantity(quantity - 1)
-      }
-  }
+  // function MinusQuantity(){
+  //     if(quantity >= 1){
+  //       setQuantity(quantity - 1)
+  //     }
+  // }
 
   function IncreaseQuanity(id:string){
       // console.log(id)
@@ -57,9 +57,9 @@ const Cart = () => {
   
   let totalPrice = 0;
     let totalQuantity: any[] | number[] | undefined[] | null = [];
-    let totalName:any[] = [];
-    let singleProductPrice:any[] = []
-    let quantityVAlue:any = []
+    const totalName:any[] = [];
+    const singleProductPrice:number[] = []
+    const quantityVAlue:number[] = []
 
   function detailsProduct(){
     
