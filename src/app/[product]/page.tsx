@@ -6,10 +6,6 @@ import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
 import React from "react";
 
-interface Params {
-  product: string;
-}
-
 interface T {
   _id: string;
   name: string;
@@ -18,17 +14,14 @@ interface T {
   price: number;
 }
 
-interface PageProps {
-  params: Params;
-}
-
-const Page = ({ params }: PageProps) => {
+// Page component now uses the dynamic `params` directly without needing to pass it explicitly
+const Page = ({ params }: { params: { product: string } }) => {
   const [product, setProduct] = useState<T[]>([]);
 
   useEffect(() => {
     async function FetchData() {
       try {
-        const id = params.product;  // params.product is correctly typed
+        const id = params.product;  // Use params directly
         console.log(id);
 
         const singleData = await client.fetch(`*[_type == 'product']`);
