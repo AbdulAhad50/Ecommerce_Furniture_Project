@@ -23,15 +23,19 @@ const Page = ({ params }: PageProps) => {
   const [product, setProduct] = useState<T | null>(null); // Product state for storing fetched data
   const [loading, setLoading] = useState<boolean>(true); // Loading state
 
+  
+
   useEffect(() => {
     async function FetchData() {
       try {
-        const productId = params.product; // Dynamic product ID from the route
-        console.log("Fetching product with ID:", productId);
+        const productId =  params;
+        const {product} =  productId
+         // Dynamic product ID from the route
+        console.log("Fetching product with ID:", product);
 
         // Fetch product by ID from Sanity
         const query = `*[_type == 'product' && _id == $id][0]`; // Fetch only the product matching the ID
-        const singleProduct: T = await client.fetch(query, { id: productId });
+        const singleProduct: T = await client.fetch(query, { id: product });
 
         if (singleProduct) {
           console.log("Product Found:", singleProduct);
