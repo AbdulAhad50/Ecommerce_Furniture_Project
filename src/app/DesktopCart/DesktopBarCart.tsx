@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { StoreData } from "../store/StoreContext";
 import { TiDelete } from "react-icons/ti";
 import Image from "next/image";
@@ -6,21 +6,20 @@ import Link from "next/link";
 import { BsBagX } from "react-icons/bs";
 import style from './carts.module.css';
 
-
 const Cart = () => {
   const [dataFind, setDataFind] = useState<string[]>([]);
   const { data, deleteProduct } = useContext(StoreData);
 
   const nameArray: string[] = [];
-  let totalPriceData = 0;
-
-  
+  const totalPriceDataRef = useRef(0);
 
   useEffect(() => {
+  
+    totalPriceDataRef.current = 0;
 
     for (let i = 0; i < data.length; i++) {
       nameArray.push(data[i]?.name);
-      totalPriceData += data[i]?.price;
+      totalPriceDataRef.current += data[i]?.price; 
     }
 
     if (data?.length > 0) {
@@ -36,7 +35,7 @@ const Cart = () => {
       const dataFetchName = truncateLongWords(nameArray);
       setDataFind(dataFetchName);
     }
-  }, [data,nameArray]);
+  }, [data, nameArray]);
 
   return (
     <div className={`relative w-[380px] flex flex-col items-center mt-8 ${data?.length > 2 ? "h-[550px]" : "h-[500px]"} bg-white pr-[40px]`}>
@@ -75,7 +74,7 @@ const Cart = () => {
       <div className="absolute bottom-0">
         <div className={`w-[350px] justify-between flex items-center gap-5`}>
           <h2 className={`${style.cartBottomSubTotal}`}>Subtotal</h2>
-          <p className={`${style.cartBottomSubTotalPrice}`}>$ {totalPriceData}</p>
+          <p className={`${style.cartBottomSubTotalPrice}`}>$ {totalPriceDataRef.current}</p> {/* Use ref value here */}
         </div>
 
         <div className={`w-[350px] justify-center flex items-center gap-5 ${style.cartBottom}`}>
