@@ -10,7 +10,6 @@ type Product = {
   quantity: number;
 };
 
-
 type FavouriteProduct = {
   name: string;
   price: number;
@@ -24,9 +23,7 @@ type Action =
   | { type: "UPDATE_QUANTITY"; payload: { id: string; quantity: number } }
   | { type: "DECREASE_QUANTITY"; payload: { id: string; quantity: number } };
 
-// type FavouriteAction = { type: "Favourite_ITEM"; payload: { newFavouriteItem: FavouriteProduct } };
-
-
+// Define reducer for cart products
 const reducer = (currentValue: Product[], action: Action): Product[] => {
   let newValue = [...currentValue];
 
@@ -50,61 +47,49 @@ const reducer = (currentValue: Product[], action: Action): Product[] => {
 
   return newValue;
 };
-// FavouriteProduct[]
-// FavouriteAction
+
+// Define reducer for favorite products
 const reducerFavourite = (
-  currentFavouriteValue,
-  action 
+  currentFavouriteValue: FavouriteProduct[],
+  action: { type: "Favourite_ITEM"; payload: { newFavouriteItem: FavouriteProduct } } | { type: "DELETE_FAVOURITE_ITEM"; payload: { id: string } }
 ): FavouriteProduct[] => {
   let newItem = [...currentFavouriteValue];
 
   if (action.type === "Favourite_ITEM") {
     newItem = [...currentFavouriteValue, action.payload.newFavouriteItem];
-  }
-
-  else if(action.type ==='DELETE_FAVOURITE_ITEM'){
-    newItem = currentFavouriteValue.filter((product:any)=> product.id != action.payload.id)
+  } else if (action.type === "DELETE_FAVOURITE_ITEM") {
+    newItem = currentFavouriteValue.filter((product) => product.id !== action.payload.id);
   }
 
   return newItem;
 };
 
+// Define reducer for placed orders
+const orderPlaced = (
+  currentPlcaedOrder: any[], 
+  action: { type: "ORDER_PLACED"; payload: { placedItem: any } }
+): any[] => {
+  let newItem = [];
 
-// ORDER PLACED
-const orderPlaced = (currentPlcaedOrder, action)=>{
+  if (action.type === "ORDER_PLACED") {
+    newItem = [action.payload.placedItem];
+  }
 
-    let newItem;
-
-    if(action.type === 'ORDER_PLACED'){
-      newItem = [
-        action.payload.placedItem
-      ]
-    }
-
-    console.log("new",newItem)
-    return newItem
-}
-
-
-// interface PLACEDORDER{
-//   totalPrice:number;
-//   totalQuanity:number[];
-//   totalName:string[];
-//   singleProductPrice:number[]
-// }
+  return newItem;
+};
 
 // Create context with proper typing
 interface StoreContextType {
   data: Product[];
-  addProduct: (name: string, price: number, image: { asset: { _ref: string; _type: string }; _type: string }, id: string, quantity:number) => void;
+  addProduct: (name: string, price: number, image: { asset: { _ref: string; _type: string }; _type: string }, id: string, quantity: number) => void;
   favouriteProduct: (name: string, price: number, image: { asset: { _ref: string; _type: string }; _type: string }, id: string) => void;
   deleteProduct: (id: string) => void;
   upDateQuantity: (id: string) => void;
   DecreaseQuanity: (id: string) => void;
   favouriteProductItem: FavouriteProduct[];
-  deleteFavouriteProduct : (id:string)=> void;
-  orderplaced : (totalPrice:number, totalQuantity:any[] | number[] | undefined[] | null, totalName:[] | any[],singleProductPrice:[] | any[])=>void,
-  placedOrder : any[] | undefined
+  deleteFavouriteProduct: (id: string) => void;
+  orderplaced: (totalPrice: number, totalQuantity: any[] | number[] | undefined[] | null, totalName: any[] | undefined[], singleProductPrice: any[] | undefined[]) => void;
+  placedOrder: any[] | undefined;
 }
 
 export const StoreData = createContext<StoreContextType>({
@@ -115,9 +100,9 @@ export const StoreData = createContext<StoreContextType>({
   upDateQuantity: () => {},
   DecreaseQuanity: () => {},
   favouriteProductItem: [],
-  deleteFavouriteProduct : ()=>{},
-  orderplaced : () =>{} ,
-  placedOrder : []
+  deleteFavouriteProduct: () => {},
+  orderplaced: () => {},
+  placedOrder: []
 });
 
 interface StoreDataProviderProps {
@@ -127,18 +112,16 @@ interface StoreDataProviderProps {
 const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
   const [data, dispatchData] = useReducer(reducer, []);
   const [favouriteProductItem, dispatchFavouriteProduct] = useReducer(reducerFavourite, []);
-
-  const [placedOrder, dispatchPlcaedOrder] = useReducer(orderPlaced, [])
+  const [placedOrder, dispatchPlcaedOrder] = useReducer(orderPlaced, []);
 
   function addProduct(
     name: string,
     price: number,
     image: { asset: { _ref: string; _type: string }; _type: string },
     id: string,
-    quantity= 0
+    quantity = 0
   ) {
     const newItem: Product = { name, price, image, quantity, id };
-
     dispatchData({ type: "Add_To_Cart", payload: { newItem } });
   }
 
@@ -156,56 +139,55 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
     image: { asset: { _ref: string; _type: string }; _type: string },
     id: string
   ) {
-
     const newFavouriteItem: FavouriteProduct = { name, price, image, id };
-
     dispatchFavouriteProduct({ type: "Favourite_ITEM", payload: { newFavouriteItem } });
   }
 
-
-  function deleteFavouriteProduct(id:string){
-       const New_DeleteItem = {
-        type: 'DELETE_FAVOURITE_ITEM',
-        payload : {id}
-      }
-
-      dispatchFavouriteProduct(New_DeleteItem)
-
+  function deleteFavouriteProduct(id: string) {
+    dispatchFavouriteProduct({ type: "DELETE_FAVOURITE_ITEM", payload: { id } });
   }
-
 
   function DecreaseQuanity(id: string) {
     dispatchData({ type: "DECREASE_QUANTITY", payload: { id, quantity: -1 } });
   }
 
-  function orderplaced(totalPrice:number, totalQuantity:any[] | number[] | undefined[] | null, totalName:[] | any[],singleProductPrice:[] | any[]){
-
+  function orderplaced(
+    totalPrice: number,
+    totalQuantity: any[] | number[] | undefined[] | null,
+    totalName: any[] | undefined[],
+    singleProductPrice: any[] | undefined[]
+  ) {
     const placedItem = {
-        totalPrice,
-        totalQuantity,
-        totalName,
-        singleProductPrice
-      }
+      totalPrice,
+      totalQuantity,
+      totalName,
+      singleProductPrice
+    };
 
-      console.log(placedItem)
-
-      const newAction = {
-          type : 'ORDER_PLACED',
-          payload : {placedItem}
-      }
-
-      dispatchPlcaedOrder(newAction)
+    dispatchPlcaedOrder({
+      type: "ORDER_PLACED",
+      payload: { placedItem }
+    });
   }
 
   return (
-    <StoreData.Provider value={{ data ,deleteProduct, addProduct, upDateQuantity, DecreaseQuanity, favouriteProductItem, favouriteProduct , deleteFavouriteProduct, orderplaced,placedOrder}}>
+    <StoreData.Provider
+      value={{
+        data,
+        deleteProduct,
+        addProduct,
+        upDateQuantity,
+        DecreaseQuanity,
+        favouriteProductItem,
+        favouriteProduct,
+        deleteFavouriteProduct,
+        orderplaced,
+        placedOrder
+      }}
+    >
       {children}
     </StoreData.Provider>
   );
 };
 
 export default StoreDataProvider;
-
-
-
-
