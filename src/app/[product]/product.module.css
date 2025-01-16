@@ -1,0 +1,342 @@
+.BreadCrumbsName{
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #9F9F9F;
+}
+
+.ProductName{
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #9F9F9F;
+  border-left: 1.5px solid #000000;
+  padding-left: 10px;
+}
+
+.productName{
+  font-family: Poppins;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 63px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.productPrice{
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 36px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #9F9F9F;
+}
+
+.ProductDescription{
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  width: 70%;
+}
+
+
+.SizeStyle{
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #9F9F9F;
+}
+
+.Btn{
+  width: 123px;
+  height: 64px;
+  top: 676px;
+  left: 735px;
+  gap: 0px;
+  border-radius: 10px;
+  opacity: 0px;
+  border: 1px solid #9F9F9F;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.AddCard{
+  width: 215px;
+  height: 64px;
+  top: 676px;
+  left: 876px;
+  gap: 0px;
+  border-radius: 15px;
+  border: 1px solid #000000;
+  opacity: 0px;
+
+}
+
+.SizeBtn{
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  opacity: 0px;
+  background: #F9F1E7;
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 19.5px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+
+/* Description */
+
+
+.DescriptionTop{
+  border-top: 1.5px solid #d1d1d1;
+  padding-top: 20px;
+}
+
+
+.Description{
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 36px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+    
+}
+
+.AdditionalInformation{
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #9F9F9F;
+}
+
+.DescriptionStyle{
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: justified;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #9F9F9F;
+}
+
+.LastItem{
+  width: 605px;
+  height: 348px;
+  gap: 0px;
+  opacity: 0px;
+  background: #F9F1E7;
+}
+
+
+@media only screen and (min-width:500) and (max-width:1050){
+    .MainProductStyle{
+      display: flex;
+    }
+
+    .AddCard{
+      width: 150px;
+      height: 64px;
+      top: 676px;
+      left: 876px;
+      gap: 0px;
+      border-radius: 15px;
+      border: 1px solid #000000;
+      opacity: 0px;
+    
+    }
+
+    .CardDiv{
+      display: flex;
+      gap: 20px;
+    }
+
+
+}
+@media only screen and (min-width:500) and (max-width:950){
+    .MainProductStyle{
+      display: flex;
+      /* flex-direction: column; */
+    }
+
+    .AddCard{
+      width: 150px;
+      height: 64px;
+      top: 676px;
+      left: 876px;
+      gap: 0px;
+      border-radius: 15px;
+      border: 1px solid #000000;
+      opacity: 0px;
+    
+    }
+
+    .CardDiv{
+      display: flex;
+      gap: 20px;
+    }
+
+    .AddCardItem{
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .ProductImage{
+      display: flex;
+      flex-direction: column-reverse;
+      
+    }
+
+    .MultiProductImage{
+      display: flex;
+      flex-direction: row;
+    }
+
+}
+@media only screen and (min-width:500) and (max-width:850){
+    .MainProductStyle{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .AddCard{
+      width: 150px;
+      height: 64px;
+      top: 676px;
+      left: 876px;
+      gap: 0px;
+      border-radius: 15px;
+      border: 1px solid #000000;
+      opacity: 0px;
+    
+    }
+
+    .CardDiv{
+      display: flex;
+      gap: 20px;
+    }
+
+    .AddCardItem{
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .ProductImage{
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      
+    }
+
+    .MultiProductImage{
+      display: flex;
+      flex-direction: column;
+    }
+
+}
+
+
+@media only screen and (min-width:280) and (max-width:599){
+    .MainProductStyle{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .AddCard{
+      width: 150px;
+      height: 64px;
+      top: 676px;
+      left: 876px;
+      gap: 0px;
+      border-radius: 15px;
+      border: 1px solid #000000;
+      opacity: 0px;
+    
+    }
+
+    .CardDiv{
+      display: flex;
+      gap: 20px;
+    }
+
+    .AddCardItem{
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .ProductImage{
+      display: flex;
+      flex-direction: column-reverse;
+      
+    }
+
+    .MultiProductImage{
+      display: flex;
+      flex-direction: row;
+    }
+
+}
+
+@media only screen and (min-width:280) and (max-width:480){
+  .MainImage{
+    width: 80vw;
+    height: 300px;
+  } 
+
+  .LastItem{
+    width: 100%;
+  }
+
+  .LastItem{
+    background-color: transparent;
+  }
+}
+
+
+@media only screen and  (max-width:399){
+  .Description{
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 36px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    display: flex;
+    gap: 20px;
+  }
+}

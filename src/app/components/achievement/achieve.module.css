@@ -1,0 +1,125 @@
+.achievementTitle{
+  font-family: Poppins;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 37.5px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #242424;  
+}
+
+
+.smallSizeWidth{
+  height: 300px;
+}
+
+.achievementDetail{
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #898989;
+}
+
+@media only  screen and (min-width:500) and (max-width:900){
+    .smallScreenSize{
+        display: flex;
+        /* flex-wrap: wrap; */
+        flex-direction: column;
+        padding: 10px 50px;
+        gap: 20px;
+        height: 400px;
+        justify-content: center;
+    }
+}
+
+
+@media only  screen and (min-width:361) and (max-width:900){
+    .smallScreenSize{
+        display: flex;
+        /* flex-wrap: wrap; */
+        flex-direction: column;
+        padding: 10px 50px;
+        gap: 30px;
+        height: 700px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .textCenter{
+      text-align: center;
+    }
+
+    .achievementSite{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+
+
+    .smallSizeWidth{
+      display: flex;
+      justify-content: center;
+      height: 700px;
+    }
+}
+
+
+@media only  screen and (max-width:370){
+  .achievementTitle{
+    font-family: Poppins;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 37.5px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #242424;  
+  }
+  
+  .achievementDetail{
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #898989;
+  }
+  
+  .smallScreenSize{
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    padding: 10px 50px;
+    gap: 30px;
+    height: 750px;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .textCenter{
+  text-align: center;
+  }
+
+  .achievementSite{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  }
+
+
+  .smallSizeWidth{
+    display: flex;
+    justify-content: center;
+    height: 750px;
+  }
+}

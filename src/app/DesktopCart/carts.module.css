@@ -1,0 +1,113 @@
+.cartBottom{
+  border-top: 1px solid #D9D9D9;
+  margin-top: 20px;
+  padding-top: 20px;
+
+}
+
+.cartBottomBtn{
+  width:87px;
+  height: 30px;
+  padding: 6px 30px 6px 30px;
+  gap: 10px;
+  border-radius: 50px;
+  border: 1px solid #000000;
+  opacity: 0px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+}
+
+.cartBottomBtn2{
+  width: 118px;
+  height: 30px;
+  padding: 6px 30px 6px 30px;
+  gap: 10px;
+  border-radius: 50px;
+  border: 1px solid #000000;
+  opacity: 0px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.cartBottomSubTotal{
+  font-family: Poppins;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+}
+
+.cartBottomSubTotalPrice{
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #B88E2F;
+}
+
+.cartTopHeading{
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+}
+
+.cartTopBorder{
+  border-bottom: 1px solid #D9D9D9;
+  padding-bottom: 20px;
+}
+
+.cartProductName{
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.cartProductQuantityStyle{
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.cartProductPriceStyle{
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #B88E2F;
+
+}
+
+

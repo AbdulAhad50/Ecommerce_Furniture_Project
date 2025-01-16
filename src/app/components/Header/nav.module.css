@@ -14,3 +14,20 @@
 .linksFont{
   font-family: 'Poppins';
 }
+
+.bedge{
+  text-align: center;
+  font-size: 8px;
+  background: red;
+  width: 15px;
+  height: 15px;
+  color: white;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  left: 0;
+  bottom: 0;
+  margin-top: -10px;
+}

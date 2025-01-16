@@ -1,0 +1,44 @@
+.productHeading{
+  font-family: Poppins;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #3A3A3A;
+
+}
+
+.showBtn{
+  width: 245px;
+  height: 48px;
+  gap: 0px;
+  border: 1px solid #B88E2F;
+  opacity: 0px;
+  font-family: 'Poppins';
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #B88E2F;
+  
+} 
+
+@media only screen and (min-width: 1401) and (max-width: 2000){
+  .smallSizeScreen{
+      display: grid;
+      grid-column: 4;
+
+  }
+}
+
+
+@media only screen and (min-width: 300) and (max-width: 950){
+  .smallSizeScreen{
+      display: flex;
+      flex-wrap: wrap;
+  }
+}
