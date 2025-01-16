@@ -20,7 +20,7 @@ interface T {
   price: number;
 }
 
-const Page = ({ params }: { params: Params }) => {
+const Page = ({ params }: { params: { product: string } }) => {
   const [product, setProduct] = useState<T | null>(null); // Change state to hold a single product
 
   useEffect(() => {
