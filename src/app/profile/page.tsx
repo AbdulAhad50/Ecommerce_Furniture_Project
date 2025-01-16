@@ -45,17 +45,17 @@ const page = () => {
   let nameValue;
   let lastName;
   let emailValue;
-  let number
+  // let number
 
-  function formSubmit(event:any){
+  function FormSubmit(event){
       event.preventDefault();
 
       nameValue = event.target[0].value
       lastName = event.target[1].value
       emailValue = event.target[2].value
-      number = event.target[3].value
+      // number = event.target[3].value
 
-      console.log(name)
+      // console.log(name)
 
       setName(nameValue);
       setLastName(lastName);
@@ -101,7 +101,7 @@ const page = () => {
                         { account && 
                         
                         <div className={`ml-10 ${style.form}`}>
-                            <form action="#!" onSubmit={formSubmit} className={`flex flex-col gap-10 ${style.form}`}>
+                            <form action="#!" onSubmit={FormSubmit} className={`flex flex-col gap-10 ${style.form}`}>
                                 <div className={`flex flex-wrap gap-4 ${style.intStyle}`}>
                                     <input type="text" placeholder='First Name' className={`${style.inputTag}`} />
 
@@ -124,7 +124,7 @@ const page = () => {
                           password && 
                           
                           <div> 
-                                <form action="#!" onSubmit={formSubmit} className={`flex flex-col gap-10 ${style.passwordChangeForm}`}>
+                                <form action="#!" onSubmit={FormSubmit} className={`flex flex-col gap-10 ${style.passwordChangeForm}`}>
                                 <div className='flex gap-4'>
                                     <input type="text" placeholder='Old Password' className={`${style.inputTag}`}/>
                                 </div>

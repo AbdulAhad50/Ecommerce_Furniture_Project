@@ -28,7 +28,8 @@ const ShopingCard = () => {
     fetchData()
   },[])
 
-  let arrayMethod:Product[] = [];
+
+  const arrayMethod:Product[] = [];
 
   for (let i=0; i<12; i++){
     
@@ -43,7 +44,7 @@ const ShopingCard = () => {
         
           {arrayMethod.length > 0 ? (
 
-          arrayMethod.map((product: Product, i: number) => (
+          arrayMethod.map((product: Product) => (
               <Card key={product?._id} id={product?._id} price={product?.price} discountPercentage={''} image={{
                 asset: {
                   _ref: '',

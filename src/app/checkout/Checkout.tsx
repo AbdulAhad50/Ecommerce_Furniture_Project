@@ -9,7 +9,7 @@ import { useContext, useEffect, useState } from 'react'
 const Checkout = () => {
     const [nameData, setNameData] = useState<string[]>([]); 
 
-    let { placedOrder } = useContext(StoreData);
+    const { placedOrder } = useContext(StoreData);
 
     const [items] = placedOrder || [];
 
@@ -99,7 +99,7 @@ const Checkout = () => {
 
                         <div className='flex flex-col justify-between'>
                             {
-                                nameData?.map((elem: any, i: any) => {
+                                nameData?.map((elem, i) => {
                                     // Ensure totalQuantity and totalPrice are defined before using them
                                     const quantity = totalQuantity[i] || 0;  // Fallback to 0 if undefined
                                     const price = items?.singleProductPrice[i] || 0;  // Fallback to 0 if undefined
