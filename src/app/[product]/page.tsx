@@ -16,16 +16,16 @@ interface T {
 }
 
 // Page component that automatically gets `params` injected by Next.js for dynamic routes
-const Page = ({ params }: { params}) => {
+const Page = ({ params }: { params:{product: string}}) => {
   const [product, setProduct] = useState<T[]>([]);
   
 
   console.log("/***/",params)
-  const id = params?.product
-
+  
   useEffect(() => {
     async function FetchData() {
       try {
+        const id = await params?.product
         console.log("id",id);
 
         const singleData = await client.fetch(`*[_type == 'product']`);
