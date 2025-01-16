@@ -14,6 +14,7 @@ interface Product {
 }
 
 
+
 const ShopingCard = () => {
 
   const [product,setProduct] = useState([])
@@ -21,7 +22,7 @@ const ShopingCard = () => {
   useEffect(()=>{
     async function fetchData() {
       const products = await client.fetch('*[_type == "product"]')
-      console.log("...",products[1])
+      // console.log("...",products[1])
       setProduct(products)
     }
   

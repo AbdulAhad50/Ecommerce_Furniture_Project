@@ -42,21 +42,14 @@ const page = () => {
     setPassword(true)
   }
 
-  let nameValue;
-  let lastName;
-  let emailValue;
-  // let number
 
   function FormSubmit(event){
       event.preventDefault();
 
-      nameValue = event.target[0].value
-      lastName = event.target[1].value
-      emailValue = event.target[2].value
-      // number = event.target[3].value
-
-      // console.log(name)
-
+      const nameValue = event.target[0].value
+      const lastName = event.target[1].value
+      const emailValue = event.target[2].value
+      
       setName(nameValue);
       setLastName(lastName);
       setEmail(emailValue);

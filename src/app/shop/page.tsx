@@ -7,9 +7,22 @@ import Achievement from '../components/achievement/Achievement'
 import React, {useState } from 'react'
 import { client } from '@/sanity/lib/client'
 
+
+interface T{
+  _id:string;
+  price:number;
+  image:{asset: {
+    _ref: string,
+    _type: string
+  },
+  _type:string},
+  name:string;
+  description:string
+}
+
 const page = () => {
 
-  const [productData, setProduct] = useState<any[]>([])
+  const [productData, setProduct] = useState<T[]>([])
   
     async function fetchData() {
       const products = await client.fetch('*[_type == "product"]')
@@ -28,7 +41,7 @@ const page = () => {
         <div className={`grid grid-cols-3 gap-20 mx-auto justify-center ${style.smallScreenSizeCard}`}>
           {productData.length > 0 ? (
 
-            productData.map((product: any, i: number) => (
+            productData.map((product) => (
               <Card key={product._id} id={product._id} price={product.price} discountPercentage={''} image={{
                 asset: {
                   _ref: '',
