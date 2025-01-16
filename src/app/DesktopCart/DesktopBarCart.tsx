@@ -6,6 +6,7 @@ import Link from "next/link";
 import { BsBagX } from "react-icons/bs";
 import style from './carts.module.css';
 
+
 const Cart = () => {
   const [dataFind, setDataFind] = useState<string[]>([]);
   const { data, deleteProduct } = useContext(StoreData);

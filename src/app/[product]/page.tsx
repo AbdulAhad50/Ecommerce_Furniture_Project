@@ -11,6 +11,15 @@ interface Params {
   product: string;
 }
 
+interface T{
+  _id:string,
+  name:string,
+  rating:number,
+  description:string,
+  price:number 
+
+}
+
 const page =  ({ params }: { params: Params }) => {
   const [product,setProduct] = useState([])
 
@@ -27,7 +36,7 @@ const page =  ({ params }: { params: Params }) => {
         const res = await singleData
         console.log(res)
     
-        let singleproduct = await singleData.filter((elem)=> elem._id === id);
+        const singleproduct = await singleData.filter((elem)=> elem._id === id);
         console.log("....",singleproduct[0].name)
         setProduct(singleproduct)
         
@@ -46,11 +55,11 @@ const page =  ({ params }: { params: Params }) => {
           <BreadCrumbs/>
 
           {
-            product.map((product:any)=>{
+            product.map((product:T)=>{
 
               console.log("product.name")
                 return (
-                  <View key={product._id} id={product._id} productName={product.name} productPrice={product.price} ProductDescription={product.description} rating={product.rating} image={{
+                  <View key={product?._id} id={product?._id} productName={product?.name} productPrice={product?.price} ProductDescription={product.description} rating={product?.rating} image={{
                     asset: {
                       _ref: "",
                       _type: ""
