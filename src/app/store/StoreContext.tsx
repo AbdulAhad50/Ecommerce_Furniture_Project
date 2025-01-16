@@ -96,7 +96,7 @@ interface StoreContextType {
   favouriteProductItem: FavouriteProduct[];
   deleteFavouriteProduct: (id: string) => void;
   orderplaced: (totalPrice: number, totalQuantity: [] | number[] | undefined[] | null, totalName: [] | undefined[], singleProductPrice: [] | undefined[]) => void;
-  placedOrder: [] | undefined;
+  placedOrder: ORDER[] | undefined;
 }
 
 export const StoreData = createContext<StoreContextType>({
