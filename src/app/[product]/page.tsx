@@ -6,6 +6,7 @@ import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
 import React from "react";
 
+// Change: Explicitly set params type if it's not expected to be a Promise.
 interface Params {
   product: string;
 }
@@ -19,23 +20,20 @@ interface T {
 }
 
 const Page = ({ params }: { params: Params }) => {
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState<T[]>([]); // Ensure you're using correct type for product
 
   useEffect(() => {
     async function FetchData() {
       try {
-        const id = await params.product;
+        const id = params.product; // params is expected to be of type `Params`
         console.log(id);
 
         const singleData = await client.fetch(`*[_type == 'product']`);
 
-        const res = await singleData;
-        console.log(res);
-
-        const singleproduct = await singleData.filter(
-          (elem) => elem._id === id
+        const singleproduct = singleData.filter(
+          (elem: T) => elem._id === id
         );
-        console.log("....", singleproduct[0].name);
+        console.log("....", singleproduct[0]?.name);
         setProduct(singleproduct);
       } catch (err) {
         console.log(err);
@@ -50,15 +48,14 @@ const Page = ({ params }: { params: Params }) => {
       <BreadCrumbs name={"Asgad S"} />
 
       {product.map((product: T) => {
-        console.log("product.name");
         return (
           <View
-            key={product?._id}
-            id={product?._id}
-            productName={product?.name}
-            productPrice={product?.price}
+            key={product._id}
+            id={product._id}
+            productName={product.name}
+            productPrice={product.price}
             ProductDescription={product.description}
-            rating={product?.rating}
+            rating={product.rating}
             image={{
               asset: {
                 _ref: "",
@@ -85,3 +82,4 @@ const Page = ({ params }: { params: Params }) => {
 };
 
 export default Page;
+
