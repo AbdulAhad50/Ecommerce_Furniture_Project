@@ -6,11 +6,6 @@ import Description from "./Description";
 import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
 
-// Define the Params type for the dynamic route
-// interface Params {
-//   product: string;
-// }
-
 // Define the type for the product data
 interface T {
   _id: string;
@@ -20,40 +15,51 @@ interface T {
   price: number;
 }
 
-const Page = ({ params }: { params: { product: string } }) => {
-  const [product, setProduct] = useState<T | null>(null); // Change state to hold a single product
+interface PageProps {
+  params: { product: string };
+}
+
+const Page = ({ params }: PageProps) => {
+  const [product, setProduct] = useState<T | null>(null); // Product state for storing fetched data
+  const [loading, setLoading] = useState<boolean>(true); // Loading state
 
   useEffect(() => {
     async function FetchData() {
       try {
-        const id = params.product; // Extract the product ID from params
-        console.log("Product ID:", id);
+        const productId = params.product; // Dynamic product ID from the route
+        console.log("Fetching product with ID:", productId);
 
-        // Fetch all products from the sanity client
-        const singleData = await client.fetch(`*[_type == 'product']`);
-
-        // Find the product by matching the id
-        const singleProduct = singleData.find((elem: T) => elem._id === id);
+        // Fetch product by ID from Sanity
+        const query = `*[_type == 'product' && _id == $id][0]`; // Fetch only the product matching the ID
+        const singleProduct: T = await client.fetch(query, { id: productId });
 
         if (singleProduct) {
-          console.log("Product Found:", singleProduct.name);
-          setProduct(singleProduct); // Set the fetched product data to state
+          console.log("Product Found:", singleProduct);
+          setProduct(singleProduct);
+        } else {
+          console.warn("No product found with this ID:", productId);
         }
-      } catch (err) {
-        console.error("Error fetching data:", err);
+      } catch (error) {
+        console.error("Error fetching product data:", error);
+      } finally {
+        setLoading(false); // End loading state
       }
     }
 
     FetchData();
-  }, [params.product]); // Trigger re-fetch whenever `params.product` changes
+  }, [params.product]); // Re-run when product ID changes
+
+  if (loading) {
+    return <div>Loading...</div>; // Display while fetching data
+  }
 
   if (!product) {
-    return <div>Loading...</div>; // Handle loading state
+    return <div>Product not found.</div>; // Handle if no product is found
   }
 
   return (
     <div className="max-w-[1440px] mx-auto">
-      {/* Rendering breadcrumbs */}
+      {/* Render breadcrumbs */}
       <BreadCrumbs name={product.name} />
 
       {/* Render product details */}
