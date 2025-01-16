@@ -10,6 +10,7 @@ type Product = {
   quantity: number;
 };
 
+
 type FavouriteProduct = {
   name: string;
   price: number;
@@ -78,7 +79,16 @@ const orderPlaced = (currentPlcaedOrder:any, action: any)=>{
       ]
     }
 
+    console.log("new",newItem)
     return newItem
+}
+
+
+interface PLACEDORDER{
+  totalPrice:number;
+  totalQuanity:number[];
+  totalName:string[];
+  singleProductPrice:number[]
 }
 
 // Create context with proper typing
@@ -91,8 +101,8 @@ interface StoreContextType {
   DecreaseQuanity: (id: string) => void;
   favouriteProductItem: FavouriteProduct[];
   deleteFavouriteProduct : (id:string)=> void;
-  orderplaced : (totalPrice:number, totalQuanity:[], totalName:[],singleProductPrice:[])=>void,
-  placedOrder : []
+  orderplaced : (totalPrice:number, totalQuantity:any[] | number[] | undefined[] | null, totalName:[] | any[],singleProductPrice:[] | any[])=>void,
+  placedOrder : any[] | undefined
 }
 
 export const StoreData = createContext<StoreContextType>({
@@ -115,6 +125,7 @@ interface StoreDataProviderProps {
 const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
   const [data, dispatchData] = useReducer(reducer, []);
   const [favouriteProductItem, dispatchFavouriteProduct] = useReducer(reducerFavourite, []);
+
   const [placedOrder, dispatchPlcaedOrder] = useReducer(orderPlaced, [])
 
   function addProduct(
@@ -166,14 +177,16 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
   }
 
 
-  function orderplaced(totalPrice:number, totalQuanity:[], totalName:[], singleProductPrice:[]){
+  function orderplaced(totalPrice:number, totalQuantity:any[] | number[] | undefined[] | null, totalName:[] | any[],singleProductPrice:[] | any[]){
 
       let placedItem = {
         totalPrice,
-        totalQuanity,
+        totalQuantity,
         totalName,
         singleProductPrice
       }
+
+      console.log(placedItem)
 
       let newAction = {
           type : 'ORDER_PLACED',
@@ -184,7 +197,7 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
   }
 
   return (
-    <StoreData.Provider value={{ data,placedOrder ,deleteProduct, addProduct, upDateQuantity, DecreaseQuanity, favouriteProductItem, favouriteProduct , deleteFavouriteProduct, orderplaced}}>
+    <StoreData.Provider value={{ data ,deleteProduct, addProduct, upDateQuantity, DecreaseQuanity, favouriteProductItem, favouriteProduct , deleteFavouriteProduct, orderplaced,placedOrder}}>
       {children}
     </StoreData.Provider>
   );

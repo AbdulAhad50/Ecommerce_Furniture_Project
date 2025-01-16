@@ -55,24 +55,28 @@ const Cart = () => {
     })
   }
   
+  let totalPrice = 0;
+    let totalQuantity: any[] | number[] | undefined[] | null = [];
+    let totalName:any[] = [];
+    let singleProductPrice:any[] = []
+    let quantityVAlue:any = []
 
   function detailsProduct(){
-    let totalPrice = 0;
-    let totalQuanity = [];
-    let totalName = [];
-    let singleProductPrice = []
+    
 
     {
       data.map((elem)=>{
+          quantityVAlue.push(elem?.quantity)
+
           totalName.push(elem?.name)
-          totalQuanity.push(elem?.quantity)
+          totalQuantity = quantityVAlue
           singleProductPrice.push(elem?.price)
           totalPrice += elem?.quantity * elem?.price
           return total
       })
     }
 
-    orderplaced(totalPrice,totalQuanity,totalName,singleProductPrice)
+    orderplaced(totalPrice,totalQuantity,totalName,singleProductPrice)
       
   }
   
@@ -93,14 +97,14 @@ const Cart = () => {
             </div>
             <div className='flex flex-col'>
                 {
-                  data.map((elem:any)=>{
+                  data.map((elem:any,i)=>{
                     console.log(elem?.id)
                     return(
 
                  
-
+                    
                   
-                    <div className={`flex  justify-between items-center mt-4 ${style.cartHeaderPrice}`}>
+                    <div className={`flex  justify-between items-center mt-4 ${style.cartHeaderPrice}`} key={i}>
                         <div className={`w-[110px] flex flex-col gap-4 h-[110px] rounded-[10px] ${style.brandImage}`}>
                     <Image src={"/card/image1.svg"} alt={''} width={108} height={108} className={`w-full h-full rounded-[10px]`} />
                     {/* <h2 className={`${style.BrandName}`}>Asgaard sofa</h2> */}
@@ -111,8 +115,8 @@ const Cart = () => {
                 </h2>
                   
                 <div className='flex'>
-                  <button onClick={()=>DecreaseQuanityData(elem.id)}>-</button>
-                  <h2 className={`${style.Quantity} ml-10`}>
+                  <button onClick={()=>DecreaseQuanityData(elem.id)} className='mr-5'>-</button>
+                  <h2 className={`${style.Quantity} `}>
                     {elem.quantity}
                   </h2>
                   <button className='ml-5' onClick={()=> IncreaseQuanity(elem.id)}>+</button>
@@ -150,7 +154,7 @@ const Cart = () => {
               </div>
 
               <button className={`${style.btn} mt-8`} onClick={detailsProduct}>
-                <Link href={"/checkout"}>Check Out</Link>
+               <Link href="/checkout">Check Out</Link>
               </button>
         </div>  
     
