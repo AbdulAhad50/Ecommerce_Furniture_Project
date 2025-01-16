@@ -12,9 +12,9 @@ type Product = {
 
 interface ORDER {
     totalPrice: number;
-    totalQuantity: any[] | number[] | undefined[] | null;
-    totalName: any[] | undefined[];
-    singleProductPrice: any[] | undefined[];
+    totalQuantity: [] | number[] | undefined[] | null;
+    totalName: [] | undefined[];
+    singleProductPrice: [] | undefined[];
 }
 
 type FavouriteProduct = {
@@ -75,7 +75,7 @@ const reducerFavourite = (
 const orderPlaced = (
   currentPlcaedOrder: ORDER[], 
   action: { type: "ORDER_PLACED"; payload: { placedItem: ORDER } }
-): any[] => {
+): ORDER[] => {
   let newItem:ORDER[] = [...currentPlcaedOrder];
 
   if (action.type === "ORDER_PLACED") {
@@ -95,8 +95,8 @@ interface StoreContextType {
   DecreaseQuanity: (id: string) => void;
   favouriteProductItem: FavouriteProduct[];
   deleteFavouriteProduct: (id: string) => void;
-  orderplaced: (totalPrice: number, totalQuantity: any[] | number[] | undefined[] | null, totalName: any[] | undefined[], singleProductPrice: any[] | undefined[]) => void;
-  placedOrder: any[] | undefined;
+  orderplaced: (totalPrice: number, totalQuantity: [] | number[] | undefined[] | null, totalName: [] | undefined[], singleProductPrice: [] | undefined[]) => void;
+  placedOrder: [] | undefined;
 }
 
 export const StoreData = createContext<StoreContextType>({
@@ -160,9 +160,9 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
 
   function orderplaced(
     totalPrice: number,
-    totalQuantity: any[] | number[] | undefined[] | null,
-    totalName: any[] | undefined[],
-    singleProductPrice: any[] | undefined[]
+    totalQuantity: [] | number[] | undefined[] | null,
+    totalName: [] | undefined[],
+    singleProductPrice: [] | undefined[]
   ) {
     const placedItem = {
       totalPrice,
