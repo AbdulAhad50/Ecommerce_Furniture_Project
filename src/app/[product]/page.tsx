@@ -16,7 +16,7 @@ interface T {
 }
 
 // Page component that automatically gets `params` injected by Next.js for dynamic routes
-const Page = ({ params }: { params:any }) => {
+const Page = ({ params }: { params}) => {
   const [product, setProduct] = useState<T[]>([]);
   
 
