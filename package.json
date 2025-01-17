@@ -16,7 +16,7 @@
     "@mui/styled-engine-sc": "^6.4.0",
     "@radix-ui/react-dialog": "^1.1.4",
     "@radix-ui/react-slot": "^1.1.1",
-    "@sanity/client": "^6.24.3",
+    "@sanity/client": "^6.24.4",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.69.0",
     "axios": "^1.7.9",

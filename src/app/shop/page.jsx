@@ -12,12 +12,19 @@ const Page = () => {
 
   const [productData, setProduct] = useState([])
   
-    async function FetchData() {
-      const products = await client.fetch('*[_type == "product"]')
-      setProduct(products)
-    }
-
-    FetchData()
+    useEffect(()=>{
+      async function FetchData() {
+        try{
+          const products = await client.fetch('*[_type == "product"]')
+          console.log(products)
+          setProduct(products)
+        }catch(err){
+          console.log("Err",err)
+        }
+      }
+  
+      FetchData()
+    },[productData])
     
 
     

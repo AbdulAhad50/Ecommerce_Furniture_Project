@@ -6,11 +6,13 @@ import Description from "./Description";
 import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
 
+
+
 const Page = ({ params }) => {
   const [product, setProduct] = useState(null); // Product state for storing fetched data
   const [loading, setLoading] = useState(true); // Loading state
 
-  console.log(params);
+
 
   useEffect(() => {
     async function FetchData() {
