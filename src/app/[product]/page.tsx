@@ -26,11 +26,9 @@ interface ProductData {
 }
 
 // Define the custom proxy handler type
-interface ProxyPromiseHandler {
-  get(target: any, prop: string | symbol, receiver: any): any;
-  ownKeys(target: any): string[];
-  set(target: any, prop: string | symbol, value: any, receiver: any): boolean;
-}
+// interface ProxyPromiseHandler {
+
+// }
 
 // Define the proxy type extending the Promise interface
 interface ProxyPromise<T> extends Promise<T> {
@@ -44,7 +42,7 @@ interface ProxyPromise<T> extends Promise<T> {
 // Updated type for the PageProps
 type MyProxyPromise = ProxyPromise<T>; // Changed to use the correct type T here
 
-const Page = ({ params }: {params: PageProps | MyProxyPromise}) => {
+const Page = ({ params }: {params: PageProps | MyProxyPromise | ProductData}) => {
   const [product, setProduct] = useState<T | null>(null); // Product state for storing fetched data
   const [loading, setLoading] = useState<boolean>(true); // Loading state
 
