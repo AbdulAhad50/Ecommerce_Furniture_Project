@@ -6,8 +6,6 @@ import Achievement from '../components/achievement/Achievement'
 
 const page = () => {
 
-  
-
   return (
     <div className={`max-w-[1440px] mx-auto`}>
         <HeroBanner crumbs={'Cart'} pageName={'Cart'}/>

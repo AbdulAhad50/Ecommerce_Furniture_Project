@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import Link from 'next/link'
-import style from './biling.module.css'
-import Intput, { Drag } from './Intput'
-import { StoreData } from '../store/StoreContext'
-import { useContext, useEffect, useState } from 'react'
+import Link from 'next/link';
+import style from './biling.module.css';
+import Intput, { Drag } from './Intput';
+import { StoreData } from '../store/StoreContext';
+import { useContext, useEffect, useState } from 'react';
 
 const Checkout = () => {
-    const [nameData, setNameData] = useState<string[]>([]); 
+    const [nameData, setNameData] = useState([]); 
 
     const { placedOrder } = useContext(StoreData);
 
@@ -19,12 +19,11 @@ const Checkout = () => {
     const totalQuantity = items?.totalQuantity || [];  
     const totalName = items?.totalName || [];
 
-
     useEffect(() => {
         // Ensure that items and totalName are defined before calling the function
         if (totalName?.length > 0) {
-            const truncateLongWords = (arr: string[]) => {
-                return arr.map((word: string) => {
+            const truncateLongWords = (arr) => {
+                return arr.map((word) => {
                     if (word.length > 10) {
                         return word.slice(0, 10) + '...';  // Truncate long words
                     }

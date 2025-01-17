@@ -8,21 +8,9 @@ import React, {useState } from 'react'
 import { client } from '@/sanity/lib/client'
 
 
-interface T{
-  _id:string;
-  price:number;
-  image:{asset: {
-    _ref: string,
-    _type: string
-  },
-  _type:string},
-  name:string;
-  description:string
-}
-
 const Page = () => {
 
-  const [productData, setProduct] = useState<T[]>([])
+  const [productData, setProduct] = useState([])
   
     async function FetchData() {
       const products = await client.fetch('*[_type == "product"]')

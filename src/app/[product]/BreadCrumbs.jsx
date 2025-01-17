@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/breadcrumb"
 import style from './product.module.css'
 
-const BreadCrumbs = ({name}:{name:string}) => {
+const BreadCrumbs = ({name}) => {
   return (
     <div className="max-w-[1440px] h-[100px] mx-[auto] flex items-center bg-[#F9F1E7] pl-[20px]">
           <Breadcrumb>

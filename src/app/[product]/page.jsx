@@ -6,42 +6,27 @@ import Description from "./Description";
 import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
 
-// Define the type for the product data
-interface T {
-  _id: string;
-  name: string;
-  rating: number;
-  description: string;
-  price: number;
-}
+const Page = ({ params }) => {
+  const [product, setProduct] = useState(null); // Product state for storing fetched data
+  const [loading, setLoading] = useState(true); // Loading state
 
-interface PageProps {
-  params: { product: string };
-}
-
-const Page = ({ params }: PageProps) => {
-  const [product, setProduct] = useState<T | null>(null); // Product state for storing fetched data
-  const [loading, setLoading] = useState<boolean>(true); // Loading state
-
-  
+  console.log(params);
 
   useEffect(() => {
     async function FetchData() {
       try {
-        const productId =  params;
-        const {product} =  productId
-         // Dynamic product ID from the route
+        const { product } = params; // Extract product ID from params
         console.log("Fetching product with ID:", product);
 
         // Fetch product by ID from Sanity
         const query = `*[_type == 'product' && _id == $id][0]`; // Fetch only the product matching the ID
-        const singleProduct: T = await client.fetch(query, { id: product });
+        const singleProduct = await client.fetch(query, { id: product });
 
         if (singleProduct) {
           console.log("Product Found:", singleProduct);
           setProduct(singleProduct);
         } else {
-          console.warn("No product found with this ID:", productId);
+          console.warn("No product found with this ID:", product);
         }
       } catch (error) {
         console.error("Error fetching product data:", error);
@@ -51,7 +36,7 @@ const Page = ({ params }: PageProps) => {
     }
 
     FetchData();
-  }, [params.product]); // Re-run when product ID changes
+  }, [params?.product]); // Re-run when product ID changes
 
   if (loading) {
     return <div>Loading...</div>; // Display while fetching data

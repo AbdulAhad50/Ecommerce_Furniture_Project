@@ -1,7 +1,7 @@
 import Image from "next/image"
 import style from './shop.module.css'
 
-const Filter = ({totalProduct}:{totalProduct:number}) => {
+const Filter = ({totalProduct}) => {
   return (
     <div className={`max-w-[1440px] mx-[auto] ${style.filter}`}>
 

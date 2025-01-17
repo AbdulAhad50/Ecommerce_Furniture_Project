@@ -10,7 +10,7 @@ const Favourite = () => {
   const { favouriteProductItem, deleteFavouriteProduct } = useContext(StoreData);
   console.log("",favouriteProductItem);
 
-  function deleteItem(id:string){
+  function deleteItem(id){
     deleteFavouriteProduct(id)
   }
 

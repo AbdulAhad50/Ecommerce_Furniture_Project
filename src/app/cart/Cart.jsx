@@ -1,40 +1,27 @@
-"use client"
+"use client";
 
-import Link from 'next/link'
-import style from './cart.module.css'
-import Image from 'next/image'
+import Link from 'next/link';
+import style from './cart.module.css';
+import Image from 'next/image';
 import { AiFillDelete } from "react-icons/ai";
 import { useContext } from 'react';
 import { StoreData } from '../store/StoreContext';
 
-interface T {
-  id: string;
-  name: string;
-  price: number;
-  image: { asset: { _ref: string; _type: string }; _type: string };
-  quantity: number;
-}
-
 const Cart = () => {
   const { data, deleteProduct, upDateQuantity, DecreaseQuanity, orderplaced } = useContext(StoreData);
 
-  // Fix: Let total be calculated correctly
+  // Calculate total price correctly
   let total = 0;
   data.map((elem) => {
     total += elem.quantity * elem.price;
     return total;
   });
 
-  // Fix: Specify types
-  // let totalQuantity: number[] = [];
-  // const totalName: string[] = [];
-  // const singleProductPrice: number[] = [];
-
   function detailsProduct() {
     let totalPrice = 0;
-    const totalQuantity: number[] = [];
-    const totalName: string[] = [];
-    const singleProductPrice: number[] = [];
+    const totalQuantity = [];
+    const totalName = [];
+    const singleProductPrice = [];
 
     data.map((elem) => {
       totalQuantity.push(elem.quantity);
@@ -58,7 +45,7 @@ const Cart = () => {
         </div>
         <div className='flex flex-col'>
           {
-            data.map((elem: T, i) => {
+            data.map((elem, i) => {
               return (
                 <div className={`flex justify-between items-center mt-4 ${style.cartHeaderPrice}`} key={i}>
                   <div className={`w-[110px] flex flex-col gap-4 h-[110px] rounded-[10px] ${style.brandImage}`}>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import React, { useContext, useState } from "react";
@@ -6,27 +6,26 @@ import style from "./product.module.css";
 import { Rating } from "@mui/material";
 import { StoreData } from "../store/StoreContext";
 
-const View = ({productName,productPrice,rating,ProductDescription,image,id}:{productName:string, productPrice:number, ProductDescription:string, rating:number , id:string, image: { asset: { _ref: string; _type: string }; _type: string }, }) => {
+const View = ({ productName, productPrice, rating, ProductDescription, image, id }) => {
 
-  const {addProduct} = useContext(StoreData);
+  const { addProduct } = useContext(StoreData);
 
-  const [quantity, setCount] = useState(1)
-  
-  function Minuscount(){
-      if(quantity > 0){
-        setCount(quantity - 1)
-      }
+  const [quantity, setCount] = useState(1);
+
+  function Minuscount() {
+    if (quantity > 0) {
+      setCount(quantity - 1);
+    }
   }
-  
-  function addCart(){
-    addProduct(productName,productPrice,image,id,quantity)
+
+  function addCart() {
+    addProduct(productName, productPrice, image, id, quantity);
   }
 
   return (
     <div className={`flex ${style.MainProductStyle}`}>
-{/* 1 */}
+      {/* 1 */}
       <div className={`flex gap-3 my-7 mx-6 ml-10 ${style.ProductImage}`}>
-
         <div className={`flex flex-col gap-3 mt-3 ${style.MultiProductImage}`}>
           <div className={`w-[90px] h-[90px] rounded-[10px]`}>
             <Image
@@ -78,7 +77,7 @@ const View = ({productName,productPrice,rating,ProductDescription,image,id}:{pro
         </div>
       </div>
 
-{/* {div 2} */}
+      {/* {div 2} */}
       <div className={`flex flex-col justify-between my-7 mx-6 ml-10 ${style.AddCardItem}`}>
         <div>
           <h1 className={`${style.productName}`}>{productName}</h1>
@@ -86,14 +85,12 @@ const View = ({productName,productPrice,rating,ProductDescription,image,id}:{pro
         </div>
 
         <div>
-            <Rating name="size-medium" defaultValue={rating} readOnly/>
+          <Rating name="size-medium" defaultValue={rating} readOnly />
         </div>
 
         <div>
           <p className={`${style.ProductDescription}`}>
-            {
-                ProductDescription
-            }
+            {ProductDescription}
           </p>
         </div>
 
@@ -110,7 +107,8 @@ const View = ({productName,productPrice,rating,ProductDescription,image,id}:{pro
         <div>
           <div className={`mb-5 flex gap-10 ${style.CardDiv}`}>
             <h3 className={`${style.Btn}`}>
-              <button onClick={Minuscount}>-</button>{quantity}<button onClick={()=>setCount(quantity + 1)}>+</button>
+              <button onClick={Minuscount}>-</button>{quantity}
+              <button onClick={() => setCount(quantity + 1)}>+</button>
             </h3>
 
             <button className={`${style.AddCard}`} onClick={addCart}>Add To Cart</button>
