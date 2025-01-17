@@ -44,7 +44,7 @@ interface ProxyPromise<T> extends Promise<T> {
 // Updated type for the PageProps
 type MyProxyPromise = ProxyPromise<T>; // Changed to use the correct type T here
 
-const Page = ({ params }: PageProps) => {
+const Page = ({ params }: {params: PageProps | MyProxyPromise}) => {
   const [product, setProduct] = useState<T | null>(null); // Product state for storing fetched data
   const [loading, setLoading] = useState<boolean>(true); // Loading state
 
