@@ -15,22 +15,45 @@ interface T {
   price: number;
 }
 
+// Interface for page props
 interface PageProps {
   params: { product: string };
 }
 
-const Page = ({ params }: {params:{ product: string } | [] | PageProps | string[] | number[]} ) => {
+// Define the structure for the custom result object inside the fulfilled promise
+interface ProductData {
+  product: string;
+}
+
+// Define the custom proxy handler type
+interface ProxyPromiseHandler {
+  get(target: any, prop: string | symbol, receiver: any): any;
+  ownKeys(target: any): string[];
+  set(target: any, prop: string | symbol, value: any, receiver: any): boolean;
+}
+
+// Define the proxy type extending the Promise interface
+interface ProxyPromise<T> extends Promise<T> {
+  // Custom properties on the Proxy (like `product`)
+  product?: string;
+  [[PromiseState]]?: 'fulfilled' | 'pending' | 'rejected';  // 
+  [[PromiseResult]]?: T; 
+  [[IsRevoked]]?: boolean;   
+}
+
+// Updated type for the PageProps
+type MyProxyPromise = ProxyPromise<T>; // Changed to use the correct type T here
+
+const Page = ({ params }: PageProps) => {
   const [product, setProduct] = useState<T | null>(null); // Product state for storing fetched data
   const [loading, setLoading] = useState<boolean>(true); // Loading state
 
-  
+  console.log(params);
 
   useEffect(() => {
     async function FetchData() {
       try {
-        const productId =  params;
-        const {product} =  productId
-         // Dynamic product ID from the route
+        const { product } = params; // Extract product ID from params
         console.log("Fetching product with ID:", product);
 
         // Fetch product by ID from Sanity
@@ -41,7 +64,7 @@ const Page = ({ params }: {params:{ product: string } | [] | PageProps | string[
           console.log("Product Found:", singleProduct);
           setProduct(singleProduct);
         } else {
-          console.warn("No product found with this ID:", productId);
+          console.warn("No product found with this ID:", product);
         }
       } catch (error) {
         console.error("Error fetching product data:", error);
