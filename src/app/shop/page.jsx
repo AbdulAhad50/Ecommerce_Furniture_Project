@@ -4,7 +4,7 @@ import Filter from './Filter'
 import Card from '../components/Cards/Card'
 import style from './shop.module.css'
 import Achievement from '../components/achievement/Achievement'
-import React, {useState } from 'react'
+import React, {useState,useEffect } from 'react'
 import { client } from '@/sanity/lib/client'
 
 
