@@ -10,10 +10,8 @@ const Page = ({ params }) => {
   const [product, setProduct] = useState(null); // Product state for storing fetched data
   const [loading, setLoading] = useState(true); // Loading state
 
-  console.log(params);
-
   useEffect(() => {
-    async function FetchData() {
+    async function fetchData() {
       try {
         const { product } = params; // Extract product ID from params
         console.log("Fetching product with ID:", product);
@@ -35,7 +33,7 @@ const Page = ({ params }) => {
       }
     }
 
-    FetchData();
+    fetchData();
   }, [params?.product]); // Re-run when product ID changes
 
   if (loading) {
@@ -59,13 +57,7 @@ const Page = ({ params }) => {
         productPrice={product.price}
         ProductDescription={product.description}
         rating={product.rating}
-        image={{
-          asset: {
-            _ref: "",
-            _type: "",
-          },
-          _type: "",
-        }}
+        image={product.image}
       />
 
       {/* Render product description */}
