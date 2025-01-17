@@ -19,7 +19,7 @@ interface PageProps {
   params: { product: string };
 }
 
-const Page = ({ params }: {params:{ product: string } | [] | PageProps | {} | string[] | number[]} ) => {
+const Page = ({ params }: {params:{ product: string } | [] | PageProps | string[] | number[]} ) => {
   const [product, setProduct] = useState<T | null>(null); // Product state for storing fetched data
   const [loading, setLoading] = useState<boolean>(true); // Loading state
 
