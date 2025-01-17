@@ -19,7 +19,7 @@ interface PageProps {
   params: { product: string };
 }
 
-const Page = ({ params }: PageProps) => {
+const Page = ({ params }: {params:{ product: string } | [] | PageProps | {} | string[] | number[]} ) => {
   const [product, setProduct] = useState<T | null>(null); // Product state for storing fetched data
   const [loading, setLoading] = useState<boolean>(true); // Loading state
 
@@ -51,7 +51,7 @@ const Page = ({ params }: PageProps) => {
     }
 
     FetchData();
-  }, [params.product]); // Re-run when product ID changes
+  }, [params?.product]); // Re-run when product ID changes
 
   if (loading) {
     return <div>Loading...</div>; // Display while fetching data
