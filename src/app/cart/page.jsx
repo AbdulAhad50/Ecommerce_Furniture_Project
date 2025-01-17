@@ -1,4 +1,3 @@
-// import React, { useContext } from 'react'
 import HeroBanner from '../HeroBanner/HeroBanner'
 import Cart from './Cart'
 import Achievement from '../components/achievement/Achievement'
