@@ -46,7 +46,7 @@ const Page = () => {
               }} description={product.description} name={product.name} bgDisc='blue'/> // Passing the product data to Card component
             ))
           ) : (
-            <p>Loading products...</p> // Display loading message while data is being fetched
+            <p>Loading...</p> // Display loading message while data is being fetched
           )}
         </div>
       </div>
