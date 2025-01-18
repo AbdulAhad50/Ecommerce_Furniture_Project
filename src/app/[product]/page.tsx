@@ -31,31 +31,27 @@ interface ProductData {
 // }
 
 // Define the proxy type extending the Promise interface
-interface ProxyPromise<T> extends Promise<T> {
+interface ProxyPromise{
   // Custom properties on the Proxy (like `product`)
-  product?: string;
-  [[PromiseState]]?: 'fulfilled' | 'pending' | 'rejected';  // 
-  [[PromiseResult]]?: T; 
-  [[IsRevoked]]?: boolean;   
+  product?: string | undefined; 
 }
 
 // Updated type for the PageProps
-type MyProxyPromise = ProxyPromise<T>; // Changed to use the correct type T here
+type MyProxyPromise = ProxyPromise; // Changed to use the correct type T here
 
-const Page = ({ params }: {params: PageProps | MyProxyPromise | ProductData}) => {
-  const [product, setProduct] = useState<T | null>(null); // Product state for storing fetched data
-  const [loading, setLoading] = useState<boolean>(true); // Loading state
+const Page = ({ params }: {params: MyProxyPromise}) => {
+  const [product, setProduct] = useState<T | null>(null); //
+  const [loading, setLoading] = useState<boolean>(true); // 
 
   console.log(params);
 
   useEffect(() => {
     async function FetchData() {
       try {
-        const { product } = params; // Extract product ID from params
-        console.log("Fetching product with ID:", product);
+        const data = params;
+        console.log("Fetching product with ID:", data?.product);
 
-        // Fetch product by ID from Sanity
-        const query = `*[_type == 'product' && _id == $id][0]`; // Fetch only the product matching the ID
+        const query = `*[_type == 'product' && _id == $id][0]`; 
         const singleProduct: T = await client.fetch(query, { id: product });
 
         if (singleProduct) {
@@ -67,19 +63,19 @@ const Page = ({ params }: {params: PageProps | MyProxyPromise | ProductData}) =>
       } catch (error) {
         console.error("Error fetching product data:", error);
       } finally {
-        setLoading(false); // End loading state
+        setLoading(false);
       }
     }
 
     FetchData();
-  }, [params?.product]); // Re-run when product ID changes
+  }, [params?.product]);
 
   if (loading) {
-    return <div>Loading...</div>; // Display while fetching data
+    return <div>Loading...</div>;
   }
 
   if (!product) {
-    return <div>Product not found.</div>; // Handle if no product is found
+    return <div>Product not found.</div>;
   }
 
   return (

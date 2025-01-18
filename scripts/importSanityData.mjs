@@ -34,7 +34,7 @@ async function uploadImageToSanity(imageUrl) {
 async function importData() {
   try {
     console.log('Fetching products from API...')
-    const response = await axios.get('https://fakestoreapi.com/products')
+    const response = await axios.get('https://template6-six.vercel.app/api/products')
     const products = response.data
     console.log(`Fetched ${products.length} products`)
     for (const product of products) {
