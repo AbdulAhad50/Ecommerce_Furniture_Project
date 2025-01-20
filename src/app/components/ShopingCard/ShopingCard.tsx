@@ -23,6 +23,8 @@ const ShopingCard = () => {
       setProduct(products)
     }
 
+    console.log("...",arrayMethod)
+
     fetchData()
   }, [])
 
@@ -30,6 +32,10 @@ const ShopingCard = () => {
     // When the products are fetched, slice the first 12 items into arrayMethod
     setArrayMethod(product.slice(0, 12))
   }, [product])
+
+  function Search(){
+
+  }
 
   return (
     <div className='flex flex-col items-center mt-10 mb-5 max-w-[1440px]'>

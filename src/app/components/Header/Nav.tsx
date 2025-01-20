@@ -10,11 +10,25 @@ import { CiHeart } from "react-icons/ci";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { MenuIcon } from "lucide-react";
 import DesktopCart from "@/app/DesktopCart/DesktopCart";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { StoreData } from "@/app/store/StoreContext";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+
 
 const Nav = () => {
-  const { data } = useContext(StoreData);
+
+  let [search, setSearch] = useState("")
+  const { data,Search } = useContext(StoreData);
+
+  function Searching(){
+    console.log(search)
+    Search(search)
+  }
+
 
   return (
     <div
@@ -53,12 +67,16 @@ const Nav = () => {
               <BsPersonFillExclamation />
             </Link>
           </li>
-          <li>
-            <Link href={""}>
-              <CiSearch />
-            </Link>
+          <li className="mt-1">
+          <Popover>
+            <PopoverTrigger><CiSearch /></PopoverTrigger>
+            <PopoverContent>
+                <input type="text" placeholder="Search" className={`${style.Search}`} onChange={(e)=>setSearch(e.target.value)}/>
+                <button className={`${style.SearchBtn}`} onClick={Searching}>Search</button>
+            </PopoverContent>
+          </Popover>
           </li>
-          <li>
+          <li className="">
             <Link href={"/favourite"}>
               <CiHeart />
             </Link>

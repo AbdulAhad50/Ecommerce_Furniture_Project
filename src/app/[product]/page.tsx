@@ -6,44 +6,30 @@ import Description from "./Description";
 import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
 
-// Define the type for the product data
-interface T {
-  _id: string;
+interface RusticVaseSet {
   name: string;
+  price: number; 
+  priceWithoutDiscount: number;
+  discountPercentage: number;
   rating: number;
+  ratingCount: number;
   description: string;
-  price: number;
+  keyFeatures: string[]; 
+  sizes: string[];
+  tags: string[];
+  _id: string;
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
 }
 
-// Interface for page props
-interface PageProps {
-  params: { product: string };
-}
 
-// Define the structure for the custom result object inside the fulfilled promise
-interface ProductData {
-  product: string;
-}
 
-// Define the custom proxy handler type
-// interface ProxyPromiseHandler {
+const Page = ({ params }: {params:{product:string}}) => {
+  const [product, setProduct] = useState<RusticVaseSet[]>([]); //
+  // const [loading, setLoading] = useState<boolean>(true); // 
 
-// }
-
-// Define the proxy type extending the Promise interface
-interface ProxyPromise{
-  // Custom properties on the Proxy (like `product`)
-  product?: string | undefined; 
-}
-
-// Updated type for the PageProps
-type MyProxyPromise = ProxyPromise; // Changed to use the correct type T here
-
-const Page = ({ params }: {params: MyProxyPromise}) => {
-  const [product, setProduct] = useState<T | null>(null); //
-  const [loading, setLoading] = useState<boolean>(true); // 
-
-  console.log(params);
+  console.log("'''''",params);
 
   useEffect(() => {
     async function FetchData() {
@@ -51,46 +37,38 @@ const Page = ({ params }: {params: MyProxyPromise}) => {
         const data = params;
         console.log("Fetching product with ID:", data?.product);
 
-        const query = `*[_type == 'product' && _id == $id][0]`; 
-        const singleProduct: T = await client.fetch(query, { id: product });
-
-        if (singleProduct) {
-          console.log("Product Found:", singleProduct);
-          setProduct(singleProduct);
-        } else {
-          console.warn("No product found with this ID:", product);
-        }
+        const query = await client.fetch( `*[_type == 'product']`); 
+        let findData = query.filter((elem:any)=> elem._id == data?.product)
+        setProduct(findData);
+        console.log("//",findData)
+       
       } catch (error) {
         console.error("Error fetching product data:", error);
       } finally {
-        setLoading(false);
+        
       }
     }
+
+    
 
     FetchData();
   }, [params?.product]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!product) {
-    return <div>Product not found.</div>;
-  }
-
+ 
+console.log("...",product)
   return (
     <div className="max-w-[1440px] mx-auto">
       {/* Render breadcrumbs */}
-      <BreadCrumbs name={product.name} />
+      <BreadCrumbs name={product[0]?.name} />
 
       {/* Render product details */}
-      <View
-        key={product._id}
-        id={product._id}
-        productName={product.name}
-        productPrice={product.price}
-        ProductDescription={product.description}
-        rating={product.rating}
+       <View
+        key={product[0]?._id}
+        id={product[0]?._id}
+        productName={product[0]?.name}
+        productPrice={product[0]?.price}
+        ProductDescription={product[0]?.description}
+        rating={product[0]?.rating}
         image={{
           asset: {
             _ref: "",
@@ -101,9 +79,9 @@ const Page = ({ params }: {params: MyProxyPromise}) => {
       />
 
       {/* Render product description */}
-      <Description
-        key={product._id}
-        descriptionData={product.description}
+       <Description
+        key={product[0]?._id}
+        descriptionData={product[0]?.description}
         reviewData={[""]} // Placeholder for review data
         AdditionalInformationData={""} // Placeholder for additional information
       />

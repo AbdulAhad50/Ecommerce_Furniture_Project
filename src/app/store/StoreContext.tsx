@@ -12,9 +12,9 @@ type Product = {
 
 interface ORDER {
     totalPrice: number;
-    totalQuantity: [] | number[] | undefined[] | null;
-    totalName: [] | undefined[];
-    singleProductPrice: [] | undefined[];
+    totalQuantity:number[];
+    totalName: string[];
+    singleProductPrice: number[];
 }
 
 type FavouriteProduct = {
@@ -85,6 +85,20 @@ const orderPlaced = (
   return newItem;
 };
 
+function SearchNow(currentValue:any , action:any){
+
+  let newValue = currentValue
+
+    if(action.type == 'SEARCHING'){
+      newValue = action.payload.text
+    }
+
+    return newValue
+    
+}
+
+
+
 // Create context with proper typing
 interface StoreContextType {
   data: Product[];
@@ -95,8 +109,10 @@ interface StoreContextType {
   DecreaseQuanity: (id: string) => void;
   favouriteProductItem: FavouriteProduct[];
   deleteFavouriteProduct: (id: string) => void;
-  orderplaced: (totalPrice: number, totalQuantity: [] | number[] | undefined[] | null, totalName: [] | undefined[], singleProductPrice: [] | undefined[]) => void;
-  placedOrder: ORDER[] | undefined;
+  orderplaced: (totalPrice: number, totalQuantity: number[], totalName: string[], singleProductPrice: number[]) => void;
+  placedOrder: ORDER[];
+  Search : (text:string) => void;
+  search:string
 }
 
 export const StoreData = createContext<StoreContextType>({
@@ -109,7 +125,9 @@ export const StoreData = createContext<StoreContextType>({
   favouriteProductItem: [],
   deleteFavouriteProduct: () => {},
   orderplaced: () => {},
-  placedOrder: []
+  placedOrder: [],
+  Search : ()=>{},
+  search:""
 });
 
 interface StoreDataProviderProps {
@@ -120,6 +138,8 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
   const [data, dispatchData] = useReducer(reducer, []);
   const [favouriteProductItem, dispatchFavouriteProduct] = useReducer(reducerFavourite, []);
   const [placedOrder, dispatchPlcaedOrder] = useReducer(orderPlaced, []);
+
+  const [search, dispatchSearch] = useReducer(SearchNow,"")
 
   function addProduct(
     name: string,
@@ -160,10 +180,11 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
 
   function orderplaced(
     totalPrice: number,
-    totalQuantity: [] | number[] | undefined[] | null,
-    totalName: [] | undefined[],
-    singleProductPrice: [] | undefined[]
+    totalQuantity:number[],
+    totalName: string[],
+    singleProductPrice: number[] 
   ) {
+
     const placedItem = {
       totalPrice,
       totalQuantity,
@@ -175,6 +196,18 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
       type: "ORDER_PLACED",
       payload: { placedItem }
     });
+  }
+
+
+
+  function Search(text:string){
+    console.log("Searching",text)
+      let Search_Action = {
+        type : "SEARCHING",
+        payload : {text}
+      }
+
+      dispatchSearch(Search_Action)
   }
 
   return (
@@ -189,7 +222,9 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
         favouriteProduct,
         deleteFavouriteProduct,
         orderplaced,
-        placedOrder
+        placedOrder,
+        Search,
+        search
       }}
     >
       {children}

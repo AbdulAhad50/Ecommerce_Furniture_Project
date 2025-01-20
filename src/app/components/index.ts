@@ -10,3 +10,5 @@ import Checkout from "../checkout/Checkout";
 import Intput from "../checkout/Intput";
 import Country from "../checkout/Country";
 import Cart from "../DesktopCart/DesktopBarCart";
+
+console.log(Cart,Country,Intput,Checkout,ShopingCard,GridComponent,Nav,Footer,Card,Browse,Achievement,Hero)
