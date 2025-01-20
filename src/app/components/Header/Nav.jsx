@@ -12,6 +12,7 @@ import { MenuIcon } from "lucide-react";
 import DesktopCart from "@/app/DesktopCart/DesktopCart";
 import { useContext, useState } from "react";
 import { StoreData } from "@/app/store/StoreContext";
+
 import {
   Popover,
   PopoverContent,

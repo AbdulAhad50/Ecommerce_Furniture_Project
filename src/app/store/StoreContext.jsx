@@ -51,6 +51,21 @@ const orderPlaced = (currentPlcaedOrder, action) => {
   return newItem;
 };
 
+
+function SearchNow(currentValue , action){
+
+  let newValue = currentValue
+
+    if(action.type == 'SEARCHING'){
+      newValue = action.payload.text
+    }
+
+    return newValue
+    
+}
+
+
+
 // Create context with proper typing
 export const StoreData = createContext({
   data: [],
@@ -62,13 +77,16 @@ export const StoreData = createContext({
   favouriteProductItem: [],
   deleteFavouriteProduct: () => {},
   orderplaced: () => {},
-  placedOrder: []
+  placedOrder: [],
+  Search : ()=>{},
+  searchData,
 });
 
-const StoreDataProvider = ({ children }) => {
+const StoreDataProviderThis = ({ children }) => {
   const [data, dispatchData] = useReducer(reducer, []);
   const [favouriteProductItem, dispatchFavouriteProduct] = useReducer(reducerFavourite, []);
   const [placedOrder, dispatchPlcaedOrder] = useReducer(orderPlaced, []);
+  const [searchData, dispatchSearch] = useReducer(SearchNow,"")
 
   function addProduct(name, price, image, id, quantity = 0) {
     const newItem = { name, price, image, quantity, id };
@@ -110,6 +128,20 @@ const StoreDataProvider = ({ children }) => {
     });
   }
 
+
+
+
+  function Search(text){
+    console.log("Searching.....",text)
+      let Search_Action = {
+        type : "SEARCHING",
+        payload : {text}
+      }
+
+      dispatchSearch(Search_Action)
+  }
+
+
   return (
     <StoreData.Provider
       value={{
@@ -122,7 +154,9 @@ const StoreDataProvider = ({ children }) => {
         favouriteProduct,
         deleteFavouriteProduct,
         orderplaced,
-        placedOrder
+        placedOrder,
+        Search,
+        searchData
       }}
     >
       {children}

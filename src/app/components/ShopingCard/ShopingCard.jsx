@@ -3,33 +3,56 @@ import { client } from '@/sanity/lib/client'
 import Card from '../Cards/Card'
 import style from './shopingcard.module.css'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { StoreData } from '@/app/store/StoreContext'
+
+
 
 
 
 const ShopingCard = () => {
   const [product, setProduct] = useState([])
-  const [arrayMethod, setArrayMethod] = useState([])
+  const [arrayMethod, setArrayMethod] = useState([]);
+  const [searching, setSeraching] = useState("")
+  let {search} = useContext(StoreData);
 
   useEffect(() => {
     async function fetchData() {
-      const products = await client.fetch('*[_type == "product"]')
-      setProduct(products)
+
+      if(search){
+          const products = await client.fetch('*[_type == "product"]')
+          console.log("searching, ",products)
+
+          let data = products.filter((elem)=> elem.name.toLowerCase() == search.toLowerCase());
+          console.log("::::::",data[0]);
+          setProduct([data[0]])
+
+      }
+      else{
+        const products = await client.fetch('*[_type == "product"]')
+        setProduct(products)
+      } 
+
+      
     }
 
     console.log("...",arrayMethod)
 
     fetchData()
-  }, [])
+  }, [search])
 
   useEffect(() => {
-    // When the products are fetched, slice the first 12 items into arrayMethod
-    setArrayMethod(product.slice(0, 12))
+   
+    if(product.length > 1){
+      setArrayMethod(product.slice(0, 12))
+      console.log("Lenght")
+    }else{
+      console.log(">L>L")
+      setArrayMethod(product)
+    }
   }, [product])
 
-  function Search(){
 
-  }
 
   return (
     <div className='flex flex-col items-center mt-10 mb-5 max-w-[1440px]'>

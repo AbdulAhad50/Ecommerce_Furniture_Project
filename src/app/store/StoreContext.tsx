@@ -90,6 +90,7 @@ function SearchNow(currentValue:any , action:any){
   let newValue = currentValue
 
     if(action.type == 'SEARCHING'){
+      // console.log("././.",action.payload.text)
       newValue = action.payload.text
     }
 
@@ -97,6 +98,17 @@ function SearchNow(currentValue:any , action:any){
     
 }
 
+
+function Filter(currentValue:any, action:any){
+  let newValue = currentValue;
+
+  if(action.type == 'FILTER_PRICE'){
+      console.log(Number(action.payload.price))
+      newValue = Number(action.payload.price)
+  }
+
+  return newValue
+}
 
 
 // Create context with proper typing
@@ -112,7 +124,9 @@ interface StoreContextType {
   orderplaced: (totalPrice: number, totalQuantity: number[], totalName: string[], singleProductPrice: number[]) => void;
   placedOrder: ORDER[];
   Search : (text:string) => void;
-  search:string
+  search:string,
+  filter:number,
+  FilterData : (price:string)=>void;
 }
 
 export const StoreData = createContext<StoreContextType>({
@@ -127,7 +141,9 @@ export const StoreData = createContext<StoreContextType>({
   orderplaced: () => {},
   placedOrder: [],
   Search : ()=>{},
-  search:""
+  search:"",
+  filter:0,
+  FilterData : ()=>{}
 });
 
 interface StoreDataProviderProps {
@@ -140,6 +156,8 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
   const [placedOrder, dispatchPlcaedOrder] = useReducer(orderPlaced, []);
 
   const [search, dispatchSearch] = useReducer(SearchNow,"")
+  const [filter, dispatchFilter] = useReducer(Filter,0)
+  
 
   function addProduct(
     name: string,
@@ -199,7 +217,6 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
   }
 
 
-
   function Search(text:string){
     console.log("Searching",text)
       let Search_Action = {
@@ -209,6 +226,19 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
 
       dispatchSearch(Search_Action)
   }
+
+
+  function FilterData(price:string){
+      console.log("******",price);
+
+      let Filter_Value = {
+        type:"FILTER_PRICE",
+        payload: {price}
+      }
+
+      dispatchFilter(Filter_Value)
+  }
+  
 
   return (
     <StoreData.Provider
@@ -224,7 +254,9 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
         orderplaced,
         placedOrder,
         Search,
-        search
+        search,
+        filter,
+        FilterData
       }}
     >
       {children}
