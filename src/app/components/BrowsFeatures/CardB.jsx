@@ -1,6 +1,6 @@
 import style from './browse.module.css'
 import Image from "next/image"
-const CardB = ({image,name}:{image:string, name:string}) => {
+const CardB = ({image,name}) => {
   return (
 <div className='relative w-[300px] h-[500px] flex flex-col justify-center items-center'>
     <Image 

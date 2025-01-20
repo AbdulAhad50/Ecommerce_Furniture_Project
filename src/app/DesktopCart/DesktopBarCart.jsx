@@ -6,11 +6,12 @@ import Link from "next/link";
 import { BsBagX } from "react-icons/bs";
 import style from './carts.module.css';
 
+
 const Cart = () => {
-  const [dataFind, setDataFind] = useState<string[]>([]);
+  const [dataFind, setDataFind] = useState([]);
   const { data, deleteProduct } = useContext(StoreData);
 
-  const nameArray: string[] = [];
+  const nameArray = [];
   const totalPriceDataRef = useRef(0);
 
   useEffect(() => {
@@ -23,8 +24,8 @@ const Cart = () => {
     }
 
     if (data?.length > 0) {
-      const truncateLongWords = (arr: string[]) => {
-        return arr.map((word: string) => {
+      const truncateLongWords = (arr) => {
+        return arr.map((word) => {
           if (word.length > 10) {
             return word.slice(0, 14) + "..."; // Truncate long words
           }

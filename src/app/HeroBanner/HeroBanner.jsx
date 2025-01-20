@@ -1,8 +1,8 @@
 import Image from "next/image"
 import style from './heroBanner.module.css'
 
-const HeroBanner = ({crumbs, pageName}:{crumbs:string, pageName:string}) => {
-  // console.log(params)
+const HeroBanner = ({crumbs, pageName}) => {
+
   return (
     <div className='relative max-w-[1440px] h-[416px] mx-[auto]'>
         <div className='max-w-[1440px] h-[416px] '>

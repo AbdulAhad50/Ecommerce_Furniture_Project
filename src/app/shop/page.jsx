@@ -4,32 +4,27 @@ import Filter from './Filter'
 import Card from '../components/Cards/Card'
 import style from './shop.module.css'
 import Achievement from '../components/achievement/Achievement'
-import React, {useState } from 'react'
+import React, {useState,useEffect } from 'react'
 import { client } from '@/sanity/lib/client'
 
 
-interface T{
-  _id:string;
-  price:number;
-  image:{asset: {
-    _ref: string,
-    _type: string
-  },
-  _type:string},
-  name:string;
-  description:string
-}
-
 const Page = () => {
 
-  const [productData, setProduct] = useState<T[]>([])
+  const [productData, setProduct] = useState([])
   
-    async function FetchData() {
-      const products = await client.fetch('*[_type == "product"]')
-      setProduct(products)
-    }
-
-    FetchData()
+    useEffect(()=>{
+      async function FetchData() {
+        try{
+          const products = await client.fetch('*[_type == "product"]')
+          console.log(products)
+          setProduct(products)
+        }catch(err){
+          console.log("Err",err)
+        }
+      }
+  
+      FetchData()
+    },[])
     
 
     
@@ -51,7 +46,7 @@ const Page = () => {
               }} description={product.description} name={product.name} bgDisc='blue'/> // Passing the product data to Card component
             ))
           ) : (
-            <p>Loading products...</p> // Display loading message while data is being fetched
+            <p>Loading...</p> // Display loading message while data is being fetched
           )}
         </div>
       </div>

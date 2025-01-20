@@ -1,4 +1,4 @@
-"use client"  // This makes the component a Client Component
+"use client";  // This makes the component a Client Component
 
 import Image from "next/image";
 import style from './card.module.css';
@@ -8,21 +8,11 @@ import Link from "next/link";
 import { useContext } from "react";
 import { StoreData } from "@/app/store/StoreContext";
 
-interface ID {
-  price: number, 
-  discountPercentage: number | string, 
-  image: { asset: { _ref: string; _type: string }; _type: string }, 
-  description: string, 
-  name: string, 
-  bgDisc: string, 
-  id: string 
-}
-
-const Card = ({ price, discountPercentage, name, id, description, image, bgDisc }: ID) => {
+const Card = ({ price, discountPercentage, name, id, description, image, bgDisc }) => {
 
   const { addProduct, favouriteProduct } = useContext(StoreData);
 
-  const truncateText = (text: string, length: number = 15) => {
+  const truncateText = (text, length = 15) => {
     if (text?.length > length) {
       return text.substring(0, length) + '...';
     }
@@ -30,13 +20,12 @@ const Card = ({ price, discountPercentage, name, id, description, image, bgDisc 
   };
 
   const Adding = () => {
-    addProduct( name, price, image , id);
+    addProduct(name, price, image, id);
   };
 
   const AddingFavItem = () => {
-    favouriteProduct( name, price, image , id);
+    favouriteProduct(name, price, image, id);
   };
-
 
   return (
     <div className={`relative w-[285px] h-[446px] ${style.MainDiv}`}>
@@ -59,7 +48,7 @@ const Card = ({ price, discountPercentage, name, id, description, image, bgDisc 
           Rp {price} &nbsp; 
           {discountPercentage && (
             <span className={`${style.cardRealDiscount}`}>
-              <s>Rp {price + (price * (discountPercentage as number) / 100)}</s>
+              <s>Rp {price + (price * (discountPercentage) / 100)}</s>
             </span>
           )}
         </p>

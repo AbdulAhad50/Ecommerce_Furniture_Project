@@ -1,6 +1,6 @@
 import style from './biling.module.css'
 import Country from './Country'
-const Intput = ({label}:{label:string}) => {
+const Intput = ({label}) => {
   return (
    <div>
       <div className='flex flex-col gap-4'>
@@ -13,7 +13,7 @@ const Intput = ({label}:{label:string}) => {
 
 export default Intput
 
-export const Drag = ({label}:{label:string})=>{
+export const Drag = ({label})=>{
     return(
       <div className='flex flex-col gap-4'>
           <label htmlFor="" className={`${style.bilingLabel}`}>{label}</label>

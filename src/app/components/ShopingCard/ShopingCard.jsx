@@ -6,16 +6,10 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 
-interface Product {
-  name: string,
-  _id: string,
-  price: number,
-  description: string
-}
 
 const ShopingCard = () => {
-  const [product, setProduct] = useState<Product[]>([])
-  const [arrayMethod, setArrayMethod] = useState<Product[]>([])
+  const [product, setProduct] = useState([])
+  const [arrayMethod, setArrayMethod] = useState([])
 
   useEffect(() => {
     async function fetchData() {
@@ -43,7 +37,7 @@ const ShopingCard = () => {
 
       <div className={`grid grid-cols-3 gap-8 justify-center mx-auto ${style.smallSizeScreen}`}>
         {arrayMethod.length > 0 ? (
-          arrayMethod.map((product: Product) => (
+          arrayMethod.map((product) => (
             <Card key={product?._id} id={product?._id} price={product?.price} discountPercentage={''} image={{
               asset: {
                 _ref: '',
