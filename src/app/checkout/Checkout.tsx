@@ -68,29 +68,9 @@ const Checkout = () => {
                 </form>
 
                 <div className={`w-[40%] flex flex-col gap-3 ${style.customerDetail}`}>
-                    <div className='flex flex-col gap-4'>
-                        <p className={`${style.placeDetail}`}>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
 
-                        <div className='flex flex-col gap-3'>
-                            <div className='flex gap-4 items-center'>
-                                <input type="radio" id='delivery' name='delivery' />
-                                <label htmlFor="delivery" className={`${style.deliverySelect}`}>Direct Bank Transfer</label>
-                            </div>
 
-                            <div className='flex gap-4 items-center'>
-                                <input type="radio" id='delivery' name='delivery' />
-                                <label htmlFor="delivery" className={`${style.deliverySelect}`}>Cash On Delivery</label>
-                            </div>
-                        </div>
-
-                        <p className={`${style.policy}`}>
-                            Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <Link href={""} className='font-bold'>privacy policy.</Link>
-                        </p>
-                    </div>
-
-                    <button className={`${style.btn}`}>Place order</button>
-
-                    <div className='mt-5'>
+                <div className='mt-5'>
                         <div className='flex justify-between items-center'>
                             <h1 className={`${style.placeDetailProduct}`}>Product</h1>
                             <p className={`${style.placeDetailProductSubTotal}`}>Subtotal</p>
@@ -127,6 +107,34 @@ const Checkout = () => {
                             </p>
                         </div>
                     </div>
+
+
+
+
+
+                    <div className='flex flex-col gap-4'>
+                        <p className={`${style.placeDetail}`}>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
+
+                        <div className='flex flex-col gap-3'>
+                            <div className='flex gap-4 items-center'>
+                                <input type="radio" id='delivery' name='delivery' />
+                                <label htmlFor="delivery" className={`${style.deliverySelect}`}>Direct Bank Transfer</label>
+                            </div>
+
+                            <div className='flex gap-4 items-center'>
+                                <input type="radio" id='delivery' name='delivery' />
+                                <label htmlFor="delivery" className={`${style.deliverySelect}`}>Cash On Delivery</label>
+                            </div>
+                        </div>
+
+                        <p className={`${style.policy}`}>
+                            Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <Link href={""} className='font-bold'>privacy policy.</Link>
+                        </p>
+                    </div>
+
+                    <button className={`${style.btn}`}>Place order</button>
+
+                    
                 </div>
             </div>
         </div>

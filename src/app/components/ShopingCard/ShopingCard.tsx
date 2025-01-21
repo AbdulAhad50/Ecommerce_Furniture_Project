@@ -30,6 +30,7 @@ const ShopingCard = () => {
       }
       else{
         const products = await client.fetch('*[_type == "product"]')
+        console.log(products);
         setProduct(products)
       } 
 
