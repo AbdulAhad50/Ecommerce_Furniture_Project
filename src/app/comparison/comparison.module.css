@@ -1,0 +1,122 @@
+.Heading{
+  font-family: Poppins;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 35.42px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+}
+
+.Add{
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30.36px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+}
+
+.select{
+  width: 242px;
+  height: 39px;
+  top: 539px;
+  left: 1073px;
+  gap: 0px;
+  border-radius: 6px;
+  opacity: 0px;
+  background: #B88E2F;
+  color: white;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 17.71px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  outline: none;
+  padding:0 10px;
+}
+
+.reviewCount{
+  font-family: Poppins;
+font-size: 22px;
+font-weight: 500;
+line-height: 27px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+}
+
+.name{
+  font-family: Poppins;
+font-size: 24px;
+font-weight: 500;
+line-height: 30.36px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+}
+
+
+.price{
+  font-family: Poppins;
+font-size: 18px;
+font-weight: 500;
+line-height: 27px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+}
+
+.viewMoreStyle{
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #727272;
+}
+
+.BtnCard{
+  width: 215px;
+  height: 64px;
+  top: 2997px;
+  left: 394px;
+  gap: 0px;
+  border: 1px;
+  opacity: 0px;
+  background: #B88E2F;
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: white;
+
+}
+
+
+.BtnStyle{
+  background: #000000;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: white;
+  height: 40px;
+  width: 200px;
+}

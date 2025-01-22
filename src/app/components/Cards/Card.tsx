@@ -1,4 +1,4 @@
-"use client";  // This makes the component a Client Component
+"use client";  // This ensures the component is treated as a Client Component
 
 import Image from "next/image";
 import style from './card.module.css';
@@ -7,10 +7,13 @@ import { FaRegHeart } from "react-icons/fa";
 import Link from "next/link";
 import { useContext } from "react";
 import { StoreData } from "@/app/store/StoreContext";
+import { MdCompareArrows } from "react-icons/md";
+import { useRouter } from 'next/router';  // Import useRouter for redirection
 
 const Card = ({ price, discountPercentage, name, id, description, image, bgDisc }) => {
 
-  const { addProduct, favouriteProduct } = useContext(StoreData);
+  const { addProduct, favouriteProduct,CompareProduct } = useContext(StoreData);
+  // const router = useRouter();  // Initialize the useRouter hook
 
   const truncateText = (text, length = 15) => {
     if (text?.length > length) {
@@ -27,9 +30,15 @@ const Card = ({ price, discountPercentage, name, id, description, image, bgDisc 
     favouriteProduct(name, price, image, id);
   };
 
+  const Compare = () => {
+    CompareProduct(id)
+    // window.location.href = '/comparison';
+
+  };
+
   return (
     <div className={`relative w-[285px] h-[446px] ${style.MainDiv}`}>
-      <div className='w-[285px] h-[301px] '>
+      <div className='w-[285px] h-[301px]'>
         <Image 
           src={"/card/image1.svg"} // Dynamic image URL from props
           alt={name} 
@@ -73,6 +82,11 @@ const Card = ({ price, discountPercentage, name, id, description, image, bgDisc 
           <div className={`${style.HoverEffectCardStyle} flex items-center gap-2`}>
             <FaRegHeart onClick={AddingFavItem}/>
             <span>Like</span>
+          </div>
+
+          <div className={`${style.HoverEffectCardStyle} flex items-center gap-2`}>
+            <MdCompareArrows onClick={Compare} />
+            <button onClick={Compare}><Link href={"/comparison"}>Compare</Link></button>
           </div>
         </div>
       </div>

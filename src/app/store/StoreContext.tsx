@@ -110,6 +110,17 @@ function Filter(currentValue:any, action:any){
   return newValue
 }
 
+// Compare Product
+function Compare(currentValue:any, action:any){
+    let newValue = currentValue ;
+    if(action.type == 'COMPARE_PRODUCT'){
+      newValue = [action.payload.id];
+    }
+
+    return newValue
+}
+
+
 
 // Create context with proper typing
 interface StoreContextType {
@@ -127,6 +138,8 @@ interface StoreContextType {
   search:string,
   filter:number,
   FilterData : (price:string)=>void;
+  CompareProduct:(id:string)=> void,
+  compare:string[]
 }
 
 export const StoreData = createContext<StoreContextType>({
@@ -143,7 +156,9 @@ export const StoreData = createContext<StoreContextType>({
   Search : ()=>{},
   search:"",
   filter:0,
-  FilterData : ()=>{}
+  FilterData : ()=>{},
+  CompareProduct: ()=>{},
+  compare:[]
 });
 
 interface StoreDataProviderProps {
@@ -155,8 +170,9 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
   const [favouriteProductItem, dispatchFavouriteProduct] = useReducer(reducerFavourite, []);
   const [placedOrder, dispatchPlcaedOrder] = useReducer(orderPlaced, []);
 
-  const [search, dispatchSearch] = useReducer(SearchNow,"")
-  const [filter, dispatchFilter] = useReducer(Filter,0)
+  const [search, dispatchSearch] = useReducer(SearchNow,"");
+  const [filter, dispatchFilter] = useReducer(Filter,0);
+  const [compare, dispatchCompare] = useReducer(Compare, [])
   
 
   function addProduct(
@@ -238,6 +254,21 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
 
       dispatchFilter(Filter_Value)
   }
+
+
+  function CompareProduct(id:string){
+      console.log("Id Mil Gaye", id)
+
+      let New_Action = {
+        type : 'COMPARE_PRODUCT',
+        payload: {id}
+      }
+
+      dispatchCompare(New_Action)
+  }
+
+
+
   
 
   return (
@@ -256,7 +287,9 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
         Search,
         search,
         filter,
-        FilterData
+        FilterData,
+        CompareProduct,
+        compare
       }}
     >
       {children}
