@@ -50,7 +50,7 @@ const ProductCompare = () => {
               <div className="product-image">
                 {/* Use dynamic image source */}
                 <Image
-                  src={product.image ? product.image : '/card/image1.svg'}  // Use dynamic image data or fallback
+                  src={product.image ? product.image : `/ProductImages/images/${product._id}.jpg`}  // Use dynamic image data or fallback
                   alt={product.name || 'Product Image'}
                   width={200}
                   height={200}

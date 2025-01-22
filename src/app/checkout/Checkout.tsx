@@ -7,7 +7,7 @@ import { StoreData } from '../store/StoreContext';
 import { useContext, useEffect, useState } from 'react';
 
 const Checkout = () => {
-    const [nameData, setNameData] = useState([]); 
+    const [nameData, setNameData] = useState<string[]>([]); 
 
     const { placedOrder } = useContext(StoreData);
 
@@ -22,7 +22,7 @@ const Checkout = () => {
     useEffect(() => {
         // Ensure that items and totalName are defined before calling the function
         if (totalName?.length > 0) {
-            const truncateLongWords = (arr) => {
+            const truncateLongWords = (arr:string[]) => {
                 return arr.map((word) => {
                     if (word.length > 10) {
                         return word.slice(0, 10) + '...';  // Truncate long words
