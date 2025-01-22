@@ -43,21 +43,21 @@ const Page = () => {
   }
 
 
-  function FormSubmit(event){
-      event.preventDefault();
-
-      const nameValue = event.target[0].value
-      const lastName = event.target[1].value
-      const emailValue = event.target[2].value
+  function FormSubmit(event: React.FormEvent<HTMLFormElement>){
+    //   event.preventDefault();
+    // console.log(event)
+    //   const nameValue = event.target[0].value
+    //   const lastName = event.target[1].value
+    //   const emailValue = event.target[2].value
       
-      setName(nameValue);
-      setLastName(lastName);
-      setEmail(emailValue);
+    //   setName(nameValue);
+    //   setLastName(lastName);
+    //   setEmail(emailValue);
 
-      event.target[0].value = ''
-      event.target[1].value = ''
-      event.target[2].value = ''
-      event.target[3].value = ''
+    //   event.target[0].value = ''
+    //   event.target[1].value = ''
+    //   event.target[2].value = ''
+    //   event.target[3].value = ''
   }
 
   return (
