@@ -20,7 +20,7 @@ interface ORDER {
 type FavouriteProduct = {
   name: string;
   price: number;
-  image: { asset: { _ref: string; _type: string }; _type: string };
+  image: string;
   id: string;
 };
 
@@ -126,7 +126,7 @@ function Compare(currentValue:any, action:any){
 interface StoreContextType {
   data: Product[];
   addProduct: (name: string, price: number, image:string , id: string, quantity: number) => void;
-  favouriteProduct: (name: string, price: number, image: { asset: { _ref: string; _type: string }; _type: string }, id: string) => void;
+  favouriteProduct: (name: string, price: number, image: string, id: string) => void;
   deleteProduct: (id: string) => void;
   upDateQuantity: (id: string) => void;
   DecreaseQuanity: (id: string) => void;
@@ -197,7 +197,7 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
   function favouriteProduct(
     name: string,
     price: number,
-    image: { asset: { _ref: string; _type: string }; _type: string },
+    image: string,
     id: string
   ) {
     const newFavouriteItem: FavouriteProduct = { name, price, image, id };

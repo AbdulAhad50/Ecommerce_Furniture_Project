@@ -10,7 +10,7 @@ const Favourite = () => {
   const { favouriteProductItem, deleteFavouriteProduct } = useContext(StoreData);
   console.log("",favouriteProductItem);
 
-  function deleteItem(id){
+  function deleteItem(id:string){
     deleteFavouriteProduct(id)
   }
 
@@ -38,7 +38,7 @@ const Favourite = () => {
   
             <div className="w-[80px] h-[100px] ml-4">
               <Image
-                src={"/card/image1.svg"}
+                src={`/ProductImages/images/${elem.id}.jpg`}
                 alt={""}
                 width={80}
                 height={100}

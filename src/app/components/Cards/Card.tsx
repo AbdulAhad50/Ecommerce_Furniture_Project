@@ -8,14 +8,14 @@ import Link from "next/link";
 import { useContext } from "react";
 import { StoreData } from "@/app/store/StoreContext";
 import { MdCompareArrows } from "react-icons/md";
-import { useRouter } from 'next/router';  // Import useRouter for redirection
+// import { useRouter } from 'next/router';  // Import useRouter for redirection
 
-const Card = ({ price, discountPercentage, name, id, description, image, bgDisc }) => {
+const Card = ({ price, discountPercentage, name, id, description, image, bgDisc }:{price:number, discountPercentage:number, name:string, id:string, description:string, image:string, bgDisc:string}) => {
 
   const { addProduct, favouriteProduct,CompareProduct } = useContext(StoreData);
   // const router = useRouter();  // Initialize the useRouter hook
 
-  const truncateText = (text, length = 15) => {
+  const truncateText = (text:string, length = 15) => {
     if (text?.length > length) {
       return text.substring(0, length) + '...';
     }
