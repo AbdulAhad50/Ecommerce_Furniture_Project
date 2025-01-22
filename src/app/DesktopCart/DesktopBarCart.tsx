@@ -8,7 +8,7 @@ import style from './carts.module.css';
 
 
 const Cart = () => {
-  const [dataFind, setDataFind] = useState([]);
+  const [dataFind, setDataFind] = useState<string[]>([]);
   const { data, deleteProduct } = useContext(StoreData);
 
   const nameArray:string[] = [];
@@ -24,7 +24,7 @@ const Cart = () => {
     }
 
     if (data?.length > 0) {
-      const truncateLongWords = (arr) => {
+      const truncateLongWords = (arr:string[]) => {
         return arr.map((word) => {
           if (word.length > 10) {
             return word.slice(0, 14) + "..."; // Truncate long words
