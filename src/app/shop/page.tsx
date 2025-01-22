@@ -8,6 +8,17 @@ import React, { useState, useEffect, useContext } from 'react'
 import { client } from '@/sanity/lib/client'
 import { StoreData } from '../store/StoreContext'
 
+
+interface T {
+  name:string,
+  _id:string,
+  description:string,
+  price:number,
+  discountPercentage:string
+}
+
+
+
 const Page = () => {
 
   const [productData, setProduct] = useState([])
@@ -24,7 +35,7 @@ const Page = () => {
         
         if (filter) {
           products = await client.fetch('*[_type == "product"]');
-          let filterDataFind = products.filter((elem) => elem.price >= filter);
+          let filterDataFind = products.filter((elem:T) => elem.price >= filter);
           setProduct(filterDataFind);
         } else {
           products = await client.fetch('*[_type == "product"]');
@@ -74,8 +85,8 @@ const Page = () => {
         <div className={`flex flex-col flex-wrap mt-10`}>
           <div className={`grid grid-cols-3 gap-20 mx-auto justify-center ${style.smallScreenSizeCard}`}>
             {currentProducts.length > 0 ? (
-              currentProducts.map((product) => (
-                <Card key={product._id} id={product._id} price={product.price} discountPercentage={''} image={`ProductImages/images/${product?._id}`} description={product.description} name={product.name} bgDisc='blue' />
+              currentProducts.map((product:T) => (
+                <Card key={product._id} id={product._id} price={product.price} discountPercentage={0} image={`ProductImages/images/${product?._id}`} description={product.description} name={product.name} bgDisc='blue' />
               ))
             ) : (
               <p>No products found</p>

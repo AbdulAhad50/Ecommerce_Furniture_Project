@@ -12,13 +12,13 @@ import {
   } from "@/components/ui/popover"
 
 
-const Filter = ({totalProduct}) => {
+const Filter = ({totalProduct}:{totalProduct:number}) => {
 
 
     const [selectedValue, setSelectedValue] = useState("");
 
-    const handleSelectChange = (event) => {
-      setSelectedValue(event.target.value);
+    const handleSelectChange = (event:{target:{value:string}}) => {
+      setSelectedValue(event.target?.value);
     };
 
 
