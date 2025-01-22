@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 
 const Page = () => {
 
-  let [count, setCount] = useState(25); // Initialize the countdown state
+  let [count, setCount] = useState(30); // Initialize the countdown state
 
   useEffect(() => {
     // Start the countdown timer when the component mounts
