@@ -94,7 +94,7 @@ const Nav = () => {
                   </span>
                 </SheetTrigger>
                 <SheetContent>
-                  <DesktopCart />
+                    <DesktopCart />
                 </SheetContent>
               </Sheet>
             </Link>
