@@ -4,7 +4,7 @@ import Image from 'next/image';
 import style from './product.module.css';
 import { useState } from 'react';
 
-const Description = ({ descriptionData, AdditionalInformationData }) => {
+const Description = ({ descriptionData, AdditionalInformationData }:{descriptionData:string, AdditionalInformationData:string}) => {
     const [description, setDescription] = useState(true);
     const [review, setReview] = useState(false);
     const [AdditionalInformation, setAdditionalInformation] = useState(false);
