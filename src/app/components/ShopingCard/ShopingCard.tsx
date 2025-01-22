@@ -7,12 +7,19 @@ import { useContext, useEffect, useState } from 'react'
 import { StoreData } from '@/app/store/StoreContext'
 
 
+interface T{
+  _id:string,
+  name:string,
+  price:number,
+  description:string,
+  discountPercentage:number
+}
 
 
 
 const ShopingCard = () => {
-  const [product, setProduct] = useState([])
-  const [arrayMethod, setArrayMethod] = useState([]);
+  const [product, setProduct] = useState<T[]>([])
+  const [arrayMethod, setArrayMethod] = useState<T[]>([]);
   const [searching, setSeraching] = useState("")
   let {search} = useContext(StoreData);
 
@@ -22,7 +29,7 @@ const ShopingCard = () => {
       if(search){
           const products = await client.fetch('*[_type == "product"]')
 
-          let data = products.filter((elem)=> elem.name.toLowerCase() == search.toLowerCase());
+          let data = products.filter((elem:T)=> elem.name.toLowerCase() == search.toLowerCase());
           console.log("::::::",data[0]);
           setProduct([data[0]])
 
@@ -57,10 +64,10 @@ const ShopingCard = () => {
 
       <div className={`grid grid-cols-3 gap-8 justify-center mx-auto ${style.smallSizeScreen}`}>
         {arrayMethod.length > 0 ? (
-          arrayMethod.map((product) => {
+          arrayMethod.map((product:T) => {
             console.log(`ProductImages/images/${product?._id}`)
             return (
-            <Card key={product?._id} id={product?._id} price={product?.price} discountPercentage={''} image={`ProductImages/images/${product?._id}`} description={product?.description} name={product?.name} bgDisc='blue' />
+            <Card key={product?._id} id={product?._id} price={product?.price} discountPercentage={0} image={`ProductImages/images/${product?._id}`} description={product?.description} name={product?.name} bgDisc='blue' />
           )
 })
         ) : (

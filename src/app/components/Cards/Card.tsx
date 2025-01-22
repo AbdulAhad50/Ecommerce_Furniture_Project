@@ -55,7 +55,7 @@ const Card = ({ price, discountPercentage, name, id, description, image, bgDisc 
         {/* Displaying price with possible discount */}
         <p className={`${style.cardPrice}`}>
           Rp {price} &nbsp; 
-          {discountPercentage && (
+          {discountPercentage === 0 ? "" : (
             <span className={`${style.cardRealDiscount}`}>
               <s>Rp {price + (price * (discountPercentage) / 100)}</s>
             </span>
@@ -66,7 +66,7 @@ const Card = ({ price, discountPercentage, name, id, description, image, bgDisc 
       {/* Discount badge */}
       <div className={`absolute flex justify-center items-center top-3 right-3 z-10 w-[48px] h-[48px] rounded-full 
         ${bgDisc === 'red' ? "bg-[#E97171]" : null} ${style.cardDiscount}`}>
-        {discountPercentage}
+        {discountPercentage === 0 ? "" : discountPercentage}
       </div>
 
       {/* Hover effect */}
