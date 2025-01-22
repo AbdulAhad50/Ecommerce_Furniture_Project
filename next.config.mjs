@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 export default {
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   eslint:{
     ignoreDuringBuilds:true
