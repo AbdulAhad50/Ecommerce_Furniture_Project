@@ -7,8 +7,8 @@ import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
 
 
-const Page = ({ params }) => {
-  const [product, setProduct] = useState(null);
+const Page = ({ params }:{params:{product:string}}) => {
+  const [product, setProduct] = useState<any>(null);
   const [loading, setLoading] = useState(true); 
   console.log(params);
 
