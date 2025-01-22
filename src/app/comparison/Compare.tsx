@@ -2,7 +2,7 @@ import { Rating } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 import style from './comparison.module.css';
-import ProductCompare from './ProductCompare';
+// import ProductCompare from './ProductCompare';
 
 interface T {
   name: string;

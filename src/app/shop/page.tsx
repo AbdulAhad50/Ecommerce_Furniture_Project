@@ -1,12 +1,15 @@
 "use client"
 import HeroBanner from '../HeroBanner/HeroBanner'
 import Filter from './Filter'
-import Card from '../components/Cards/Card'
+// import Card from './component/Cards/Card'
 import style from './shop.module.css'
-import Achievement from '../components/achievement/Achievement'
+// import Achievement from './component/achievement/Achievement'
 import React, { useState, useEffect, useContext } from 'react'
 import { client } from '@/sanity/lib/client'
 import { StoreData } from '../store/StoreContext'
+import Card from '../component/Cards/Card'
+import Achievement from '../component/achievement/Achievement'
+
 
 
 interface T {

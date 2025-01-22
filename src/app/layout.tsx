@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import "./globals.css";
-import Nav from "./components/Header/Nav";
-import Footer from "./components/Footer/Footer";
 import StoreDataProvider from "./store/StoreContext";
+import Footer from "./component/Footer/Footer";
+import Nav from "./component/Header/Nav";
 
 export const metadata = {
   title: "Create Next App",

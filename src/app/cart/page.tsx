@@ -1,6 +1,6 @@
+import Achievement from '../component/achievement/Achievement'
 import HeroBanner from '../HeroBanner/HeroBanner'
 import Cart from './Cart'
-import Achievement from '../components/achievement/Achievement'
 
 
 const page = () => {

@@ -2,7 +2,7 @@ import React from 'react'
 import HeroBanner from '../HeroBanner/HeroBanner'
 import style from './contact.module.css'
 import Contact from './Contact'
-import Achievement from '../components/achievement/Achievement'
+import Achievement from '../component/achievement/Achievement'
 
 
 

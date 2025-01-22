@@ -41,17 +41,13 @@ const Page = () => {
 
 
   const handleCompareClick = () => {
-    console.log("***", selectedProduct);
+    // console.log("***", selectedProduct);
   
     // Filter data based on selected product ID
     const filterData = allProduct.filter((elem) => elem._id === selectedProduct);
-  
-    // Set the filtered data into the state
+
     setCompare(filterData);
-    console.log("----", filterData);  // This will log the correct filtered data
-  
-    // We no longer need to log `compareProduct` right after calling `setCompare` since it will be updated asynchronously
-    // You can log `compareProduct` inside another `useEffect` that listens for changes in `compareProduct`
+
   };
 
   console.log("......",compareProduct);

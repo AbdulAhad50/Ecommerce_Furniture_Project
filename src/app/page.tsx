@@ -1,7 +1,8 @@
-import Browse from './components/BrowsFeatures/Browse';
-import GridComponent from './components/Furniture/Furniture';
-import Hero from './components/HeroSection/Hero'
-import ShopingCard from './components/ShopingCard/ShopingCard';
+import Browse from "./component/BrowsFeatures/Browse";
+import GridComponent from "./component/Furniture/Furniture";
+import Hero from "./component/HeroSection/Hero";
+import ShopingCard from "./component/ShopingCard/ShopingCard";
+
 
 
 

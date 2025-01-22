@@ -1,4 +1,4 @@
-import Achievement from "../components/achievement/Achievement"
+import Achievement from "../component/achievement/Achievement"
 import Favourite from "./Favourite"
 
 
