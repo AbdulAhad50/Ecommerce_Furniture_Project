@@ -32,7 +32,7 @@ const Compare = ({
         <div className="">
           {/* Use dynamic image */}
           <Image
-            src={image ? image : '/card/image1.svg'}
+            src={image ? image : `/ProductImages/images/${_id}.jpg`}
             alt={name}
             width={200}
             height={200}

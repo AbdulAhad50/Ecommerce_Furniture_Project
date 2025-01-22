@@ -27,7 +27,7 @@ const ProductCompare = () => {
         const findProduct = await client.fetch(`*[_type == 'product']`);
         console.log("----", compare);
 
-        const filteredProducts = findProduct.filter((elem) => compare.includes(elem._id));
+        const filteredProducts = findProduct.filter((elem:T) => compare.includes(elem._id));
         setCompareProducts(filteredProducts); 
       } catch (err) {
         console.log("Error fetching products:", err);
