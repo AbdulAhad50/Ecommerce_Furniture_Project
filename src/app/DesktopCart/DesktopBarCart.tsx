@@ -11,7 +11,7 @@ const Cart = () => {
   const [dataFind, setDataFind] = useState([]);
   const { data, deleteProduct } = useContext(StoreData);
 
-  const nameArray = [];
+  const nameArray:string[] = [];
   const totalPriceDataRef = useRef(0);
 
   useEffect(() => {
