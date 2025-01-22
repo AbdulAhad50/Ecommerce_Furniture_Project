@@ -6,7 +6,7 @@ import style from "./product.module.css";
 import { Rating } from "@mui/material";
 import { StoreData } from "../store/StoreContext";
 
-const View = ({ productName, productPrice, rating, ProductDescription, image, id }) => {
+const View = ({ productName, productPrice, rating, ProductDescription, image, id }:{id:string,productName:string, productPrice:number, rating:number, ProductDescription:string, image:string }) => {
 
   const { addProduct } = useContext(StoreData);
 
@@ -29,7 +29,7 @@ const View = ({ productName, productPrice, rating, ProductDescription, image, id
         <div className={`flex flex-col gap-3 mt-3 ${style.MultiProductImage}`}>
           <div className={`w-[90px] h-[90px] rounded-[10px]`}>
             <Image
-              src={"/card/image1.svg"}
+              src={`/${image}.jpg`}
               alt={""}
               width={90}
               height={90}
@@ -39,7 +39,7 @@ const View = ({ productName, productPrice, rating, ProductDescription, image, id
 
           <div className={`w-[90px] h-[90px] rounded-[10px]`}>
             <Image
-              src={"/card/image1.svg"}
+              src={`/${image}.jpg`}
               alt={""}
               width={90}
               height={90}
@@ -48,7 +48,7 @@ const View = ({ productName, productPrice, rating, ProductDescription, image, id
           </div>
           <div className={`w-[90px] h-[90px]  rounded-[10px]`}>
             <Image
-              src={"/card/image1.svg"}
+              src={`/${image}.jpg`}
               alt={""}
               width={90}
               height={90}
@@ -57,7 +57,7 @@ const View = ({ productName, productPrice, rating, ProductDescription, image, id
           </div>
           <div className={`w-[90px] h-[90px] rounded-[10px]`}>
             <Image
-              src={"/card/image1.svg"}
+              src={`/${image}.jpg`}
               alt={""}
               width={90}
               height={90}
@@ -68,7 +68,7 @@ const View = ({ productName, productPrice, rating, ProductDescription, image, id
 
         <div className={`w-[440px] h-[490px] rounded-[10px] ${style.MainImage}`}>
           <Image
-            src={"/card/image1.svg"}
+            src={`/${image}.jpg`}
             alt={""}
             width={110}
             height={110}

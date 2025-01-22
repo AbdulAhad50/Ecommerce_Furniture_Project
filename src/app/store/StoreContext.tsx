@@ -5,7 +5,7 @@ import { createContext, useReducer, ReactNode } from "react";
 type Product = {
   name: string;
   price: number;
-  image: { asset: { _ref: string; _type: string }; _type: string };
+  image: string;
   id: string;
   quantity: number;
 };
@@ -125,7 +125,7 @@ function Compare(currentValue:any, action:any){
 // Create context with proper typing
 interface StoreContextType {
   data: Product[];
-  addProduct: (name: string, price: number, image: { asset: { _ref: string; _type: string }; _type: string }, id: string, quantity: number) => void;
+  addProduct: (name: string, price: number, image:string , id: string, quantity: number) => void;
   favouriteProduct: (name: string, price: number, image: { asset: { _ref: string; _type: string }; _type: string }, id: string) => void;
   deleteProduct: (id: string) => void;
   upDateQuantity: (id: string) => void;
@@ -178,7 +178,7 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
   function addProduct(
     name: string,
     price: number,
-    image: { asset: { _ref: string; _type: string }; _type: string },
+    image: string,
     id: string,
     quantity = 0
   ) {

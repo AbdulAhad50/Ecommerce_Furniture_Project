@@ -19,9 +19,9 @@ const Cart = () => {
 
   function detailsProduct() {
     let totalPrice = 0;
-    const totalQuantity = [];
-    const totalName = [];
-    const singleProductPrice = [];
+    const totalQuantity:number[] = [];
+    const totalName:string[] = [];
+    const singleProductPrice:number[] = [];
 
     data.map((elem) => {
       totalQuantity.push(elem.quantity);
@@ -49,7 +49,7 @@ const Cart = () => {
               return (
                 <div className={`flex justify-between items-center mt-4 ${style.cartHeaderPrice}`} key={i}>
                   <div className={`w-[110px] flex flex-col gap-4 h-[110px] rounded-[10px] ${style.brandImage}`}>
-                    <Image src={"/card/image1.svg"} alt={''} width={108} height={108} className={`w-full h-full rounded-[10px]`} />
+                    <Image src={`/ProductImages/images/${elem.id}.jpg`} alt={''} width={108} height={108} className={`w-full h-full rounded-[10px]`} />
                   </div>
 
                   <h2 className={`${style.realCartPrice}`}>

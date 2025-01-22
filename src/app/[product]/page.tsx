@@ -58,20 +58,13 @@ const Page = ({ params }:{params:{product:string}}) => {
         productPrice={product.price}
         ProductDescription={product.description}
         rating={product.rating}
-        image={{
-          asset: {
-            _ref: "",
-            _type: "",
-          },
-          _type: "",
-        }}
+        image={`ProductImages/images/${product._id}`}
       />
 
       {/* Render product description */}
       <Description
         key={product._id}
         descriptionData={product.description}
-        reviewData={[""]} // Placeholder for review data
         AdditionalInformationData={""} // Placeholder for additional information
       />
     </div>
