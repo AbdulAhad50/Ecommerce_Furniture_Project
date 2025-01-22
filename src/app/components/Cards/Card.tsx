@@ -23,7 +23,7 @@ const Card = ({ price, discountPercentage, name, id, description, image, bgDisc 
   };
 
   const Adding = () => {
-    addProduct(name, price, image, id);
+    addProduct(name, price, image, id,0);
   };
 
   const AddingFavItem = () => {
