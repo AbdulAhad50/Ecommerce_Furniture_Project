@@ -21,7 +21,6 @@ const ShopingCard = () => {
 
       if(search){
           const products = await client.fetch('*[_type == "product"]')
-          console.log("searching, ",products)
 
           let data = products.filter((elem)=> elem.name.toLowerCase() == search.toLowerCase());
           console.log("::::::",data[0]);
@@ -30,7 +29,6 @@ const ShopingCard = () => {
       }
       else{
         const products = await client.fetch('*[_type == "product"]')
-        console.log(products);
         setProduct(products)
       } 
 
@@ -46,9 +44,7 @@ const ShopingCard = () => {
    
     if(product.length > 1){
       setArrayMethod(product.slice(0, 12))
-      console.log("Lenght")
     }else{
-      console.log(">L>L")
       setArrayMethod(product)
     }
   }, [product])
@@ -61,15 +57,12 @@ const ShopingCard = () => {
 
       <div className={`grid grid-cols-3 gap-8 justify-center mx-auto ${style.smallSizeScreen}`}>
         {arrayMethod.length > 0 ? (
-          arrayMethod.map((product) => (
-            <Card key={product?._id} id={product?._id} price={product?.price} discountPercentage={''} image={{
-              asset: {
-                _ref: '',
-                _type: ''
-              },
-              _type: ''
-            }} description={product?.description} name={product?.name} bgDisc='blue' />
-          ))
+          arrayMethod.map((product) => {
+            console.log(`ProductImages/images/${product?._id}`)
+            return (
+            <Card key={product?._id} id={product?._id} price={product?.price} discountPercentage={''} image={`ProductImages/images/${product?._id}`} description={product?.description} name={product?.name} bgDisc='blue' />
+          )
+})
         ) : (
           <p>Loading products...</p>
         )}

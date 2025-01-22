@@ -40,7 +40,7 @@ const Card = ({ price, discountPercentage, name, id, description, image, bgDisc 
     <div className={`relative w-[285px] h-[446px] ${style.MainDiv}`}>
       <div className='w-[285px] h-[301px]'>
         <Image 
-          src={"/card/image1.svg"} // Dynamic image URL from props
+          src={`/${image}.jpg`}
           alt={name} 
           width={200} 
           height={200} 

@@ -16,11 +16,11 @@ const BreadCrumbs = ({name}:{name:string}) => {
                 <BreadcrumbItem>
                   <BreadcrumbLink href="/" className={`${style.BreadCrumbsName}`}>Home</BreadcrumbLink>
                 </BreadcrumbItem>
-                <BreadcrumbSeparator />
+                <BreadcrumbSeparator children={undefined} className={undefined} />
                 <BreadcrumbItem>
                   <BreadcrumbLink href="/Shop" className={`${style.BreadCrumbsName}`}>Shop</BreadcrumbLink>
                 </BreadcrumbItem>
-                <BreadcrumbSeparator />
+                <BreadcrumbSeparator children={undefined} className={undefined} />
                 <BreadcrumbItem className={`${style.ProductName}`}>
                   <BreadcrumbPage>{name}</BreadcrumbPage>
                 </BreadcrumbItem>

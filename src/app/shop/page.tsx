@@ -28,6 +28,7 @@ const Page = () => {
           setProduct(filterDataFind);
         } else {
           products = await client.fetch('*[_type == "product"]');
+          console.log("*()",products)
           setProduct(products);
         }
       } catch (err) {
@@ -74,13 +75,7 @@ const Page = () => {
           <div className={`grid grid-cols-3 gap-20 mx-auto justify-center ${style.smallScreenSizeCard}`}>
             {currentProducts.length > 0 ? (
               currentProducts.map((product) => (
-                <Card key={product._id} id={product._id} price={product.price} discountPercentage={''} image={{
-                  asset: {
-                    _ref: '',
-                    _type: ''
-                  },
-                  _type: ''
-                }} description={product.description} name={product.name} bgDisc='blue' />
+                <Card key={product._id} id={product._id} price={product.price} discountPercentage={''} image={`ProductImages/images/${product?._id}`} description={product.description} name={product.name} bgDisc='blue' />
               ))
             ) : (
               <p>No products found</p>
