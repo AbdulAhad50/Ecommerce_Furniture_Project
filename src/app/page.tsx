@@ -1,9 +1,8 @@
-import Browse from "./component/BrowsFeatures/Browse";
-import GridComponent from "./component/Furniture/Furniture";
-import Hero from "./component/HeroSection/Hero";
-import ShopingCard from "./component/ShopingCard/ShopingCard";
-import Help from './component/Help/Ancc'
-
+import Browse from "@/component/BrowsFeatures/Browse";
+import GridComponent from "@/component/Furniture/Furniture";
+import Hero from "@/component/HeroSection/Hero";
+import ShopingCard from "@/component/ShopingCard/ShopingCard";
+import Page from "@/component/Help/Ancc";
 
 
 export default function Home() {
@@ -15,7 +14,7 @@ export default function Home() {
           <Hero/>
           <Browse/>
           <div className="absolute top-20 left-20">
-          <Help/>
+          <Page/>
 
           </div>
           <ShopingCard/>

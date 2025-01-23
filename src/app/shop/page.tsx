@@ -7,8 +7,9 @@ import style from './shop.module.css'
 import React, { useState, useEffect, useContext } from 'react'
 import { client } from '@/sanity/lib/client'
 import { StoreData } from '../store/StoreContext'
-import Card from '../component/Cards/Card'
-import Achievement from '../component/achievement/Achievement'
+import Card from '@/component/Cards/Card'
+import Achievement from '@/component/achievement/Achievement'
+
 
 
 
