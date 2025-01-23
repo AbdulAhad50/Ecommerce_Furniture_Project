@@ -1,5 +1,4 @@
-// import Achievement from '../component/achievement/Achievement'
-import Achievement from '@/component/achievement/Achievement'
+import Achievement from '../component/achievement/Achievement'
 import HeroBanner from '../HeroBanner/HeroBanner'
 import Cart from './Cart'
 

@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
 import "./globals.css";
 import StoreDataProvider from "./store/StoreContext";
-import Nav from "@/component/Header/Nav";
-import Footer from "@/component/Footer/Footer";
+import Footer from "./component/Footer/Footer";
+import Nav from "./component/Header/Nav";
+// import Nav from "@/component/Header/Nav";
 
 
 export const metadata = {

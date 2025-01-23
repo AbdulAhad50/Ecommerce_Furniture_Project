@@ -1,8 +1,9 @@
-import Browse from "@/component/BrowsFeatures/Browse";
-import GridComponent from "@/component/Furniture/Furniture";
-import Hero from "@/component/HeroSection/Hero";
-import ShopingCard from "@/component/ShopingCard/ShopingCard";
-import Page from "@/component/Help/Ancc";
+
+import Browse from "./component/BrowsFeatures/Browse";
+import GridComponent from "./component/Furniture/Furniture";
+import Page from "./component/Help/Ancc";
+import Hero from "./component/HeroSection/Hero";
+import ShopingCard from "./component/ShopingCard/ShopingCard";
 
 
 export default function Home() {

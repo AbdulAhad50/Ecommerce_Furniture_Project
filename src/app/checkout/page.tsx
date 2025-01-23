@@ -1,7 +1,7 @@
 import React from 'react'
 import HeroBanner from '../HeroBanner/HeroBanner'
 import Checkout from './Checkout'
-import Achievement from '@/component/achievement/Achievement'
+import Achievement from '../component/achievement/Achievement'
 
 const page = () => {
   return (
