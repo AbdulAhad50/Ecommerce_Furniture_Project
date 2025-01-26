@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import HeroBanner from '../HeroBanner/HeroBanner'
 import Filter from './Filter'
 import style from './shop.module.css'
@@ -8,22 +8,16 @@ import { StoreData } from '../store/StoreContext'
 import Card from '../component/Cards/Card'
 import Achievement from '../component/achievement/Achievement'
 
-
-
-
 interface T {
-  name:string,
-  _id:string,
-  description:string,
-  price:number,
-  discountPercentage:string
+  name: string,
+  _id: string,
+  description: string,
+  price: number,
+  discountPercentage: string
 }
 
-
-
 const Page = () => {
-
-  const [productData, setProduct] = useState([])
+  const [productData, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0); 
   const [productsPerPage] = useState(12); 
@@ -34,14 +28,12 @@ const Page = () => {
       setLoading(true);
       try {
         let products;
-        
         if (filter) {
           products = await client.fetch('*[_type == "product"]');
-          let filterDataFind = products.filter((elem:T) => elem.price >= filter);
+          let filterDataFind = products.filter((elem: T) => elem.price >= filter);
           setProduct(filterDataFind);
         } else {
           products = await client.fetch('*[_type == "product"]');
-          console.log("*()",products)
           setProduct(products);
         }
       } catch (err) {
@@ -61,7 +53,6 @@ const Page = () => {
     (currentPage + 1) * productsPerPage
   );
 
-  // Handle next and previous page navigation
   const nextPage = () => {
     if (currentPage < pageCount - 1) {
       setCurrentPage(currentPage + 1);
@@ -87,16 +78,24 @@ const Page = () => {
         <div className={`flex flex-col flex-wrap mt-10`}>
           <div className={`grid grid-cols-3 gap-20 mx-auto justify-center ${style.smallScreenSizeCard}`}>
             {currentProducts.length > 0 ? (
-              currentProducts.map((product:T) => (
-                <Card key={product._id} id={product._id} price={product.price} discountPercentage={0} image={`ProductImages/images/${product?._id}`} description={product.description} name={product.name} bgDisc='blue' />
+              currentProducts.map((product: T) => (
+                <Card 
+                  key={product._id} 
+                  id={product._id} 
+                  price={product.price} 
+                  discountPercentage={0} 
+                  image={`ProductImages/images/${product?._id}`} 
+                  description={product.description} 
+                  name={product.name} 
+                  bgDisc='blue' 
+                />
               ))
             ) : (
               <p>No products found</p>
             )}
           </div>
 
-          <div className="flex justify-center  gap-10 mt-6">
-            
+          <div className="flex justify-center gap-10 mt-6">
             <button 
               onClick={previousPage} 
               disabled={currentPage === 0} 

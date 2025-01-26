@@ -1,125 +1,142 @@
-.achievementTitle{
+/* General Styles */
+.achievementTitle {
   font-family: Poppins;
   font-size: 25px;
   font-weight: 600;
   line-height: 37.5px;
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  color: #242424;  
+  color: #242424;
 }
 
-
-.smallSizeWidth{
-  height: 300px;
+.smallSizeWidth {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0; /* Adjust padding to avoid overflow */
 }
 
-.achievementDetail{
+.achievementDetail {
   font-family: Poppins;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
   color: #898989;
 }
 
-@media only  screen and (min-width:500) and (max-width:900){
-    .smallScreenSize{
-        display: flex;
-        /* flex-wrap: wrap; */
-        flex-direction: column;
-        padding: 10px 50px;
-        gap: 20px;
-        height: 400px;
-        justify-content: center;
-    }
-}
-
-
-@media only  screen and (min-width:361) and (max-width:900){
-    .smallScreenSize{
-        display: flex;
-        /* flex-wrap: wrap; */
-        flex-direction: column;
-        padding: 10px 50px;
-        gap: 30px;
-        height: 700px;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .textCenter{
-      text-align: center;
-    }
-
-    .achievementSite{
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      text-align: center;
-    }
-
-
-    .smallSizeWidth{
-      display: flex;
-      justify-content: center;
-      height: 700px;
-    }
-}
-
-
-@media only  screen and (max-width:370){
-  .achievementTitle{
-    font-family: Poppins;
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 37.5px;
-    text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    color: #242424;  
+/* Large Screen Styles */
+@media only screen and (min-width: 901px) {
+  .smallScreenSize {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: center;
+    padding: 0 50px;
   }
-  
-  .achievementDetail{
-    font-family: Poppins;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 30px;
-    text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    color: #898989;
-  }
-  
-  .smallScreenSize{
+
+  .achievementSite {
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-direction: row;
+    gap: 2vw;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
+/* Medium Screen Styles */
+@media only screen and (min-width: 500px) and (max-width: 900px) {
+  .smallScreenSize {
+    display: flex;
     flex-direction: column;
     padding: 10px 50px;
-    gap: 30px;
-    height: 750px;
+    gap: 20px;
+    height: auto; /* Remove fixed height */
     justify-content: center;
     align-items: center;
   }
 
-
-  .textCenter{
-  text-align: center;
+  .textCenter {
+    text-align: center;
   }
 
-  .achievementSite{
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  text-align: center;
+  .achievementSite {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
   }
 
-
-  .smallSizeWidth{
+  .smallSizeWidth {
     display: flex;
     justify-content: center;
-    height: 750px;
+    padding: 20px; /* Adjust padding to avoid overflow */
+  }
+}
+
+/* Small Screen Styles */
+@media only screen and (min-width: 361px) and (max-width: 499px) {
+  .smallScreenSize {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 30px;
+    gap: 20px;
+    height: auto; /* Removed fixed height */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .textCenter {
+    text-align: center;
+  }
+
+  .achievementSite {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .smallSizeWidth {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .achievementTitle {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .achievementDetail {
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+/* Very Small Screen Styles */
+@media only screen and (max-width: 360px) {
+  .smallScreenSize {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    gap: 15px;
+    height: auto; /* Removed fixed height */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .achievementTitle {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .achievementDetail {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .smallSizeWidth {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
   }
 }

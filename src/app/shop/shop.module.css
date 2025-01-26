@@ -1,94 +1,47 @@
-.filter{
-  background: #F9F1E7;
+/* General Styles for the Filter Section */
+.filter {
+  background: #f9f1e7;
   height: 100px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
-.filterHeading{
-  font-family: Poppins;
+.filterHeading {
+  font-family: Poppins, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 30px;
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-
 }
 
-.showing{
-  font-family: Poppins;
+.showing {
+  font-family: Poppins, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-
 }
 
 .showingData {
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 30px;
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-
 }
 
-.showNumber{
-  font-family: Poppins;
+.showNumber {
+  font-family: Poppins, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 30px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  color: #9F9F9F;
-
+  text-align: center;
+  color: #9f9f9f;
 }
 
-
-@media only  screen and (min-width:1401) and (max-width:2000){
-  .filter{
-    height:100px;
-    display: flex;
-  }
-}
-
-@media only  screen and (min-width:500) and (max-width:950) {
-  .smallScreenSize{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px 0px;
-  }
-
-
-  .smallScreenSizeCard{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 10px 0px;
-  }
-
-  .filter{
-    
-      height:150px;
-      display: flex;
-    
-  }
-
-  .smallScreenSizeCard{
-    display: flex;
-    flex-wrap: wrap;
-  }
-}
-
-
-.SearchBtn{
+.SearchBtn {
   width: 100px;
   height: 40px;
   border: 1px solid #000;
@@ -97,30 +50,79 @@
   margin-left: 15px;
 }
 
-@media only  screen and (min-width:300) and (max-width:499) {
-  .smallScreenSize{
+.smallScreenSize {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 0px;
+}
+
+.smallScreenSizeCard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 10px 0px;
+}
+
+/* Responsive Design for Larger Screens */
+@media only screen and (min-width: 1401px) and (max-width: 2000px) {
+  .filter {
+    height: 100px;
+    display: flex;
+  }
+}
+
+/* Responsive Design for Medium Screens */
+@media only screen and (min-width: 500px) and (max-width: 950px) {
+  .smallScreenSize {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0px;
+  }
+
+  .smallScreenSizeCard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .filter {
+    height: 150px;
+    display: flex;
+  }
+
+  .smallScreenSizeCard {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+/* Responsive Design for Small Screens */
+@media only screen and (min-width: 300px) and (max-width: 499px) {
+  .smallScreenSize {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
     gap: 20px;
     padding: 10px 0px;
-    /* height: 300px; */
   }
 
-  .filter{
-    height:auto;
+  .filter {
+    height: auto;
     display: flex;
     flex-direction: column;
   }
 
-  .smallSize{
+  .smallSize {
     display: flex;
     flex-direction: column;
     gap: 30px;
   }
 
-  .smallScreenSizeCard{
-      display: flex;
-      flex-wrap: wrap;
+  .smallScreenSizeCard {
+    display: flex;
+    flex-wrap: wrap;
   }
 }

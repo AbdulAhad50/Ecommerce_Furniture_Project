@@ -15,7 +15,7 @@ export default function Home() {
           <Hero/>
           <Browse/>
           <div className="absolute top-20 left-20">
-          <Page/>
+          {/* <Page/> */}
 
           </div>
           <ShopingCard/>

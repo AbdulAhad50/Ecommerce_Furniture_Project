@@ -50,7 +50,7 @@ const Cart = () => {
           dataFind.map((elem, i) => (
             <div className="flex gap-14" key={data[i]?.id}>
               <div className="w-[105px] h-[105px] rounded-[15px]">
-                <Image src={"/card/image1.svg"} alt={""} width={108} height={105} className="w-full h-full rounded-[10px]" />
+                <Image src={`/ProductImages/images/${data[i]?.id}.jpg`} alt={""} width={108} height={105} className="w-full h-full rounded-[10px]" />
               </div>
 
               <div className="flex flex-col gap-3">
