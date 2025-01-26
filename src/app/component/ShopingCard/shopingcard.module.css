@@ -1,4 +1,4 @@
-.productHeading{
+.productHeading {
   font-family: Poppins;
   font-size: 40px;
   font-weight: 700;
@@ -7,15 +7,14 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #3A3A3A;
-
 }
 
-.showBtn{
+.showBtn {
   width: 245px;
   height: 48px;
   gap: 0px;
   border: 1px solid #B88E2F;
-  opacity: 0px;
+  opacity: 1; /* Change opacity to 1 */
   font-family: 'Poppins';
   font-size: 16px;
   font-weight: 600;
@@ -24,21 +23,24 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #B88E2F;
-  
-} 
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
 
-@media only screen and (min-width: 1401) and (max-width: 2000){
-  .smallSizeScreen{
-      display: grid;
-      grid-column: 4;
-
+@media only screen and (min-width: 1401px) and (max-width: 2000px) {
+  .smallSizeScreen {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* You can adjust the number of columns */
+    gap: 8px;
   }
 }
 
-
-@media only screen and (min-width: 300) and (max-width: 950){
-  .smallSizeScreen{
-      display: flex;
-      flex-wrap: wrap;
+@media only screen and (min-width: 300px) and (max-width: 950px) {
+  .smallSizeScreen {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
   }
 }
