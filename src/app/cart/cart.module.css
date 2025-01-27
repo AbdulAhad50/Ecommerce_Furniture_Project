@@ -1,283 +1,168 @@
-.cartHeader{
-  width: 817px;
+.cartHeader {
+  width: 817px; /* Fixed width for the header */
   height: 55px;
-  top: 488px;
-  left: 100px;
-  gap: 0px;
-  opacity: 0px;
   background: #F9F1E7;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.cartHeaderFontStyle{
+.cartHeaderFontStyle {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  
 }
 
-.CartDetail{
-  width: 383px;
+.CartDetail {
+  width: 383px; /* Fixed width for cart detail */
   height: 390px;
-  top: 488px;
-  left: 947px;
-  gap: 0px;
-  opacity: 0px;
   background: #F9F1E7;
 }
 
-.CartHeading{
+.CartHeading {
   font-family: Poppins;
   font-size: 32px;
   font-weight: 600;
   line-height: 48px;
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-
 }
 
-.SubtotalPrice{
+.SubtotalPrice {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
   color: #9F9F9F;
 }
 
-.Subtotal{
+.Subtotal, .Total {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-
 }
 
-.Total{
-  font-family: Poppins;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-
-}
-
-.TotalPrice{
+.TotalPrice {
   font-family: Poppins;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
   color: #B88E2F;
 }
 
-.btn{
+.btn {
   width: 222px;
   height: 58.95px;
-  top: 739px;
-  left: 1033px;
-  gap: 0px;
   border-radius: 15px;
   border: 1px solid #000000;
-  opacity: 0px;
   font-family: Poppins;
   font-size: 20px;
   font-weight: 400;
   line-height: 30px;
   text-align: center;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
 }
 
-.BrandName{
+.BrandName {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
   color: #9F9F9F;
-  
 }
 
-.realCartPrice{
+.realCartPrice {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  color: #9F9F9F;
 }
 
-.Quantity{
+.Quantity {
   width: 32px;
   height: 32px;
-  gap: 0px;
   border-radius: 5px;
   border: 1px solid #9F9F9F;
-  opacity: 0px;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.realCartPrice{
-  font-family: Poppins;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-
-}
-
-.Delete{
+.Delete {
   color: #B88E2F;
 }
 
-.smallScreenSizeMain{
+.smallScreenSizeMain {
   margin-top: 30px;
+  display: flex;
 }
 
-@media  only screen and (min-width:600) and (max-width:1250){
-    .smallScreenSizeMain{
-      display: flex;
-      flex-direction: column;
-    }
+@media only screen and (min-width: 600px) and (max-width: 1250px) {
+  .smallScreenSizeMain {
+    flex-direction: column;
+  }
 
-    .cartHeader{
-      width: 100%;
-      height: 55px;
-      top: 488px;
-      left: 100px;
-      gap: 0px;
-      opacity: 0px;
-      background: #F9F1E7;
-      margin-bottom: 0px;
-    }
+  .cartHeader {
+    width: 100%; /* Full width on smaller screens */
+    height: 55px;
+    margin-bottom: 0;
+  }
 
-    .cartHeaderPrice{
-      width: 100%;
-      padding: 0 10px;
-      margin-top: 10px;
-    }
-
-    .CartDetail{
-      width: 70%;
-      margin: 60px auto;
-    }
-} 
-
-
-@media  only screen and (min-width:300) and (max-width:600){
-    .cartHeader{
-      display: none;
-      flex-direction: column;
-      width: 40%;
-      height: 400px;
-      top: 488px;
-      left: 100px;
-      gap: 0px;
-      opacity: 0px;
-      background: #F9F1E7;
-      padding: 40px 0 20px 0;
-      gap: 30px;
-      margin-bottom: 0px;
-    }
-
-    .smallSizeScreenHeader{
-      display: flex;
-      /* flex-direction: row; */
-    }
-
-    .smallScreenSizeMain{
-      margin-top: 0;
-      display: flex;
-      flex-direction: column;
-      /* height: 400px; */
-    }
-
-    /* .smallScreenSizeMain{
-      display: flex;
-      flex-direction: column;
-    } */
-
-    .CartDetail{
-      width: 100%;
-      height: 400px;
-    }
-
-    .cartHeaderPrice{
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      height: 100px;
-      gap: 10px;
-      opacity: 0px;
-      padding-bottom: 20px;
-      align-items: center;
-    }
-
-    .brandImage{
-      width: 80px;
-      height: 50px;
-      display: flex;
-      margin-top: 10px;
-    }
-
-
-    .btn{
-      width: 222px;
-      height: 58.95px;
-      top: 739px;
-      left: 1033px;
-      gap: 0px;
-      border-radius: 15px;
-      border: 1px solid #000000;
-      opacity: 0px;
-      font-family: Poppins;
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 30px;
-      text-align: center;
-      text-underline-position: from-font;
-      text-decoration-skip-ink: none;
-      margin-bottom: 40px;
-    }
+  .CartDetail {
+    width: 70%; /* Adjusted for responsiveness */
+    margin: 60px auto;
+  }
 }
 
+@media only screen and (max-width: 600px) {
+  .cartHeader {
+    display: flex;
+    flex-direction: row; /* Keep the header visible on mobile */
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+    background: #F9F1E7;
+    margin-bottom: 0;
+  }
 
-@media  only screen and  (max-width:330){
-  .cartHeaderPrice{
+  .smallScreenSizeMain {
+    flex-direction: column;
+  }
+
+  .CartDetail {
+    width: 100%;
+    height: auto;
+  }
+
+  .cartHeaderPrice {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    height: 100px;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .brandImage {
+    width: 80px;
+    height: 50px;
+  }
+
+  .btn {
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .cartHeaderPrice {
+    display: flex;
     flex-wrap: wrap;
     width: 100%;
     height: 130px;
     gap: 30px;
-    opacity: 0px;
-    padding-bottom: 20px;
-    align-items: center;
     padding-right: 10px;
   }
 }
-

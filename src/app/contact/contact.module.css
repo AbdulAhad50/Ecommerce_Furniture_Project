@@ -1,360 +1,198 @@
-.contactHeading{
+.contactHeading {
   font-family: 'Poppins';
   font-size: 36px;
   font-weight: 600;
   line-height: 54px;
   text-align: center;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
   color: #000000;
 }
 
-
-.contactDetail{
-  font-family: Poppins;
+.contactDetail {
+  font-family: 'Poppins';
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   text-align: center;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
   color: #9F9F9F;
   margin: 0 auto;
   width: 50%;
 }
 
-
 /*! Form Side */
-
-.title{
-  font-family: Poppins;
+.title {
+  font-family: 'Poppins';
   font-size: 24px;
   font-weight: 500;
   line-height: 36px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
+  text-align: left; /* Keep the text left-aligned */
 }
 
-.titleDetail{
-  font-family: Poppins;
+.titleDetail {
+  font-family: 'Poppins';
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
+  text-align: left; /* Keep the text left-aligned */
   width: 200px;
 }
 
-.label{
-  font-family: Poppins;
+.label {
+  font-family: 'Poppins';
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
   margin-top: 20px;
+  text-align: left; /* Text inside label is left aligned */
 }
 
-.input{
-  width: 528.75px;
-  height: 75px;
-  top: 802px;
-  left: 668.25px;
-  gap: 0px;
+.input {
+  width: 100%; /* Make input responsive */
+  max-width: 528px; /* Max width to prevent it from becoming too large */
+  height: 50px; /* Reduced height for better usability */
   border-radius: 10px;
   border: 1px solid #9F9F9F;
-  opacity: 0px;
   outline: none;
   padding-left: 20px;
-
+  margin-top: 10px;
 }
 
-.btn{
-  width: 237px;
+.btn {
+  width: 100%;
+  max-width: 237px;
   height: 55px;
-  top: 1442px;
-  left: 673px;
-  gap: 0px;
   border-radius: 5px;
   border: 1px solid #B88E2F;
-  opacity: 0px;
   background-color: #B88E2F;
-  font-family: Poppins;
+  color: #FFFFFF;
+  font-family: 'Poppins';
   font-size: 16px;
   font-weight: 400;
-  line-height: 24px;
   text-align: center;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  color: #FFFFFF;
   margin-top: 40px;
 }
 
+.Street{
+  padding-left: 100px;
+}
 
-@media only screen and (min-width: 801) and (max-width: 950){
-  .input{
-    width: 528.75px;
-    height: 75px;
-    top: 802px;
-    left: 668.25px;
-    gap: 0px;
-    border-radius: 10px;
-    border: 1px solid #9F9F9F;
-    opacity: 0px;
-    outline: none;
-    padding-left: 20px;
-  
-  }
-
-
-  .smallSizeScreen{
+@media only screen and (min-width: 801px) and (max-width: 950px) {
+  .smallSizeScreen {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-left: 80px;
   }
 
-  .input{
-    width: 350px;
-    height: 75px;
-    top: 802px;
-    left: 668.25px;
-    gap: 0px;
-    border-radius: 10px;
-    border: 1px solid #9F9F9F;
-    opacity: 0px;
-    outline: none;
-    padding-left: 20px;
-    
+  .input {
+    width: 90%;
+    max-width: 528px;
   }
 
-  .title{
-    font-family: 'Poppins';
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 36px;
+  .title {
+    text-align: center; /* Keep text left-aligned on medium screens */
+  }
+
+  .streetDetail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
   }
 
-  .streetDetail{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+  .titleDetail {
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+  }
+
+  .btn {
+    width: 90%;
+    max-width: 350px;
   }
 
   .Street{
-    padding-left: 0;
-  }
-
-
-  .titleDetail{
-    font-family: 'Poppins';
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    width: 200px;
-  }
-
-
-  .btn{
-    width: 350px;
-    height: 55px;
-    gap: 0px;
-    border-radius: 5px;
-    border: 1px solid #B88E2F;
-    opacity: 0px;
-    background-color: #B88E2F;
-    font-family: Poppins;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    color: #FFFFFF;
-    margin-top: 40px;
+    padding-left: 0px;
   }
 }
 
-@media only screen and (min-width: 450) and (max-width: 800){
-
-  .input{
-    width: 528.75px;
-    height: 75px;
-    top: 802px;
-    left: 668.25px;
-    gap: 0px;
-    border-radius: 10px;
-    border: 1px solid #9F9F9F;
-    opacity: 0px;
-    outline: none;
-    padding-left: 20px;
-  
-  }
-
-
-  .smallSizeScreen{
+@media only screen and (min-width: 450px) and (max-width: 800px) {
+  .smallSizeScreen {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-left: 0;
   }
 
-  .input{
-    width: 330px;
-    height: 75px;
-    top: 802px;
-    left: 668.25px;
-    gap: 0px;
-    border-radius: 10px;
-    border: 1px solid #9F9F9F;
-    opacity: 0px;
-    outline: none;
-    padding-left: 20px;
-    
+  .input {
+    width: 90%;
+    max-width: 330px;
   }
 
-  .title{
-    font-family: 'Poppins';
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 36px;
-    text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+  .title {
+    text-align: center; /* Keep text left-aligned on smaller screens */
   }
 
-  .streetDetail{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-  }
-
-  .Street{
-    padding-left: 0;
-  }
-
-
-  .titleDetail{
-    font-family: 'Poppins';
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    width: 200px;
-  }
-
-
-  .btn{
-    width: 350px;
-    height: 55px;
-    gap: 0px;
-    border-radius: 5px;
-    border: 1px solid #B88E2F;
-    opacity: 0px;
-    background-color: #B88E2F;
-    font-family: Poppins;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    color: #FFFFFF;
-    margin-top: 40px;
-  }
-}
-
-
-
-
-@media only screen and (min-width:300) and (max-width: 449){
-  .smallSizeScreen{
+  .streetDetail {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: -7vw;
+    text-align: center;
   }
 
-  .input{
-    width: 270.75px;
-    height: 75px;
-    top: 802px;
-    left: 668.25px;
-    gap: 0px;
-    border-radius: 10px;
-    border: 1px solid #9F9F9F;
-    opacity: 0px;
-    outline: none;
-    padding-left: 20px;
-    
+  .titleDetail {
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
   }
 
-  .title{
-    font-family: Poppins;
+  .btn {
+    width: 90%;
+    max-width: 350px;
+  }
+
+  .Street{
+    padding-left: 0px;
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 449px) {
+  .smallSizeScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensure the container (not text) is centered */
+    text-align: center;  /* Center the container content but not the text */
+  }
+
+  .input {
+    width: 90%;
+    max-width: 270px;
+  }
+
+  .title {
     font-size: 20px;
-    font-weight: 500;
-    line-height: 36px;
-    text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+    text-align: center; /* Keep the title left-aligned on small screens */
   }
 
-  .streetDetail{
+  .streetDetail {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
+  .titleDetail {
+    width: 100%;
+    max-width: 200px;
+    text-align: center; /* Keep title details left-aligned */
+  }
+
+  .btn {
+    width: 90%;
+    max-width: 270px;
+    margin-top: 20px;
+  }
+
   .Street{
-    padding-left: 0;
-  }
-
-
-  .titleDetail{
-    font-family: Poppins;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    width: 200px;
-  }
-
-  .btn{
-    width: 270px;
-    height: 55px;
-    top: 1442px;
-    left: 673px;
-    gap: 0px;
-    border-radius: 5px;
-    border: 1px solid #B88E2F;
-    opacity: 0px;
-    background-color: #B88E2F;
-    font-family: Poppins;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    color: #FFFFFF;
-    margin-top: 40px;
+    padding-left: 0px;
   }
 }
-
-

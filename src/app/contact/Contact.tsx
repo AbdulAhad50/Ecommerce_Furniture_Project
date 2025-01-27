@@ -6,7 +6,7 @@ import style from './contact.module.css'
 const Contact = () => {
   return (
     <div className={`flex my-[30px] ${style.smallSizeScreen}`}>
-        <div className={`flex flex-col mt-[20px] gap-8 w-[40%] px-[auto] pl-[100px] ${style.Street}`}>
+        <div className={`flex flex-col mt-[20px] gap-8 w-[40%] px-[auto] ${style.Street}`}>
             <div className={`flex gap-8 ${style.streetDetail}`}>
                 <FaLocationDot className={`text-[28px]`}/>
                 <div>
