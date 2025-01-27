@@ -1,15 +1,13 @@
-import Achievement from "../component/achievement/Achievement"
-import Favourite from "./Favourite"
-
+import Achievement from "../component/achievement/Achievement";
+import Favourite from "./Favourite";
 
 const page = () => {
-
   return (
     <div className="max-w-[1440px] mx-auto">
-        <Favourite/>
-        <Achievement/>
+      <Favourite />
+      <Achievement />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
