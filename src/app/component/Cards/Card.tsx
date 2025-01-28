@@ -11,7 +11,7 @@ import { MdCompareArrows } from "react-icons/md";
 
 const Card = ({ price, discountPercentage, name, id, description, image, bgDisc }:{price:number, discountPercentage:number, name:string, id:string, description:string, image:string, bgDisc:string}) => {
 
-  const { addProduct, favouriteProduct,CompareProduct } = useContext(StoreData);
+  const { addProduct, favouriteProduct, CompareProduct } = useContext(StoreData);
 
   const truncateText = (text:string, length = 15) => {
     if (text?.length > length) {
@@ -21,7 +21,7 @@ const Card = ({ price, discountPercentage, name, id, description, image, bgDisc 
   };
 
   const Adding = () => {
-    addProduct(name, price, image, id,0);
+    addProduct(name, price, image, id, 0);
   };
 
   const AddingFavItem = () => {
@@ -29,9 +29,8 @@ const Card = ({ price, discountPercentage, name, id, description, image, bgDisc 
   };
 
   const Compare = () => {
-    CompareProduct(id)
+    CompareProduct(id);
     // window.location.href = '/comparison';
-
   };
 
   return (
