@@ -1,4 +1,4 @@
-.BreadCrumbsName{
+.BreadCrumbsName {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
@@ -9,7 +9,7 @@
   color: #9F9F9F;
 }
 
-.ProductName{
+.ProductName {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
@@ -22,7 +22,7 @@
   padding-left: 10px;
 }
 
-.productName{
+.productName {
   font-family: Poppins;
   font-size: 42px;
   font-weight: 400;
@@ -32,7 +32,7 @@
   text-decoration-skip-ink: none;
 }
 
-.productPrice{
+.productPrice {
   font-family: Poppins;
   font-size: 24px;
   font-weight: 500;
@@ -43,7 +43,7 @@
   color: #9F9F9F;
 }
 
-.ProductDescription{
+.ProductDescription {
   font-family: Poppins;
   font-size: 13px;
   font-weight: 400;
@@ -54,8 +54,7 @@
   width: 70%;
 }
 
-
-.SizeStyle{
+.SizeStyle {
   font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
@@ -66,7 +65,7 @@
   color: #9F9F9F;
 }
 
-.Btn{
+.Btn {
   width: 123px;
   height: 64px;
   top: 676px;
@@ -78,10 +77,9 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-
 }
 
-.AddCard{
+.AddCard {
   width: 215px;
   height: 64px;
   top: 676px;
@@ -90,10 +88,9 @@
   border-radius: 15px;
   border: 1px solid #000000;
   opacity: 0px;
-
 }
 
-.SizeBtn{
+.SizeBtn {
   width: 30px;
   height: 30px;
   border-radius: 5px;
@@ -108,17 +105,13 @@
   text-decoration-skip-ink: none;
 }
 
-
 /* Description */
-
-
-.DescriptionTop{
+.DescriptionTop {
   border-top: 1.5px solid #d1d1d1;
   padding-top: 20px;
 }
 
-
-.Description{
+.Description {
   font-family: Poppins;
   font-size: 24px;
   font-weight: 500;
@@ -126,10 +119,9 @@
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-    
 }
 
-.AdditionalInformation{
+.AdditionalInformation {
   font-family: Poppins;
   font-size: 24px;
   font-weight: 400;
@@ -140,7 +132,7 @@
   color: #9F9F9F;
 }
 
-.DescriptionStyle{
+.DescriptionStyle {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
@@ -151,7 +143,7 @@
   color: #9F9F9F;
 }
 
-.LastItem{
+.LastItem {
   width: 605px;
   height: 348px;
   gap: 0px;
@@ -159,184 +151,174 @@
   background: #F9F1E7;
 }
 
+@media only screen and (min-width: 500px) and (max-width: 1050px) {
+  .MainProductStyle {
+    display: flex;
+    flex-direction: row;
+  }
 
-@media only screen and (min-width:500) and (max-width:1050){
-    .MainProductStyle{
-      display: flex;
-    }
+  .ProductImage {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .AddCard{
-      width: 150px;
-      height: 64px;
-      top: 676px;
-      left: 876px;
-      gap: 0px;
-      border-radius: 15px;
-      border: 1px solid #000000;
-      opacity: 0px;
-    
-    }
+  .MultiProductImage {
+    display: flex;
+    flex-direction: row;
+  }
 
-    .CardDiv{
-      display: flex;
-      gap: 20px;
-    }
+  .AddCard {
+    width: 150px;
+    height: 64px;
+    top: 676px;
+    left: 876px;
+    gap: 0px;
+    border-radius: 15px;
+    border: 1px solid #000000;
+    opacity: 1;
+  }
 
+  .CardDiv {
+    display: flex;
+    gap: 20px;
+  }
 
-}
-@media only screen and (min-width:500) and (max-width:950){
-    .MainProductStyle{
-      display: flex;
-      /* flex-direction: column; */
-    }
-
-    .AddCard{
-      width: 150px;
-      height: 64px;
-      top: 676px;
-      left: 876px;
-      gap: 0px;
-      border-radius: 15px;
-      border: 1px solid #000000;
-      opacity: 0px;
-    
-    }
-
-    .CardDiv{
-      display: flex;
-      gap: 20px;
-    }
-
-    .AddCardItem{
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .ProductImage{
-      display: flex;
-      flex-direction: column-reverse;
-      
-    }
-
-    .MultiProductImage{
-      display: flex;
-      flex-direction: row;
-    }
-
-}
-@media only screen and (min-width:500) and (max-width:850){
-    .MainProductStyle{
-      display: flex;
-      flex-direction: column;
-    }
-
-    .AddCard{
-      width: 150px;
-      height: 64px;
-      top: 676px;
-      left: 876px;
-      gap: 0px;
-      border-radius: 15px;
-      border: 1px solid #000000;
-      opacity: 0px;
-    
-    }
-
-    .CardDiv{
-      display: flex;
-      gap: 20px;
-    }
-
-    .AddCardItem{
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .ProductImage{
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: flex-end;
-      
-    }
-
-    .MultiProductImage{
-      display: flex;
-      flex-direction: column;
-    }
-
+  .SizeBtn {
+    opacity: 1;
+  }
 }
 
+@media only screen and (min-width: 500px) and (max-width: 950px) {
+  .MainProductStyle {
+    display: flex;
+    flex-direction: row;
+  }
 
-@media only screen and (min-width:280) and (max-width:599){
-    .MainProductStyle{
-      display: flex;
-      flex-direction: column;
-    }
+  .AddCard {
+    width: 150px;
+    height: 64px;
+    top: 676px;
+    left: 876px;
+    gap: 0px;
+    border-radius: 15px;
+    border: 1px solid #000000;
+    opacity: 1;
+  }
 
-    .AddCard{
-      width: 150px;
-      height: 64px;
-      top: 676px;
-      left: 876px;
-      gap: 0px;
-      border-radius: 15px;
-      border: 1px solid #000000;
-      opacity: 0px;
-    
-    }
+  .CardDiv {
+    display: flex;
+    gap: 20px;
+  }
 
-    .CardDiv{
-      display: flex;
-      gap: 20px;
-    }
+  .AddCardItem {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
 
-    .AddCardItem{
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
+  .ProductImage {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start; /* Ensures images stay aligned at the top */
+  }
 
-    .ProductImage{
-      display: flex;
-      flex-direction: column-reverse;
-      
-    }
-
-    .MultiProductImage{
-      display: flex;
-      flex-direction: row;
-    }
-
+  .MultiProductImage {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
-@media only screen and (min-width:280) and (max-width:480){
-  .MainImage{
+@media only screen and (min-width: 500px) and (max-width: 850px) {
+  .MainProductStyle {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .AddCard {
+    width: 150px;
+    height: 64px;
+    top: 676px;
+    left: 876px;
+    gap: 0px;
+    border-radius: 15px;
+    border: 1px solid #000000;
+    opacity: 1;
+  }
+
+  .CardDiv {
+    display: flex;
+    gap: 20px;
+  }
+
+  .AddCardItem {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .ProductImage {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start; /* Ensures images stay aligned at the top */
+  }
+
+  .MultiProductImage {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 280px) and (max-width: 599px) {
+  .MainProductStyle {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .AddCard {
+    width: 150px;
+    height: 64px;
+    top: 676px;
+    left: 876px;
+    gap: 0px;
+    border-radius: 15px;
+    border: 1px solid #000000;
+    opacity: 1;
+  }
+
+  .CardDiv {
+    display: flex;
+    gap: 20px;
+  }
+
+  .AddCardItem {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .ProductImage {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start; /* Ensures images stay aligned at the top */
+  }
+
+  .MultiProductImage {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 280px) and (max-width: 480px) {
+  .MainImage {
     width: 80vw;
     height: 300px;
-  } 
+  }
 
-  .LastItem{
+  .LastItem {
     width: 100%;
   }
 
-  .LastItem{
+  .LastItem {
     background-color: transparent;
-  }
-}
-
-
-@media only screen and  (max-width:399){
-  .Description{
-    font-family: Poppins;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 36px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    display: flex;
-    gap: 20px;
   }
 }
