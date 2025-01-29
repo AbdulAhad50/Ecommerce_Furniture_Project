@@ -6,10 +6,22 @@ import style from "./product.module.css";
 import { Rating } from "@mui/material";
 import { StoreData } from "../store/StoreContext";
 
-const View = ({ productName, productPrice, rating, ProductDescription, image, id }:{id:string,productName:string, productPrice:number, rating:number, ProductDescription:string, image:string }) => {
-
+const View = ({
+  productName,
+  productPrice,
+  rating,
+  ProductDescription,
+  image,
+  id,
+}: {
+  id: string;
+  productName: string;
+  productPrice: number;
+  rating: number;
+  ProductDescription: string;
+  image: string;
+}) => {
   const { addProduct } = useContext(StoreData);
-
   const [quantity, setCount] = useState(1);
 
   function Minuscount() {
@@ -46,7 +58,7 @@ const View = ({ productName, productPrice, rating, ProductDescription, image, id
               className="w-full h-full rounded-[10px]"
             />
           </div>
-          <div className={`w-[90px] h-[90px]  rounded-[10px]`}>
+          <div className={`w-[90px] h-[90px] rounded-[10px]`}>
             <Image
               src={`/${image}.jpg`}
               alt={""}
@@ -89,15 +101,13 @@ const View = ({ productName, productPrice, rating, ProductDescription, image, id
         </div>
 
         <div>
-          <p className={`${style.ProductDescription}`}>
-            {ProductDescription}
-          </p>
+          <p className={`${style.ProductDescription}`}>{ProductDescription}</p>
         </div>
 
         <div>
           <h3 className={`${style.SizeStyle}`}>Size</h3>
 
-          <div className={`flex gap-5 mt-4`}>
+          <div className={`flex gap-5 mt-4 mb-4`}>
             <button className={`${style.SizeBtn}`}>L</button>
             <button className={`${style.SizeBtn}`}>XL</button>
             <button className={`${style.SizeBtn}`}>XS</button>
@@ -111,7 +121,9 @@ const View = ({ productName, productPrice, rating, ProductDescription, image, id
               <button onClick={() => setCount(quantity + 1)}>+</button>
             </h3>
 
-            <button className={`${style.AddCard}`} onClick={addCart}>Add To Cart</button>
+            <button className={`${style.AddCard}`} onClick={addCart}>
+              Add To Cart
+            </button>
           </div>
         </div>
       </div>

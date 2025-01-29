@@ -68,33 +68,28 @@
 .Btn {
   width: 123px;
   height: 64px;
-  top: 676px;
-  left: 735px;
   gap: 0px;
   border-radius: 10px;
-  opacity: 0px;
   border: 1px solid #9F9F9F;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  opacity: 1; /* Ensure the quantity buttons are visible */
 }
 
 .AddCard {
   width: 215px;
   height: 64px;
-  top: 676px;
-  left: 876px;
   gap: 0px;
   border-radius: 15px;
   border: 1px solid #000000;
-  opacity: 0px;
+  opacity: 1; /* Ensure Add to Cart button is visible */
 }
 
 .SizeBtn {
   width: 30px;
   height: 30px;
   border-radius: 5px;
-  opacity: 0px;
   background: #F9F1E7;
   font-family: Poppins;
   font-size: 13px;
@@ -103,6 +98,7 @@
   text-align: center;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
+  opacity: 1; /* Ensure size buttons are visible */
 }
 
 /* Description */
@@ -168,14 +164,7 @@
   }
 
   .AddCard {
-    width: 150px;
-    height: 64px;
-    top: 676px;
-    left: 876px;
-    gap: 0px;
-    border-radius: 15px;
-    border: 1px solid #000000;
-    opacity: 1;
+    opacity: 1; /* Ensure the Add to Cart button is visible */
   }
 
   .CardDiv {
@@ -184,7 +173,7 @@
   }
 
   .SizeBtn {
-    opacity: 1;
+    opacity: 1; /* Ensure size buttons are visible */
   }
 }
 
@@ -195,14 +184,7 @@
   }
 
   .AddCard {
-    width: 150px;
-    height: 64px;
-    top: 676px;
-    left: 876px;
-    gap: 0px;
-    border-radius: 15px;
-    border: 1px solid #000000;
-    opacity: 1;
+    opacity: 1; /* Ensure Add to Cart button is visible */
   }
 
   .CardDiv {
@@ -219,7 +201,7 @@
   .ProductImage {
     display: flex;
     flex-direction: column-reverse;
-    justify-content: flex-start; /* Ensures images stay aligned at the top */
+    justify-content: flex-start;
   }
 
   .MultiProductImage {
@@ -235,14 +217,7 @@
   }
 
   .AddCard {
-    width: 150px;
-    height: 64px;
-    top: 676px;
-    left: 876px;
-    gap: 0px;
-    border-radius: 15px;
-    border: 1px solid #000000;
-    opacity: 1;
+    opacity: 1; /* Ensure Add to Cart button is visible */
   }
 
   .CardDiv {
@@ -259,7 +234,7 @@
   .ProductImage {
     display: flex;
     flex-direction: column-reverse;
-    justify-content: flex-start; /* Ensures images stay aligned at the top */
+    justify-content: flex-start;
   }
 
   .MultiProductImage {
@@ -275,14 +250,7 @@
   }
 
   .AddCard {
-    width: 150px;
-    height: 64px;
-    top: 676px;
-    left: 876px;
-    gap: 0px;
-    border-radius: 15px;
-    border: 1px solid #000000;
-    opacity: 1;
+    opacity: 1; /* Ensure Add to Cart button is visible */
   }
 
   .CardDiv {
@@ -299,7 +267,7 @@
   .ProductImage {
     display: flex;
     flex-direction: column-reverse;
-    justify-content: flex-start; /* Ensures images stay aligned at the top */
+    justify-content: flex-start;
   }
 
   .MultiProductImage {
