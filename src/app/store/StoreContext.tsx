@@ -1,6 +1,7 @@
 "use client";
 import { createContext, useReducer, ReactNode } from "react";
 
+
 // Define the types for the actions and state
 type Product = {
   name: string;

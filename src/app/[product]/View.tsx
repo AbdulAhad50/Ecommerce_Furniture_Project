@@ -5,6 +5,7 @@ import React, { useContext, useState } from "react";
 import style from "./product.module.css";
 import { Rating } from "@mui/material";
 import { StoreData } from "../store/StoreContext";
+import { toast } from "react-toastify";
 
 const View = ({
   productName,
@@ -32,6 +33,7 @@ const View = ({
 
   function addCart() {
     addProduct(productName, productPrice, image, id, quantity);
+    toast.success("Added Product in Cart")
   }
 
   return (

@@ -3,7 +3,7 @@ import "./globals.css";
 import StoreDataProvider from "./store/StoreContext";
 import Footer from "./component/Footer/Footer";
 import Nav from "./component/Header/Nav";
-// import Nav from "@/component/Header/Nav";
+import {ToastContainer} from 'react-toastify'
 
 
 export const metadata = {
@@ -21,6 +21,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className={`antialiased`}>
         <StoreDataProvider>
           <Nav />
+          <ToastContainer position="top-right" autoClose={5000} />
           {children}
           <Footer />
         </StoreDataProvider>

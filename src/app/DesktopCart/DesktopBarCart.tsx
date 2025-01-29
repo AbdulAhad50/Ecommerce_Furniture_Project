@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsBagX } from "react-icons/bs";
 import style from './carts.module.css';
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const [dataFind, setDataFind] = useState<string[]>([]);
@@ -34,7 +35,7 @@ const Cart = () => {
       const dataFetchName = truncateLongWords(nameArray);
       setDataFind(dataFetchName);
     }
-  }, [data, nameArray]);
+  }, [data, nameArray, dataFind]);
 
   return (
     <div
@@ -72,6 +73,7 @@ const Cart = () => {
                 className="text-[#9F9F9F] cursor-pointer text-[30px]"
                 onClick={() => {
                   deleteProduct(data[i]?.id);
+                  toast.error("Delete Cart Product")
                 }}
               />
             </div>

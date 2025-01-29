@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import { StoreData } from "@/app/store/StoreContext";
 import { MdCompareArrows } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const Card = ({ price, discountPercentage, name, id, description, image, bgDisc }:{price:number, discountPercentage:number, name:string, id:string, description:string, image:string, bgDisc:string}) => {
 
@@ -22,10 +23,12 @@ const Card = ({ price, discountPercentage, name, id, description, image, bgDisc 
 
   const Adding = () => {
     addProduct(name, price, image, id, 0);
+    toast.success("Added Product in Card")
   };
 
   const AddingFavItem = () => {
     favouriteProduct(name, price, image, id);
+    toast.success("Added Favourite Product")
   };
 
   const Compare = () => {
@@ -78,7 +81,7 @@ const Card = ({ price, discountPercentage, name, id, description, image, bgDisc 
 
           <div className={`${style.HoverEffectCardStyle} flex items-center gap-2`}>
             <FaRegHeart onClick={AddingFavItem}/>
-            <span>Like</span>
+            <span onClick={AddingFavItem}>Like</span>
           </div>
 
           <div className={`${style.HoverEffectCardStyle} flex items-center gap-2`}>

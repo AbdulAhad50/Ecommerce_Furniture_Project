@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { AiFillDelete } from "react-icons/ai";
 import { useContext } from 'react';
 import { StoreData } from '../store/StoreContext';
+import { toast } from 'react-toastify';
 
 const Cart = () => {
   const { data, deleteProduct, upDateQuantity, DecreaseQuanity, orderplaced } = useContext(StoreData);
@@ -66,7 +67,10 @@ const Cart = () => {
 
               <h2 className={`ml-5 ${styles.realCartPrice} flex items-center gap-4`}>
                 {elem.quantity * elem?.price}
-                <AiFillDelete className={styles.Delete} onClick={() => deleteProduct(elem.id)} />
+                <AiFillDelete className={`${styles.Delete} cursor-pointer`} onClick={() => {
+                  deleteProduct(elem.id)
+                  toast.error("Delete Cart Product")
+                  }} />
               </h2>
             </div>
           ))}
