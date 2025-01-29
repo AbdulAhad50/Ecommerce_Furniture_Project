@@ -1,4 +1,4 @@
-.bilingStyle{
+.bilingStyle {
   font-family: Poppins;
   font-size: 36px;
   font-weight: 600;
@@ -8,7 +8,7 @@
   text-decoration-skip-ink: none;  
 }
 
-.bilingLabel{
+.bilingLabel {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 500;
@@ -18,35 +18,35 @@
   text-decoration-skip-ink: none;
 }
 
-.nameLabel{
+.nameLabel {
   width: 211px;
   height: 60px;
   gap: 0px;
   border-radius: 10px;
   border: 1px solid #9F9F9F;
-  opacity: 0px;
+  opacity: 1; /* Set opacity to 1 */
   outline: none;
   padding-left: 10px;
 }
 
-.Intput{
+.Intput {
   width: 453px;
   height: 75px;
   gap: 0px;
   border-radius: 10px;
   border: 1px solid #9F9F9F;
-  opacity: 0px;
+  opacity: 1; /* Set opacity to 1 */
   outline: none;
   padding-left: 10px;
 }
 
-.btn{
+.btn {
   width: 218px;
   height: 64px;
   gap: 0px;
   border-radius: 15px;
   border: 1px solid #000000;
-  opacity: 0px;
+  opacity: 1; /* Set opacity to 1 */
   font-family: 'Poppins';
   font-size: 20px;
   font-weight: 400;
@@ -56,7 +56,7 @@
   text-decoration-skip-ink: none;
 }
 
-.placeDetail{
+.placeDetail {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 300;
@@ -65,10 +65,9 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #9F9F9F;
-
 }
 
-.deliverySelect{
+.deliverySelect {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 500;
@@ -80,7 +79,7 @@
   cursor: pointer;
 }
 
-.policy{
+.policy {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 300;
@@ -88,10 +87,9 @@
   text-align: justified;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-  
 }
 
-.placeDetailProduct{
+.placeDetailProduct {
   font-family: Poppins;
   font-size: 24px;
   font-weight: 500;
@@ -99,10 +97,9 @@
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-
 }
 
-.placeDetailProductSubTotal{
+.placeDetailProductSubTotal {
   font-family: Poppins;
   font-size: 24px;
   font-weight: 500;
@@ -110,10 +107,9 @@
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-
 }
 
-.placeDetailProductName{
+.placeDetailProductName {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
@@ -124,7 +120,7 @@
   color: #9F9F9F;
 }
 
-.placeDetailProductQuantity{
+.placeDetailProductQuantity {
   font-family: Poppins;
   font-size: 12px;
   font-weight: 500;
@@ -134,7 +130,7 @@
   text-decoration-skip-ink: none;
 }
 
-.placeDetailProductPrice{
+.placeDetailProductPrice {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 300;
@@ -142,21 +138,9 @@
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-
 }
 
-.placeDetailProductSubTotal{
-  font-family: Poppins;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-
-}
-
-.placeDetailProductSubTotalPrice{
+.placeDetailProductSubTotalPrice {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 300;
@@ -164,10 +148,9 @@
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-
 }
 
-.placeDetailProductPTotal{
+.placeDetailProductPTotal {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
@@ -175,10 +158,9 @@
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-
 }
 
-.placeDetailProductTotalPrice{
+.placeDetailProductTotalPrice {
   font-family: Poppins;
   font-size: 24px;
   font-weight: 700;
@@ -187,147 +169,11 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #B88E2F;
-
 }
 
-
-
-
-/*  */
-
-@media only screen and (min-width:500)and (max-width:900){
-    .smallSizeScreen{
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding-left: 30px;
-      padding-top: 20px;
-    }
-
-    .customerDetail{
-      width: 70%;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .Intput{
-      width: 460px;
-      height: 75px;
-      gap: 0px;
-      border-radius: 10px;
-      border: 1px solid #9F9F9F;
-      opacity: 0px;
-      outline: none;
-      padding-left: 10px;
-    }
-}
-
-
-@media only screen and (min-width:600) and (max-width:700){
-  .Intput{
-    width: 560px;
-    height: 75px;
-    gap: 0px;
-    border-radius: 10px;
-    border: 1px solid #9F9F9F;
-    opacity: 0px;
-    outline: none;
-    padding-left: 10px;
-  }
-
-  .nameLabel{
-    width: 260px;
-    height: 60px;
-    gap: 0px;
-    border-radius: 10px;
-    border: 1px solid #9F9F9F;
-    opacity: 0px;
-    outline: none;
-    padding-left: 10px;
-  }
-
-    
-}
-@media only screen and (min-width:700) and (max-width:800){
-  .Intput{
-    width: 660px;
-    height: 75px;
-    gap: 0px;
-    border-radius: 10px;
-    border: 1px solid #9F9F9F;
-    opacity: 0px;
-    outline: none;
-    padding-left: 10px;
-  }
-
-  .nameLabel{
-    width: 310px;
-    height: 60px;
-    gap: 0px;
-    border-radius: 10px;
-    border: 1px solid #9F9F9F;
-    opacity: 0px;
-    outline: none;
-    padding-left: 10px;
-  }
-
-    
-}
-@media only screen and (min-width:800) and (max-width:900){
-  .Intput{
-    width: 760px;
-    height: 75px;
-    gap: 0px;
-    border-radius: 10px;
-    border: 1px solid #9F9F9F;
-    opacity: 0px;
-    outline: none;
-    padding-left: 10px;
-  }
-
-  .nameLabel{
-    width: 360px;
-    height: 60px;
-    gap: 0px;
-    border-radius: 10px;
-    border: 1px solid #9F9F9F;
-    opacity: 0px;
-    outline: none;
-    padding-left: 10px;
-  }
-
-    
-}
-
-
-@media only screen and (min-width:901) and (max-width:980){
-    .smallSizeScreen{
-      display: flex;
-      gap: 4vw;
-      padding-left: 40px;
-      padding-top: 20px;
-    }
-
-    
-}
-
-@media only screen and (min-width:300) and (max-width:499){
-    .smallSizeScreen{
-      display: flex;
-      flex-direction: column;
-      gap: 4vw;
-      padding-left: 40px;
-      padding-top: 20px;
-    }
-
-    
-}
-
-
-
-@media only screen and (min-width:300)and (max-width:499){
-  .smallSizeScreen{
+/* Media Queries */
+@media only screen and (min-width: 500px) and (max-width: 900px) {
+  .smallSizeScreen {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -336,83 +182,217 @@
   }
 
   .customerDetail{
-    width: 90%;
+    width: 80%;
+  }
+
+
+  .Intput {
+    width: 460px;
+    height: 75px;
+    gap: 0px;
+    border-radius: 10px;
+    border: 1px solid #9F9F9F;
+    opacity: 1; /* Set opacity to 1 */
+    outline: none;
+    padding-left: 10px;
+  }
+
+  .btn {
+    opacity: 1; /* Ensure button visibility */
+  }
+}
+
+@media only screen and (max-width: 499px) {
+  .smallSizeScreen {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding-left: 30px;
+    padding-top: 20px;
   }
 
-  .Intput{
+  .Intput {
     width: 350px;
     height: 75px;
     gap: 0px;
     border-radius: 10px;
     border: 1px solid #9F9F9F;
-    opacity: 0px;
+    opacity: 1; /* Ensure visibility */
     outline: none;
     padding-left: 10px;
   }
 
-  .bilingStyle{
+  .nameLabel {
+    width: 350px;
+    height: 60px;
+    gap: 0px;
+    border-radius: 10px;
+    border: 1px solid #9F9F9F;
+    opacity: 1; /* Ensure visibility */
+    outline: none;
+    padding-left: 10px;
+  }
+
+  .bilingStyle {
     font-family: Poppins;
     font-size: 32px;
     font-weight: 600;
     line-height: 54px;
     text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;  
-    width: 360px;
-  }
-
-  .Name{
-    display: flex;
-    flex-direction: column;
-  }
-
-  .nameLabel{
-    width: 350px;
-    height: 60px;
-    gap: 0px;
-    border-radius: 10px;
-    border: 1px solid #9F9F9F;
-    opacity: 0px;
-    outline: none;
-    padding-left: 10px;
   }
 }
 
 
-@media only screen and (max-width:381){
-  .Intput{
-    width: 290px;
-    height: 75px;
-    gap: 0px;
-    border-radius: 10px;
-    border: 1px solid #9F9F9F;
-    opacity: 0px;
-    outline: none;
-    padding-left: 10px;
+/* Common Styles */
+.bilingStyle {
+  font-family: Poppins;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 54px;
+  text-align: left;
+}
+
+.bilingLabel {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.nameLabel {
+  width: 211px;
+  height: 60px;
+  border-radius: 10px;
+  border: 1px solid #9F9F9F;
+  outline: none;
+  padding-left: 10px;
+}
+
+.Intput {
+  width: 453px;
+  height: 75px;
+  border-radius: 10px;
+  border: 1px solid #9F9F9F;
+  outline: none;
+  padding-left: 10px;
+}
+
+.btn {
+  width: 218px;
+  height: 64px;
+  border-radius: 15px;
+  border: 1px solid #000000;
+  font-family: 'Poppins';
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+}
+
+.placeDetail {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 300;
+  color: #9F9F9F;
+}
+
+.deliverySelect {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  color: #9F9F9F;
+}
+
+.placeDetailProduct {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.placeDetailProductTotalPrice {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 700;
+  color: #B88E2F;
+}
+
+.placeDetailProductSubTotal {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.placeDetailProductPrice {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.placeDetailProductName {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.placeDetailProductQuantity {
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 400;
+  color: #9F9F9F;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 499px) {
+  .smallSizeScreen {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 30px;
+    padding-top: 20px;
   }
 
-  .nameLabel{
-    width: 290px;
-    height: 60px;
-    gap: 0px;
-    border-radius: 10px;
-    border: 1px solid #9F9F9F;
-    opacity: 0px;
-    outline: none;
-    padding-left: 10px;
+
+  .customerDetail{
+    width: 80%;
   }
 
-  .bilingStyle{
-    font-family: Poppins;
-    font-size: 28px;
-    font-weight: 600;
-    line-height: 54px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;  
-    width: 280px;
+  .Name {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Add space between inputs */
+  }
+
+  .nameLabel {
+    width: 300px;;  /* Make sure inputs take full width on small screens */
+  }
+
+  .Intput {
+    width: 300px;  /* Ensure all input fields take full width */
+  }
+
+  .btn {
+    width: 100%;  /* Button should also take full width on small screens */
+  }
+
+  .bilingStyle {
+    font-size: 32px;
+  }
+
+  .placeDetailProduct {
+    font-size: 20px;
+  }
+
+  .placeDetailProductPrice {
+    font-size: 18px;
+  }
+
+  .placeDetailProductSubTotal {
+    font-size: 18px;
+  }
+
+  .placeDetailProductTotalPrice {
+    font-size: 20px;
   }
 }

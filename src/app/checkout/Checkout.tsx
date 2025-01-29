@@ -7,22 +7,22 @@ import { StoreData } from '../store/StoreContext';
 import { useContext, useEffect, useState } from 'react';
 
 const Checkout = () => {
-    const [nameData, setNameData] = useState<string[]>([]); 
+    const [nameData, setNameData] = useState<string[]>([]);
 
     const { placedOrder } = useContext(StoreData);
 
     const [items] = placedOrder || [];
 
-    console.log("items", items); 
+    console.log("items", items);
 
-    const totalPrice = items?.totalPrice || 0; 
-    const totalQuantity = items?.totalQuantity || [];  
+    const totalPrice = items?.totalPrice || 0;
+    const totalQuantity = items?.totalQuantity || [];
     const totalName = items?.totalName || [];
 
     useEffect(() => {
         // Ensure that items and totalName are defined before calling the function
         if (totalName?.length > 0) {
-            const truncateLongWords = (arr:string[]) => {
+            const truncateLongWords = (arr: string[]) => {
                 return arr.map((word) => {
                     if (word.length > 10) {
                         return word.slice(0, 10) + '...';  // Truncate long words
@@ -69,8 +69,7 @@ const Checkout = () => {
 
                 <div className={`w-[40%] flex flex-col gap-3 ${style.customerDetail}`}>
 
-
-                <div className='mt-5'>
+                    <div className='mt-5'>
                         <div className='flex justify-between items-center'>
                             <h1 className={`${style.placeDetailProduct}`}>Product</h1>
                             <p className={`${style.placeDetailProductSubTotal}`}>Subtotal</p>
@@ -85,7 +84,7 @@ const Checkout = () => {
 
                                     return (
                                         <div className='my-4' key={i}>
-                                            <h3 className={`${style.placeDetailProductName}`}>{elem} 
+                                            <h3 className={`${style.placeDetailProductName}`}>{elem}
                                                 <p className={`${style.placeDetailProductQuantity}`}>x {quantity}</p>
                                             </h3>
                                             <p className={`${style.placeDetailProductPrice}`}>{`$ ${quantity * price}`}</p>
@@ -107,10 +106,6 @@ const Checkout = () => {
                             </p>
                         </div>
                     </div>
-
-
-
-
 
                     <div className='flex flex-col gap-4'>
                         <p className={`${style.placeDetail}`}>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
@@ -134,7 +129,6 @@ const Checkout = () => {
 
                     <button className={`${style.btn}`}>Place order</button>
 
-                    
                 </div>
             </div>
         </div>
