@@ -2,7 +2,6 @@ import { Rating } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 import style from './comparison.module.css';
-// import ProductCompare from './ProductCompare';
 
 interface T {
   name: string;
@@ -24,13 +23,10 @@ const Compare = ({
   reviewCount,
 }: T) => {
   return (
-    <div className="flex justify-between gap-10">
-      {/* Pass dynamic data to ProductCompare */}
-      {/* <ProductCompare/> */}
-
-      <div className="flex flex-col gap-4">
+    <div className="flex flex-col sm:flex-row justify-between gap-10 sm:w-full">
+      <div className="flex flex-col gap-4 w-full">
+        {/* Product Image */}
         <div className="">
-          {/* Use dynamic image */}
           <Image
             src={image ? image : `/ProductImages/images/${_id}.jpg`}
             alt={name}
@@ -39,20 +35,32 @@ const Compare = ({
             className="w-full h-full"
           />
         </div>
-        <h3 className={`${style.name}`}>
+
+        {/* Product Name */}
+        <h3 className={`${style.name} text-left`}>
           {name}
         </h3>
-        <h4 className={`${style.price}`}>Rs. {price.toLocaleString()}</h4>
-        <div className="flex items-center gap-4">
-          <span className={`${style.reviewCount}`}>{reviewCount}</span>
+
+        {/* Product Price */}
+        <h4 className={`${style.price} text-left`}>
+          Rs. {price.toLocaleString()}
+        </h4>
+
+        {/* Rating and Review Count */}
+        <div className="flex">
+          <span className={`${style.reviewCount} text-left`}>{reviewCount}</span>
           <Rating value={rating} readOnly />
         </div>
 
-        <div className='max-w-[200px]'>
-          {description}
+        {/* Product Description */}
+        <div className='text-left'>
+          <p>{description}</p>
         </div>
 
-        <button className={`${style.BtnCard}`}>Add To Cart</button>
+        {/* Add to Cart Button */}
+        <button className={`${style.BtnCard} mt-4`}>
+          Add To Cart
+        </button>
       </div>
     </div>
   );

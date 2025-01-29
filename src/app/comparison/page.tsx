@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import HeroBanner from '../HeroBanner/HeroBanner';
 import style from './comparison.module.css';
 import Compare from './Compare';
@@ -9,22 +9,20 @@ import { StoreData } from '../store/StoreContext';
 import ProductCompare from './ProductCompare';
 
 interface T {
-    name: string;
-    _id: string;
-    description: string;
-    price: number;
-    image: any;
-    rating: number;
-    reviewCount: number;
+  name: string;
+  _id: string;
+  description: string;
+  price: number;
+  image: any;
+  rating: number;
+  reviewCount: number;
 }
 
 const Page = () => {
-  const { compare } = useContext(StoreData);  
+  const { compare } = useContext(StoreData);
   const [allProduct, setAllProduct] = useState<T[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<string>('');
   const [compareProduct, setCompare] = useState<T[]>([]);
-
-
 
   useEffect(() => {
     async function FindList() {
@@ -35,54 +33,56 @@ const Page = () => {
         console.log("err", err);
       }
     }
-
     FindList();
   }, []);
 
-
   const handleCompareClick = () => {
-    // console.log("***", selectedProduct);
-  
-    // Filter data based on selected product ID
     const filterData = allProduct.filter((elem) => elem._id === selectedProduct);
-
     setCompare(filterData);
-
   };
 
-  console.log("......",compareProduct);
-
   return (
-    <div className="max-w-[1440px]">
+    <div className="max-w-[1440px] mx-auto">
       <HeroBanner crumbs={"Comparison"} pageName={"Product Comparison"} />
 
-      <div className="flex justify-between mt-10 px-[20px]">
-        <div className="w-[200px]">
+      <div className="flex flex-col gap-[3vw] sm:flex-row justify-between mt-10 px-[20px]">
+        <div className="sm:w-[200px] mb-6 sm:mb-0">
           <h1 className={`${style.Heading}`}>Go to Product page for more Products</h1>
           <Link href={'/shop'} className={`${style.viewMoreStyle}`}>View More</Link>
         </div>
 
-        <div className='flex justify-between gap-10'>
+        {/* Left side and Right side comparison layout */}
+        <div className="flex flex-col sm:flex-row gap-10 sm:w-auto">
+          {/* Left Product Compare */}
+          <div className="flex flex-col w-full sm:w-1/2 gap-4">
+            <ProductCompare />
+          </div>
 
-            <div>
-                <ProductCompare/>
-            </div>
-            <div>
-            {
-                compareProduct.map((elem)=>{
-                    return(
-                        <Compare name={elem.name} _id={elem._id} description={elem.description} price={elem.price} image={undefined} rating={elem.rating} reviewCount={elem.reviewCount} />
-                    )
-                })
-            }
-         </div>
+          {/* Right Product Details */}
+          <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-1/2">
+            {compareProduct.map((elem) => {
+              return (
+                <Compare
+                  key={elem._id}
+                  name={elem.name}
+                  _id={elem._id}
+                  description={elem.description}
+                  price={elem.price}
+                  image={undefined}  // As you have already set image dynamically in the compare
+                  rating={elem.rating}
+                  reviewCount={elem.reviewCount}
+                />
+              );
+            })}
+          </div>
         </div>
 
-        <div className="flex flex-col gap-3">
+        {/* Product Selection and Compare Button */}
+        <div className={`flex flex-col gap-3 w-full sm:w-auto ${style.ProductAdd}`}>
           <h2 className={`${style.Add}`}>Add a Product</h2>
           <select
-            value={selectedProduct}  // Bind the selected product ID to the state
-            onChange={(e) => setSelectedProduct(e.target.value)}  // Update state when a new product is selected
+            value={selectedProduct}
+            onChange={(e) => setSelectedProduct(e.target.value)}
             className={`${style.select}`}
           >
             <option value="" disabled>Select a Product</option>
@@ -92,8 +92,8 @@ const Page = () => {
           </select>
 
           <button
-            onClick={handleCompareClick}  // Trigger the compare action on button click
-            className={`${style.BtnStyle} w-[150px]`}
+            onClick={handleCompareClick}
+            className={`${style.BtnStyle} w-[150px] sm:w-[200px] ${style.BtnStyle}`}
           >
             Compare Now
           </button>
