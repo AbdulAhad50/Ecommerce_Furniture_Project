@@ -1,36 +1,49 @@
-.cartBottom{
+.cartContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;  /* Gap between product items */
+  max-height: 500px;  /* Set the maximum height for the product list */
+  overflow: hidden; /* Hide any overflow outside the container */
+}
+
+.scrollableCartItems {
+  max-height: 420px; /* Adjust this height to match the product list area */
+  overflow-y: auto;  /* Enable scrolling for overflowing items */
+  padding-right: 10px;  /* Add some padding for scroll bar visibility */
+}
+
+.imageContainer {
+  width: 105px;  /* Set the width of the image container */
+  height: 105px; /* Set the height of the image container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px; /* To round the corners of the image container */
+}
+
+.cartBottom {
   border-top: 1px solid #D9D9D9;
-  margin-top: 20px;
   padding-top: 20px;
-
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white; /* Ensures white background */
 }
 
-.cartBottomBtn{
-  width:87px;
+.cartBottomButtons {
+  padding: 10px;
+}
+
+.cartBottomBtn {
+  width: 87px;
   height: 30px;
   padding: 6px 30px 6px 30px;
   gap: 10px;
   border-radius: 50px;
   border: 1px solid #000000;
-  opacity: 0px;
-  font-family: Poppins;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-
-}
-
-.cartBottomBtn2{
-  width: 118px;
-  height: 30px;
-  padding: 6px 30px 6px 30px;
-  gap: 10px;
-  border-radius: 50px;
-  border: 1px solid #000000;
-  opacity: 0px;
+  opacity: 1;  /* Make sure the button is visible */
   font-family: Poppins;
   font-size: 12px;
   font-weight: 400;
@@ -40,18 +53,17 @@
   text-decoration-skip-ink: none;
 }
 
-.cartBottomSubTotal{
+.cartBottomSubTotal {
   font-family: Poppins;
-font-size: 16px;
-font-weight: 400;
-line-height: 24px;
-text-align: left;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }
 
-.cartBottomSubTotalPrice{
+.cartBottomSubTotalPrice {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 600;
@@ -62,7 +74,7 @@ text-decoration-skip-ink: none;
   color: #B88E2F;
 }
 
-.cartTopHeading{
+.cartTopHeading {
   font-family: Poppins;
   font-size: 24px;
   font-weight: 600;
@@ -70,15 +82,14 @@ text-decoration-skip-ink: none;
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-
 }
 
-.cartTopBorder{
+.cartTopBorder {
   border-bottom: 1px solid #D9D9D9;
   padding-bottom: 20px;
 }
 
-.cartProductName{
+.cartProductName {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
@@ -88,7 +99,7 @@ text-decoration-skip-ink: none;
   text-decoration-skip-ink: none;
 }
 
-.cartProductQuantityStyle{
+.cartProductQuantityStyle {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 300;
@@ -98,7 +109,7 @@ text-decoration-skip-ink: none;
   text-decoration-skip-ink: none;
 }
 
-.cartProductPriceStyle{
+.cartProductPriceStyle {
   font-family: Poppins;
   font-size: 12px;
   font-weight: 500;
@@ -107,7 +118,4 @@ text-decoration-skip-ink: none;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #B88E2F;
-
 }
-
-

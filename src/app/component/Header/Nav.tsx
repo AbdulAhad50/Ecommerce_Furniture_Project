@@ -57,7 +57,7 @@ const Nav = () => {
               <BsPersonFillExclamation />
             </Link>
           </li>
-          <li className="mt-1">
+          <li className="mt-2">
             <Popover>
               <PopoverTrigger>
                 <CiSearch />
@@ -69,7 +69,7 @@ const Nav = () => {
                   className={`${style.Search}`}
                   onChange={(e) => setSearch(e.target.value)}
                 />
-                <button className={`${style.SearchBtn}`} onClick={Searching}>
+                <button className={`${style.SearchBtn} mt-[5px]`} onClick={Searching}>
                   Search
                 </button>
               </PopoverContent>
