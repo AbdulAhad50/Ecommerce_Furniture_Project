@@ -21,9 +21,17 @@ const Page = () => {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0); 
   const [productsPerPage] = useState(12); 
-  let { filter } = useContext(StoreData);
+  
+  let { filter, GetUser } = useContext(StoreData);
+
+
+  useEffect(()=>{
+    GetUser();
+  },[])
+
 
   useEffect(() => {
+    // GetUser();
     async function FetchData() {
       setLoading(true);
       try {

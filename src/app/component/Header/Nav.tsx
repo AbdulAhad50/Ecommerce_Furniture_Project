@@ -15,7 +15,9 @@ import style from "./nav.module.css";
 
 const Nav = () => {
   const [search, setSearch] = useState("");
-  const { data, Search } = useContext(StoreData);
+  const { data, Search,user } = useContext(StoreData);
+
+  console.log(".....",user)
 
   function Searching() {
     console.log(search);
@@ -51,7 +53,7 @@ const Nav = () => {
       </div>
 
       <div className="hidden md:flex">
-        <ul className="flex items-center gap-[2vw] text-[20px]">
+       { user ? <ul className="flex items-center gap-[2vw] text-[20px]">
           <li>
             <Link href={"/profile"}>
               <BsPersonFillExclamation />
@@ -97,7 +99,15 @@ const Nav = () => {
               </Sheet>
             </Link>
           </li>
-        </ul>
+        </ul> : 
+        
+          <div className="flex gap-5">
+
+                  <button className="w-[100px] h-[45px] border rounded-[10px] border-black "><Link href="/auth/login" >Login</Link></button>
+                  <button className="w-[100px] h-[45px] border rounded-[10px] border-black "><Link href="/auth/signup">Signup</Link></button>
+          
+          </div>
+        }
       </div>
 
       {/* Mobile Menu */}
@@ -106,7 +116,7 @@ const Nav = () => {
           <MenuIcon />
         </SheetTrigger>
         <SheetContent>
-          <ul className={`flex flex-col gap-[3vw] ${style.linksFont}`}>
+        <ul className={`flex flex-col gap-[3vw] ${style.linksFont}`}>
             <li>
               <Link href={"/"}>Home</Link>
             </li>
@@ -120,6 +130,17 @@ const Nav = () => {
               <Link href={"/contact"}>Contact</Link>
             </li>
           </ul>
+
+          {!user ?
+              <div className="flex flex-col gap-5 mt-5">
+
+                      <button className="w-[100px] h-[45px] border rounded-[10px] border-black "><Link href="/auth/login" >Login</Link></button>
+                      <button className="w-[100px] h-[45px] border rounded-[10px] border-black "><Link href="/auth/signup">Signup</Link></button>
+              
+              </div>
+              : ""
+
+          }
         </SheetContent>
       </Sheet>
     </div>

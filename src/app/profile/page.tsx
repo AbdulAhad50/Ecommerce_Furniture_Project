@@ -2,9 +2,14 @@
 
 import Image from 'next/image'
 import style from './profile.module.css'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
+import { Logout } from '@/services/userdata'
+import { StoreData } from '../store/StoreContext'
+import { useRouter } from 'next/navigation'
 const Page = () => {
 
+  let route = useRouter()
   const [account, setAccount] = useState(true);
   const [buy, setBuy] = useState(false);
   const [returnValue, setReturn] = useState(false);
@@ -13,7 +18,12 @@ const Page = () => {
   const [name, setName] = useState("Jhon");
   const [lastname, setLastName] = useState("Doe");
   const [email, setEmail] = useState("testing@gmail.com");
+  let { logoutUser, GetUser } = useContext(StoreData);
   
+  useEffect(()=>{
+    GetUser();
+  },[])
+
   function Account(){
     setAccount(true)
     setReturn(false)
@@ -42,6 +52,20 @@ const Page = () => {
     setPassword(true)
   }
 
+
+  async function logout(){
+      try{
+       let res = await Logout();
+       console.log(res);
+       logoutUser()
+       GetUser();
+       toast.success("User Logout")
+       route.push("/auth/login")
+      }catch(err){
+        console.log(err);
+        toast.error("User Can't Logout")
+      }
+  }
 
   function FormSubmit(event: React.FormEvent<HTMLFormElement>){
     //   event.preventDefault();
@@ -79,7 +103,7 @@ const Page = () => {
 
             </div>
 
-            <div className={`w-[80%] flex items-start ${buy ? "h-auto" : "h-[60%]"}  gap-6  ${style.border}`}>
+            <div className={`w-[80%] flex items-start ${"h-auto"}  gap-6  ${style.border}`}>
                   <div className={`flex flex-col gap-6 justify-between ${style.BtnSize}`}>
                       <button className={`${style.btn} ${account ? style.btnBorder : null}`} onClick={Account}>Account</button>
 
@@ -88,6 +112,8 @@ const Page = () => {
                       <button className={`${style.btn} ${returnValue ? style.btnBorder : null}`} onClick={Return}>Return</button>
 
                       <button className={`${style.btn} ${password ? style.btnBorder : null}`} onClick={Password}>Password</button>
+
+                      <button className={`${style.btn}`} onClick={logout}>Logout</button>
                   </div>
 
                   <div>
@@ -129,6 +155,9 @@ const Page = () => {
                             </form>
                           </div>
                         }
+
+                        
+                        
                   </div>
             </div>
         </div>

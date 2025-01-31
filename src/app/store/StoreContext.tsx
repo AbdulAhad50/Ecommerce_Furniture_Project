@@ -1,5 +1,7 @@
 "use client";
-import { createContext, useReducer, ReactNode } from "react";
+import { currentUser } from "@/services/userdata";
+import { createContext, useReducer, ReactNode, useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 
 // Define the types for the actions and state
@@ -121,6 +123,20 @@ function Compare(currentValue:any, action:any){
     return newValue
 }
 
+function User(currentValue:any, action:any){
+    let newUser = currentValue;
+
+    if(action.type == 'GET_USER'){
+        newUser = action.payload.user
+        console.log("Data...",newUser)
+    }
+    else if(action.type == 'CLEAR_USER'){
+      newUser = null
+    }
+
+    return newUser
+}
+
 
 
 // Create context with proper typing
@@ -140,7 +156,10 @@ interface StoreContextType {
   filter:number,
   FilterData : (price:string)=>void;
   CompareProduct:(id:string)=> void,
-  compare:string[]
+  compare:string[],
+  user:null,
+  GetUser : ()=>void;
+  logoutUser : ()=>void;
 }
 
 export const StoreData = createContext<StoreContextType>({
@@ -159,7 +178,10 @@ export const StoreData = createContext<StoreContextType>({
   filter:0,
   FilterData : ()=>{},
   CompareProduct: ()=>{},
-  compare:[]
+  compare:[],
+  user:null,
+  GetUser : ()=>{},
+  logoutUser: ()=>{}
 });
 
 interface StoreDataProviderProps {
@@ -173,7 +195,44 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
 
   const [search, dispatchSearch] = useReducer(SearchNow,"");
   const [filter, dispatchFilter] = useReducer(Filter,0);
-  const [compare, dispatchCompare] = useReducer(Compare, [])
+  const [compare, dispatchCompare] = useReducer(Compare, []);
+
+  const [user, dispatchUser] = useReducer(User, null);
+
+  function logoutUser(){
+      let Act= {
+          type:"CLEAR_USER",
+      }
+      dispatchUser(Act)
+
+  }
+
+  // useEffect(()=>{
+      async function GetUser(){
+        try{
+          let result = await currentUser();
+          
+
+          let Act = {
+              type:"GET_USER",
+              payload:{...result}
+          }
+
+          console.log(Act)
+
+          dispatchUser(Act)
+          console.log("-----+++++",user)
+
+        }
+        catch(err){
+          console.log("Err", err)
+          toast.error("Error User Not Found")
+          // setUser(undefined)
+        }
+      }
+
+  //     GetUser()
+  // },[])
   
 
   function addProduct(
@@ -290,7 +349,10 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
         filter,
         FilterData,
         CompareProduct,
-        compare
+        compare,
+        user,
+        GetUser,
+        logoutUser
       }}
     >
       {children}
