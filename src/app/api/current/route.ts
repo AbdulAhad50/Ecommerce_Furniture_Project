@@ -5,17 +5,23 @@ import { dbData } from "@/helper/db";
 
 await dbData();
 
-export async function GET(request:NextRequest){
-    const authToken:string | undefined =  request.cookies.get("loginToken")?.value;
+export async function GET(request: NextRequest) {
+  const authToken: string | undefined = request.cookies.get("loginToken")?.value;
 
-    const data = jwt.verify(authToken , "aaaaaaaaaa");
-    console.log(data);
-    const user = await SignupUser.findOne({
-      _id:data?._id
-    }).select("-password")
+  if (!authToken) {
+    // Handle the case where authToken is undefined (e.g., return an error response).
+    return NextResponse.json({ error: 'Authentication token is missing' }, { status: 400 });
+  }
 
-    return NextResponse.json({
-      user
-    })
+  // Now authToken is guaranteed to be a string
+  const data = jwt.verify(authToken, "aaaaaaaaaa");
+  console.log(data);
 
+  const user = await SignupUser.findOne({
+    _id: data?._id
+  }).select("-password");
+
+  return NextResponse.json({
+    user
+  });
 }
