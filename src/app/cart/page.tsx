@@ -14,12 +14,23 @@ const page = () => {
 
   useEffect(()=>{
     GetUser();
-  },[])
 
-  if(!user){
+    if(!user){
       console.log("Excecute...")
       router.push('/auth/login')
-  }
+    }
+  },[])
+  
+  useEffect(()=>{
+    GetUser();
+
+    if(!user){
+      console.log("Excecute...")
+      router.push('/auth/login')
+    }
+  },[user])
+
+  
 
   return (
     <div className={`max-w-[1440px] mx-auto`}>
