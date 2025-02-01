@@ -226,7 +226,7 @@ const StoreDataProvider = ({ children }: StoreDataProviderProps) => {
         }
         catch(err){
           console.log("Err", err)
-          toast.error("Error User Not Found")
+          // toast.error("Error User Not Found")
           // setUser(undefined)
         }
       }
