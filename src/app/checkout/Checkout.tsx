@@ -59,11 +59,12 @@ const Checkout = () => {
         let paymentMethod = paymenttype ? "cash on delivery" : "Cart payment"
         
         if (paymentMethod != 'Cart payment') {
-        
-          const order: any = await axios.post('/api/order', [items, user, paymentMethod]);
+            
+         const order: any = await axios.post('/api/order', [items, user, paymentMethod]);
           console.log(order)
 
           toast.info("Cash on Delivery selected. Order will be placed without online payment.");
+          route.push('/paymentMessage');
           return;
         }
         
