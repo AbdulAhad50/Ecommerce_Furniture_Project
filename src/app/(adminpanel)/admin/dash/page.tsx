@@ -12,7 +12,7 @@ const Admin = () => {
   useEffect(()=>{
     async function getUser(){
         try{
-            let res = await fetch("http://localhost:3000/api/user");
+            let res = await fetch("https://ecommerce-furniture-project.vercel.app/api/user");
             let result = await res.json();
             setAllUser(result)
         }catch(err){
