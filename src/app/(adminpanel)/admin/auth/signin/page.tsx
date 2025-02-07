@@ -7,18 +7,16 @@ import { toast } from "react-toastify";
 import { Login } from "@/services/userdata";
 import { useRouter } from "next/navigation";
 import { StoreData } from "@/app/store/StoreContext";
+import axios from 'axios'
 
 const LoginForm = () => {
 
-  let {GetUser } = useContext(StoreData);
   let [login, setLogin] = useState(true)
 
-  useEffect(()=>{
-    GetUser
-  })
-
+  
   let router = useRouter()
-    let [data , setData] = useState({
+
+  let [data , setData] = useState({
       email:"",
       password:""
     })
@@ -35,9 +33,10 @@ const LoginForm = () => {
 
       try {
         setLogin(false)
-        let res = await Login(data);
+        let res = await axios.post('/admin/api/sign', data);
+        console.log(res)
         toast.success("Logged In Successfully")
-        router.push("/shop")
+        window.location.href= "/admin/dash"
       } catch (error:any) {
         setLogin(true)
         console.log(error)
@@ -53,7 +52,7 @@ const LoginForm = () => {
       >
         <div className="mt-4">
           <h1 className="text-[36px] text-center font-bold">
-          Welcome back
+          Admin Panel
           </h1>
           <p className="text-[20px] text-gray-400 text-center">
           Enter your credentials to access your account

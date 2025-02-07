@@ -1,5 +1,4 @@
-"use client";  // This ensures the component is treated as a Client Component
-
+"use client";
 import Image from "next/image";
 import style from './card.module.css';
 import { FaEye } from "react-icons/fa";
@@ -12,7 +11,7 @@ import { toast } from "react-toastify";
 
 const Card = ({ price, discountPercentage, name, id, description, image, bgDisc }:{price:number, discountPercentage:number, name:string, id:string, description:string, image:string, bgDisc:string}) => {
 
-  const { addProduct, favouriteProduct, CompareProduct } = useContext(StoreData);
+  const { addProduct, favouriteProduct, CompareProduct,user } = useContext(StoreData);
 
   const truncateText = (text:string, length = 15) => {
     if (text?.length > length) {
@@ -22,8 +21,14 @@ const Card = ({ price, discountPercentage, name, id, description, image, bgDisc 
   };
 
   const Adding = () => {
-    addProduct(name, price, image, id, 0);
-    toast.success("Added Product in Card")
+
+    if(!user){
+      toast.error("User Not Logged In")
+    }
+    else{
+      addProduct(name, price, image, id, 0);
+      toast.success("Added Product in Card")
+    }
   };
 
   const AddingFavItem = () => {
@@ -33,7 +38,6 @@ const Card = ({ price, discountPercentage, name, id, description, image, bgDisc 
 
   const Compare = () => {
     CompareProduct(id);
-    // window.location.href = '/comparison';
   };
 
   return (

@@ -5,13 +5,25 @@ import style from './biling.module.css';
 import Intput, { Drag } from './Intput';
 import { StoreData } from '../store/StoreContext';
 import { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
 const Checkout = () => {
     const [nameData, setNameData] = useState<string[]>([]);
+    const [loading, setLoading] = useState(false);
+    const [paymenttype, setPaymentType] = useState(true);
+
+
+    let route:any = useRouter()
+
+    let {GetUser,user } = useContext(StoreData);
 
     const { placedOrder } = useContext(StoreData);
 
     const [items] = placedOrder || [];
+
+
 
     console.log("items", items);
 
@@ -19,13 +31,17 @@ const Checkout = () => {
     const totalQuantity = items?.totalQuantity || [];
     const totalName = items?.totalName || [];
 
+    useEffect(()=>{
+       GetUser();
+    },[])
+
     useEffect(() => {
-        // Ensure that items and totalName are defined before calling the function
+        
         if (totalName?.length > 0) {
             const truncateLongWords = (arr: string[]) => {
                 return arr.map((word) => {
                     if (word.length > 10) {
-                        return word.slice(0, 10) + '...';  // Truncate long words
+                        return word.slice(0, 10) + '...';
                     }
                     return word;
                 });
@@ -34,9 +50,37 @@ const Checkout = () => {
             const dataFetchName = truncateLongWords(totalName);
             setNameData(dataFetchName);
         }
-    }, [totalName]);  // Depend on totalName to update nameData whenever it changes
+    }, [totalName]);
 
-    console.log(nameData);  // Check the truncated names
+    console.log(nameData);
+
+
+    async function CheckOutButton() {
+        let paymentMethod = paymenttype ? "cash on delivery" : "Cart payment"
+        
+        if (paymentMethod != 'Cart payment') {
+        
+          const order: any = await axios.post('/api/order', [items, user, paymentMethod]);
+          console.log(order)
+
+          toast.info("Cash on Delivery selected. Order will be placed without online payment.");
+          return;
+        }
+        
+        try {
+          const res: any = await axios.post('/api/payment', [items, user]);
+          console.log("url", res);
+            
+          const order: any = await axios.post('/api/order', [items, user,paymentMethod]);
+          console.log(order)
+
+          route.push(res?.data.url);
+        } catch (error: any) {
+          console.log(error);
+          toast.error(error);
+        }
+      }
+      
 
     return (
         <div className='max-w-[1440px] flex flex-col mx-[auto]'>
@@ -78,10 +122,9 @@ const Checkout = () => {
                         <div className='flex flex-col justify-between'>
                             {
                                 nameData?.map((elem, i) => {
-                                    // Ensure totalQuantity and totalPrice are defined before using them
-                                    const quantity = totalQuantity[i] || 0;  // Fallback to 0 if undefined
-                                    const price = items?.singleProductPrice[i] || 0;  // Fallback to 0 if undefined
-
+                                    
+                                    const quantity = totalQuantity[i] || 0; 
+                                    const price = items?.singleProductPrice[i] || 0;  
                                     return (
                                         <div className='my-4' key={i}>
                                             <h3 className={`${style.placeDetailProductName}`}>{elem}
@@ -113,12 +156,12 @@ const Checkout = () => {
                         <div className='flex flex-col gap-3'>
                             <div className='flex gap-4 items-center'>
                                 <input type="radio" id='delivery' name='delivery' />
-                                <label htmlFor="delivery" className={`${style.deliverySelect}`}>Direct Bank Transfer</label>
+                                <label htmlFor="delivery" className={`${style.deliverySelect}`} onClick={()=>setPaymentType(false)}>Direct Bank Transfer</label>
                             </div>
 
                             <div className='flex gap-4 items-center'>
                                 <input type="radio" id='delivery' name='delivery' />
-                                <label htmlFor="delivery" className={`${style.deliverySelect}`}>Cash On Delivery</label>
+                                <label htmlFor="delivery" className={`${style.deliverySelect}`} onClick={()=>setPaymentType(true)}>Cash On Delivery</label>
                             </div>
                         </div>
 
@@ -127,7 +170,7 @@ const Checkout = () => {
                         </p>
                     </div>
 
-                    <button className={`${style.btn}`}>Place order</button>
+                    <button className={`${style.btn}`} onClick={CheckOutButton}>{paymenttype ? "Place order" : "Proceed Payment"}</button>
 
                 </div>
             </div>

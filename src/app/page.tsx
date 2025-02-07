@@ -1,25 +1,27 @@
+"use client";
 
+import { useContext, useEffect, useState } from "react";
 import Browse from "./component/BrowsFeatures/Browse";
 import GridComponent from "./component/Furniture/Furniture";
-import Page from "./component/Help/Ancc";
 import Hero from "./component/HeroSection/Hero";
 import ShopingCard from "./component/ShopingCard/ShopingCard";
-
+import { StoreData } from "./store/StoreContext";
+import axios from "axios";
 
 export default function Home() {
+  let { GetUser, user } = useContext(StoreData);
 
-  
+  useEffect(() => {
+
+    GetUser();
+  }, []);
+
   return (
-
-      <div className="relative max-w-[1440px] mx-[auto]">
-          <Hero/>
-          <Browse/>
-          <div className="absolute top-20 left-20">
-          {/* <Page/> */}
-
-          </div>
-          <ShopingCard/>
-          <GridComponent/>
-      </div>
+    <div className="relative max-w-[1440px] mx-[auto]">
+      <Hero />
+      <Browse />
+      <ShopingCard />
+      <GridComponent />
+    </div>
   );
 }

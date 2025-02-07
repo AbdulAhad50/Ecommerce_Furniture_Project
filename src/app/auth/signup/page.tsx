@@ -11,7 +11,8 @@ import { useRouter } from "next/navigation";
 // import { useRouter } from "next/router";
 
 const SignUp = () => {
-  
+
+    let [signup, setSign] = useState(true)
     let route = useRouter()
     let [data , setData] = useState({
       username:"",
@@ -31,6 +32,7 @@ const SignUp = () => {
       }
 
       try{
+        setSign(false)
         const result = await Signup(data);
         toast.success('Signup Successfully')
         setData({
@@ -43,6 +45,7 @@ const SignUp = () => {
         route.push("/auth/login")
 
       }catch(err:any){
+        setSign(true)
           console.log("Errr...", err)
           toast.error("Error !!", err)
       }
@@ -161,7 +164,7 @@ const SignUp = () => {
             type="submit"
             className="mt-6 max-w-[420px] font-bold text-white rounded-[10px] h-14 bg-gradient-to-t from-sky-500 to-indigo-500"
           >
-            Create Account
+            {signup ? "Create Account" : "Create Account..."}
           </button>
         </form>
 

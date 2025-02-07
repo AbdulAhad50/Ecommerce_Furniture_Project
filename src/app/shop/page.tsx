@@ -22,7 +22,7 @@ const Page = () => {
   const [currentPage, setCurrentPage] = useState(0); 
   const [productsPerPage] = useState(12); 
   
-  let { filter, GetUser } = useContext(StoreData);
+  let { filter, GetUser,user } = useContext(StoreData);
 
 
   useEffect(()=>{

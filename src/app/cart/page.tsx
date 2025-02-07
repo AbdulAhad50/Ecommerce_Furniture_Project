@@ -12,14 +12,6 @@ const page = () => {
   let {user, GetUser } = useContext(StoreData);
   let router = useRouter()
 
-  useEffect(()=>{
-    GetUser();
-
-    if(!user){
-      console.log("Excecute...")
-      router.push('/auth/login')
-    }
-  },[])
   
   useEffect(()=>{
     GetUser();
@@ -28,7 +20,7 @@ const page = () => {
       console.log("Excecute...")
       router.push('/auth/login')
     }
-  },[user])
+  },[])
 
   
 
