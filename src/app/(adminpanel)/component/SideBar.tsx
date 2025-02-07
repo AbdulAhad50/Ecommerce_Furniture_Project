@@ -24,9 +24,6 @@ const SideBar = () => {
   const pathname = usePathname();
   console.log("Pathname",pathname)
 
-  // useEffect(()=>{
-  //   setHide(true)
-  // },[])
 
   useEffect(()=>{
     if(pathname == '/admin/auth/signin'){
