@@ -25,7 +25,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <ToastContainer position="top-right" autoClose={5000} />
           {children}
           <SpeedInsights/>
-          {/* <Footer /> */}
+          <Footer />
         </StoreDataProvider>
       </body>
     </html>
